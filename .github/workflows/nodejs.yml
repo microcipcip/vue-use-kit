@@ -16,7 +16,6 @@ jobs:
           node-version: 10
       - run: npm ci
       - run: npm run test:prod
-      - run: npm run build
         env:
           CI: true
 
@@ -29,6 +28,8 @@ jobs:
         with:
           node-version: 10
           registry-url: https://registry.npmjs.org/
+      - run: npm ci
+      - run: npm run build
       - run: npm run deploy-docs
       - run: npm run semantic-release
         env:
