@@ -1,7 +1,8 @@
 import { onMounted, onUnmounted, ref } from '../../api'
 
-export function useTimeoutFn(callback: Function, ms = 0) {
+export function useTimeoutFn(callback: Function, ms = 0, runOnMount = true) {
   const isReady = ref<boolean | null>(false)
+  const isIdle = ref(!runOnMount)
   let timeout: any = null
 
   const cancelTimer = () => {
@@ -14,7 +15,8 @@ export function useTimeoutFn(callback: Function, ms = 0) {
 
   const setTimer = () => {
     isReady.value = false
-    if (timeout) cancelTimer()
+    if (isIdle.value) isIdle.value = false
+    if (timeout) clearTimeout(timeout)
 
     timeout = setTimeout(() => {
       isReady.value = true
@@ -23,8 +25,10 @@ export function useTimeoutFn(callback: Function, ms = 0) {
     }, ms)
   }
 
-  onMounted(setTimer)
+  onMounted(() => {
+    if (runOnMount) setTimer()
+  })
   onUnmounted(cancelTimer)
 
-  return { isReady, cancelTimer, resetTimer: setTimer }
+  return { isReady, isIdle, cancelTimer, resetTimer: setTimer }
 }

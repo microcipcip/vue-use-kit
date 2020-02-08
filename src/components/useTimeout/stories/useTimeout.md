@@ -1,12 +1,11 @@
-# useTimeoutFn
+# useTimeout
 
-Vue function that calls given callback function after a specified `ms` amount of time.
+Vue function that returns `isReady` value as `true` after a specified `ms` amount of time.
 
 ## Reference
 
 ```typescript
-useTimeoutFn(
-    callback: Function,
+useTimeout(
     ms?: number,
     runOnMount?: boolean
 ): {
@@ -19,8 +18,7 @@ useTimeoutFn(
 
 ### Parameters
 
-- `callback: Function` the function to call when the timer finishes
-- `ms: number` how many milliseconds to wait before running the callback function
+- `ms: number` how many milliseconds to wait before the timer is completed
 - `runOnMount: boolean` whether to run the timeout on mount, `true` by default
 
 ### Returns
@@ -39,7 +37,6 @@ useTimeoutFn(
 <template>
   <div>
     <p>Timer status: {{ isReady ? 'Called!' : 'Pending...' }}</p>
-    <p>Timeout Callback msg: {{ timerFnMsg }}</p>
 
     <button @click="resetTimer">Reset Timer</button>
     <button @click="cancelTimer">Cancel Timer</button>
@@ -48,24 +45,14 @@ useTimeoutFn(
 
 <script lang="ts">
   import Vue from 'vue'
-  import { ref } from '../../../api'
-  import { useTimeoutFn } from 'vue-use-kit'
+  import { useTimeout } from 'vue-use-kit'
 
   export default Vue.extend({
-    name: 'UseTimeoutFnDemo',
+    name: 'UseTimeoutDemo',
     setup() {
-      const timerFnMsg = ref('Timer not completed')
       const timerDuration = 3000
-      const timerHandler = () => {
-        timerFnMsg.value = 'Timer completed!'
-      }
-
-      const { isReady, cancelTimer, resetTimer } = useTimeoutFn(
-        timerHandler,
-        timerDuration
-      )
-
-      return { timerFnMsg, isReady, cancelTimer, resetTimer }
+      const { isReady, cancelTimer, resetTimer } = useTimeout(timerDuration)
+      return { isReady, cancelTimer, resetTimer }
     }
   })
 </script>

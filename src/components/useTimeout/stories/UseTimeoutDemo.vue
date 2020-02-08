@@ -14,12 +14,6 @@
         </td>
       </tr>
       <tr>
-        <td>timerCallbackMsg</td>
-        <td>
-          <span>{{ timerCallbackMsg }}</span>
-        </td>
-      </tr>
-      <tr>
         <td colspan="3">
           <button
             class="button is-primary"
@@ -37,19 +31,14 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { ref, watch, computed } from '../../../api'
-import { useTimeoutFn } from '../../../vue-use-kit'
+import { computed, ref } from '../../../api'
+import { useTimeout } from '../../../vue-use-kit'
 
 export default Vue.extend({
-  name: 'UseTimeoutFnDemo',
+  name: 'UseTimeoutDemo',
   setup() {
-    const timerCallbackMsg = ref('Timer not completed')
     const timerDuration = 3000
-    const timerHandler = () => {
-      timerCallbackMsg.value = 'Timer completed!'
-    }
-    const { isReady, isIdle, cancelTimer, resetTimer } = useTimeoutFn(
-      timerHandler,
+    const { isReady, isIdle, cancelTimer, resetTimer } = useTimeout(
       timerDuration,
       false
     )
@@ -65,18 +54,7 @@ export default Vue.extend({
       return 'Completed'
     })
 
-    watch(isReady, newVal => {
-      if (newVal === false) timerCallbackMsg.value = 'Timer not completed'
-      if (newVal === null) timerCallbackMsg.value = 'Timer cancelled!'
-    })
-
-    return {
-      timerCallbackMsg,
-      btnResetMsg,
-      timerStatus,
-      cancelTimer,
-      resetTimer
-    }
+    return { btnResetMsg, timerStatus, cancelTimer, resetTimer }
   }
 })
 </script>

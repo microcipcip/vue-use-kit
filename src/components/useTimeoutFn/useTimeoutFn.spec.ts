@@ -10,9 +10,10 @@ afterEach(() => {
   jest.clearAllTimers()
 })
 
-const testComponent = () => ({
+const testComponent = (onMount = true) => ({
   template: `
     <div>
+      <div id="isIdle" v-if="isIdle"></div>
       <div id="isReady" v-if="isReady">
         <button id="cancelTimer" @click="cancelTimer"></button>
         <button id="resetTimer" @click="resetTimer"></button>
@@ -22,10 +23,14 @@ const testComponent = () => ({
   `,
   setup() {
     const isCallbackCalled = ref(false)
-    const { isReady, cancelTimer, resetTimer } = useTimeoutFn(() => {
-      isCallbackCalled.value = true
-    }, 1000)
-    return { isReady, cancelTimer, resetTimer, isCallbackCalled }
+    const { isReady, isIdle, cancelTimer, resetTimer } = useTimeoutFn(
+      () => {
+        isCallbackCalled.value = true
+      },
+      1000,
+      onMount
+    )
+    return { isReady, isIdle, cancelTimer, resetTimer, isCallbackCalled }
   }
 })
 
@@ -42,7 +47,7 @@ describe('useTimeoutFn', () => {
     expect(setTimeout).toHaveBeenCalledTimes(1)
     jest.runAllTimers()
 
-    // Vue is inserting #resetTimer in the DOM
+    // Wait for Vue to append #resetTimer in the DOM
     await wrapper.vm.$nextTick()
     wrapper.find('#resetTimer').trigger('click')
     expect(setTimeout).toHaveBeenCalledTimes(2)
@@ -52,13 +57,13 @@ describe('useTimeoutFn', () => {
     const wrapper = mount(testComponent())
     jest.runAllTimers()
 
-    // Vue is inserting #isReady in the DOM
+    // Wait for Vue to append #isReady in the DOM
     await wrapper.vm.$nextTick()
     expect(wrapper.find('#isReady').exists()).toBe(true)
     wrapper.find('#cancelTimer').trigger('click')
     jest.runAllTimers()
 
-    // Vue is removing #isReady from the DOM
+    // Wait for Vue to remove #isReady from the DOM
     await wrapper.vm.$nextTick()
     expect(wrapper.find('#isReady').exists()).toBe(false)
   })
@@ -67,8 +72,18 @@ describe('useTimeoutFn', () => {
     const wrapper = mount(testComponent())
     jest.runAllTimers()
 
-    // Vue is inserting #isReady in the DOM
+    // Wait for Vue to append #isReady in the DOM
     await wrapper.vm.$nextTick()
     expect(wrapper.find('#isReady').exists()).toBe(true)
+  })
+
+  it('should not display #isReady when onMount is false', async () => {
+    const wrapper = mount(testComponent(false))
+    jest.runAllTimers()
+
+    // Wait for Vue rerender
+    await wrapper.vm.$nextTick()
+    expect(wrapper.find('#isReady').exists()).toBe(false)
+    expect(wrapper.find('#isIdle').exists()).toBe(true)
   })
 })
