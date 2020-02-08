@@ -46,9 +46,14 @@ export default Vue.extend({
   name: 'UseTimeoutFnDemo',
   setup() {
     const timerFnMsg = ref('Timer not completed')
-    const { isReady, cancelTimer, resetTimer } = useTimeoutFn(() => {
+    const timerDuration = 3000
+    const timerHandler = () => {
       timerFnMsg.value = 'Timer completed!'
-    }, 3000)
+    }
+    const { isReady, cancelTimer, resetTimer } = useTimeoutFn(
+      timerHandler,
+      timerDuration
+    )
 
     const isReadyStatus = computed(() => {
       if (isReady.value === false) return 'Pending...'

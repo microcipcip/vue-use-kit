@@ -1,6 +1,6 @@
 # useTimeoutFn
 
-Vue function that calls given callback function after specified amount of milliseconds.
+Vue function that calls given callback function after a specified amount of milliseconds.
 
 ## Reference
 
@@ -17,11 +17,14 @@ useTimeoutFn(
 
 ### Parameters
 
-- `value: string` lorem ipsa
+- `callback: Function` the function to call when the timer finishes
+- `ms: number` how many milliseconds to wait before running the callback function
 
 ### Returns
 
-- `value: string` lorem ipsa
+- `isReady: boolean | null` the timer status
+- `cancelTimer: Function` the function used for canceling the timer
+- `resetTimer: Function` the function used for resetting the timer
 
 ## Usage
 
@@ -45,9 +48,15 @@ useTimeoutFn(
     name: 'UseTimeoutFnDemo',
     setup() {
       const timerFnMsg = ref('Timer not completed')
-      const { isReady, cancelTimer, resetTimer } = useTimeoutFn(() => {
+      const timerDuration = 3000
+      const timerHandler = () => {
         timerFnMsg.value = 'Timer completed!'
-      }, 3000)
+      }
+
+      const { isReady, cancelTimer, resetTimer } = useTimeoutFn(
+        timerHandler,
+        timerDuration
+      )
 
       return { timerFnMsg, isReady, cancelTimer, resetTimer }
     }
