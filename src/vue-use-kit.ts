@@ -1,3 +1,5 @@
 export * from './components/getQuery'
 export * from './components/useMedia'
 export * from './components/useMouse'
+export * from './components/useMouseElement'
+export * from './components/useTimeoutFn'

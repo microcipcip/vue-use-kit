@@ -1,4 +1,4 @@
-import { ref, onMounted, onUnmounted } from '@vue/composition-api'
+import { ref, onMounted, onUnmounted } from '../../api'
 
 export function useMedia(query: string, defaultState = false) {
   let mql: MediaQueryList

@@ -5,15 +5,18 @@ Vue function that tracks the state of a CSS media query.
 ## Reference
 
 ```typescript
-const isQueryMatching = useMedia(query: string, defaultState?: boolean): import("@vue/composition-api").Ref<boolean>
+useMedia(
+    query: string,
+    defaultState?: boolean
+): Ref<boolean>
 ```
 
-## Parameters
+### Parameters
 
 - `query: string` the media query to use, for example '(min-width: 1024px)'
 - `defaultState?: boolean` the value used as fallback for SSR
 
-## Returns
+### Returns
 
 - `isQueryMatching: boolean` whether the query matches or not
 

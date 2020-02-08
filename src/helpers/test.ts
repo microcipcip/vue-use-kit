@@ -6,7 +6,7 @@ import {
   shallowMount as vueShallowMount,
   ShallowMountOptions
 } from '@vue/test-utils'
-import VueCompositionAPI from '@vue/composition-api'
+import VueCompositionAPI from '../api'
 
 const localVue = createLocalVue()
 localVue.use(VueCompositionAPI)

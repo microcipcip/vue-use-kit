@@ -1,8 +1,6 @@
 /* eslint-disable */
 const rimraf = require('rimraf')
-const path = require('path')
-
-const distDir = path.resolve(__dirname, '..', 'dist')
+const { distDir } = require('./config')
 
 const handleError = (err: Error) => {
   if (err) return console.log(err)
@@ -16,6 +14,9 @@ rimraf(`${distDir}/**/*.spec.*`, handleError)
 
 // Remove build helpers files
 rimraf(`${distDir}/**/helpers/**`, handleError)
+
+// Remove tools
+rimraf(`${distDir}/**/tools/**`, handleError)
 
 // Remove useSampleComponent
 rimraf(`${distDir}/**/useSampleComponent/**`, handleError)

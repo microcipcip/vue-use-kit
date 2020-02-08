@@ -2,7 +2,7 @@
 
 [![NPM Version](https://img.shields.io/npm/v/vue-use-kit.svg)](https://www.npmjs.com/package/vue-use-kit) [![NPM Downloads](https://img.shields.io/npm/dm/vue-use-kit.svg)](https://www.npmjs.com/package/vue-use-kit) [![Build Status](https://img.shields.io/travis/microcipcip/vue-use-kit/master.svg)](https://travis-ci.org/microcipcip/vue-use-kit) [![GitHub license](https://img.shields.io/github/license/microcipcip/vue-use-kit?style=flat-square)](https://github.com/microcipcip/vue-use-kit/blob/master/LICENSE) [![Demo](https://img.shields.io/badge/demos-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/)
 
-> 🌳 Collection of useful [Vue Composition API](https://vue-composition-api-rfc.netlify.com) functions.</em>
+> 🌳 Vue kit of useful [Vue Composition API](https://vue-composition-api-rfc.netlify.com) functions.</em>
 
 Please note that Vue 3.0 has not been released yet, therefore the installation and setup of [@vue/composition-api](https://github.com/vuejs/composition-api) is required for this library to work.
 
@@ -21,6 +21,9 @@ Please check the [documentation](https://microcipcip.github.io/vue-use-kit/) to 
 - Sensors
   - [`useMedia`](./src/components/useMedia/stories/useMedia.md) &mdash; tracks state of a CSS media query. [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/sensors-usemedia--basic-demo)
   - [`useMouse`](./src/components/useMouse/stories/useMouse.md) &mdash; tracks the mouse's position. [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/sensors-usemouse--demo)
+  - [`useMouseElement`](./src/components/useMouseElement/stories/useMouseElement.md) &mdash; tracks the mouse's position relative to given element. [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/sensors-usemouseelement--demo)
+- Animations
+  - [`useTimeoutFn`](./src/components/useTimeoutFn/stories/useTimeoutFn.md) &mdash; calls function after a timeout. [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/animations-usetimeoutfn--demo)
 - Utils
   - [`getQuery`](./src/components/getQuery/stories/getQuery.md) &mdash; get a CSS media query string. [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/utils-getquery--demo)
 

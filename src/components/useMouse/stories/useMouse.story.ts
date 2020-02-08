@@ -11,7 +11,7 @@ const basicDemo = () => ({
   template: `
     <div class="container">
       <story-title stories-path="${storiesPath}" file-name="UseMouseDemo.vue">
-        <template v-slot:title>Basic demo</template>
+        <template v-slot:title>Demo</template>
         <template v-slot:intro></template>
       </story-title>
       <demo />
@@ -26,7 +26,8 @@ const advancedDemo = () => ({
         <template v-slot:title>Advanced demo</template>
         <template v-slot:intro>
           <p>
-            <strong>Click anywhere</strong> in the document to stop/start the emoji tracking of the mouse 'x' and 'y' position.
+            <strong>Click anywhere</strong> in the document to start/stop the <i>emoji element</i> 
+            tracking of the mouse 'x' and 'y' position. 
           </p>
         </template>
       </story-title>
@@ -36,5 +37,5 @@ const advancedDemo = () => ({
 
 storiesOf('sensors|useMouse', module)
   .addParameters({ notes })
-  .add('Demo', basicDemo)
-  .add('Advanced demo', advancedDemo)
+  .add('Basic Demo', basicDemo)
+  .add('Advanced Demo', advancedDemo)

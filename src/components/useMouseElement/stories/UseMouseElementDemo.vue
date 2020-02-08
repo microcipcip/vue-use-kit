@@ -16,12 +16,46 @@
       <tbody>
         <tr>
           <td>docX, docY</td>
-          <td>Mouse position <strong>relative to document</strong></td>
+          <td>Mouse position relative to <strong>document</strong></td>
           <td>
             <span>{{ toInt(docX) }}px</span>
           </td>
           <td>
             <span>{{ toInt(docY) }}px</span>
+          </td>
+        </tr>
+        <tr>
+          <td>elX, elY</td>
+          <td>Mouse position <strong>relative to emoji element</strong></td>
+          <td>
+            <span>{{ toInt(elX) }}px</span>
+          </td>
+          <td>
+            <span>{{ toInt(elY) }}px</span>
+          </td>
+        </tr>
+        <tr>
+          <td>el.x, el.y</td>
+          <td>
+            Emoji element position <strong>relative to the document</strong>
+          </td>
+          <td>
+            <span>{{ toInt(el.x) }}px</span>
+          </td>
+          <td>
+            <span>{{ toInt(el.y) }}px</span>
+          </td>
+        </tr>
+        <tr>
+          <td>el.w, el.h</td>
+          <td>
+            Emoji element width and height
+          </td>
+          <td>
+            <span>{{ toInt(el.w) }}px</span>
+          </td>
+          <td>
+            <span>{{ toInt(el.h) }}px</span>
           </td>
         </tr>
       </tbody>
@@ -32,17 +66,17 @@
 <script lang="ts">
 import Vue from 'vue'
 import { ref, computed, onMounted, onUnmounted } from '../../../api'
-import { useMouse } from '../../../vue-use-kit'
+import { useMouseElement } from '../../../vue-use-kit'
 
 const toInt = (n: number) => Math.round(n)
 
 export default Vue.extend({
-  name: 'useMouseAdvancedDemo',
+  name: 'useMouseElementDemo',
   setup() {
     const emojiRef = ref(null)
     let pauseEmoji = ref(true)
 
-    const { docX, docY } = useMouse()
+    const { docX, docY, elX, elY, el } = useMouseElement(emojiRef)
 
     const emojiStyle = computed(() => {
       if (pauseEmoji.value) return
@@ -77,7 +111,10 @@ export default Vue.extend({
       toggleEmojiMovement,
       toInt,
       docX,
-      docY
+      docY,
+      elX,
+      elY,
+      el
     }
   }
 })

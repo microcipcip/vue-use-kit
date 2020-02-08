@@ -8,11 +8,11 @@ Vue function that...
 // const valueReturned = useSampleComponent()
 ```
 
-## Parameters
+### Parameters
 
 - `value: string` lorem ipsa
 
-## Returns
+### Returns
 
 - `value: string` lorem ipsa
 

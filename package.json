@@ -1,7 +1,7 @@
 {
   "name": "vue-use-kit",
   "version": "0.0.0-development",
-  "description": "Useful collection of Vue composition API utilities",
+  "description": "Useful kit of Vue composition API utilities",
   "keywords": [
     "vue",
     "vue-use",
