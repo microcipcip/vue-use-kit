@@ -1,0 +1,137 @@
+{
+  "name": "vue-use-kit",
+  "version": "0.0.0-development",
+  "description": "Useful collection of Vue composition API utilities",
+  "keywords": [
+    "vue",
+    "vue-use",
+    "vue-function-api",
+    "vue-composition-api",
+    "vue-hooks",
+    "vue-use-hooks"
+  ],
+  "main": "dist/vue-use-kit.umd.js",
+  "module": "dist/vue-use-kit.es5.js",
+  "typings": "dist/types/vue-use-kit.d.ts",
+  "files": [
+    "dist"
+  ],
+  "author": "Salvatore Tedde <microcipcip@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/microcipcip/vue-use-kit"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "scripts": {
+    "lint": "eslint 'src/**/*.ts'",
+    "prebuild": "rimraf dist && rimraf docs",
+    "build": "tsc --module commonjs -p ./tsconfig.build.json && rollup -c rollup.config.ts && npm run storybook:build && npm run build:clean",
+    "build:clean": "ts-node tools/build-clean",
+    "dev": "start-storybook -p 3000",
+    "storybook:build": "build-storybook -c .storybook -o docs",
+    "test": "jest --verbose",
+    "test:lint": "jest --bail --findRelatedTests",
+    "test:watch": "jest --watch",
+    "test:prod": "npm run lint && npm run test -- --no-cache",
+    "deploy-docs": "ts-node tools/gh-pages-publish",
+    "commit": "git-cz",
+    "semantic-release": "semantic-release",
+    "semantic-release-prepare": "ts-node tools/semantic-release-prepare",
+    "precommit": "lint-staged",
+    "travis-deploy-once": "travis-deploy-once"
+  },
+  "lint-staged": {
+    "src/**/*.{js,ts,json}": [
+      "prettier --write",
+      "npm run lint",
+      "npm run test:lint",
+      "git add"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
+  },
+  "jest": {
+    "verbose": false,
+    "rootDir": "./src",
+    "transform": {
+      ".(ts|tsx)": "ts-jest"
+    },
+    "testEnvironment": "jsdom",
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|js)$",
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ]
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "@babel/preset-typescript": "^7.8.3",
+    "@commitlint/cli": "^7.1.2",
+    "@commitlint/config-conventional": "^7.1.2",
+    "@fortawesome/fontawesome-free": "^5.12.0",
+    "@storybook/addon-notes": "^5.3.9",
+    "@storybook/addon-viewport": "^5.3.9",
+    "@storybook/theming": "^5.3.9",
+    "@storybook/vue": "^5.3.9",
+    "@types/jest": "^23.3.2",
+    "@types/node": "^10.11.0",
+    "@typescript-eslint/eslint-plugin": "^2.18.0",
+    "@typescript-eslint/parser": "^2.18.0",
+    "@vue/composition-api": "^0.3.4",
+    "@vue/test-utils": "^1.0.0-beta.31",
+    "babel-loader": "^8.0.6",
+    "babel-preset-vue": "^2.0.2",
+    "bulma": "^0.8.0",
+    "colors": "^1.3.2",
+    "commitizen": "^3.0.0",
+    "cross-env": "^5.2.0",
+    "cz-conventional-changelog": "^2.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-jest": "^23.6.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "husky": "^1.0.1",
+    "jest": "^23.6.0",
+    "jest-config": "^23.6.0",
+    "lint-staged": "^8.0.0",
+    "lodash.camelcase": "^4.3.0",
+    "prettier": "^1.14.3",
+    "prompt": "^1.0.0",
+    "replace-in-file": "^3.4.2",
+    "rimraf": "^2.6.2",
+    "rollup": "^0.67.0",
+    "rollup-plugin-commonjs": "^9.1.8",
+    "rollup-plugin-json": "^3.1.0",
+    "rollup-plugin-node-resolve": "^3.4.0",
+    "rollup-plugin-sourcemaps": "^0.4.2",
+    "rollup-plugin-typescript2": "^0.18.0",
+    "semantic-release": "^17.0.1",
+    "shelljs": "^0.8.3",
+    "storybook-readme": "^5.0.8",
+    "travis-deploy-once": "^5.0.9",
+    "ts-jest": "^23.10.2",
+    "ts-loader": "^6.2.1",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.0.3",
+    "vue": "^2.6.11",
+    "vue-loader": "^15.8.3",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "dependencies": {}
+}
