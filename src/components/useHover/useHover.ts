@@ -3,11 +3,11 @@ import { ref, onMounted, onUnmounted, Ref } from '../../api'
 export function useHover(element: Ref<null | Element>) {
   const isHovered = ref(false)
 
-  const mouseEnterHandler = (e: Event) => {
+  const mouseEnterHandler = () => {
     isHovered.value = true
   }
 
-  const mouseLeaveHandler = (e: Event) => {
+  const mouseLeaveHandler = () => {
     isHovered.value = false
   }
 

@@ -33,7 +33,7 @@
     "dev": "start-storybook -p 3000",
     "storybook:build": "build-storybook -c .storybook -o docs",
     "test": "jest --verbose",
-    "test:lint": "jest --bail --findRelatedTests",
+    "test:staged": "jest --bail --findRelatedTests",
     "test:watch": "jest --watch",
     "test:prod": "npm run lint && npm run test -- --no-cache",
     "deploy-docs": "ts-node tools/gh-pages-publish",
@@ -47,7 +47,7 @@
     "src/**/*.{js,ts,json}": [
       "prettier --write",
       "npm run lint",
-      "npm run test:lint",
+      "npm run test:staged",
       "git add"
     ]
   },
