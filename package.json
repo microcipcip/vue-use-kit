@@ -31,7 +31,7 @@
     "build": "tsc --module commonjs -p ./tsconfig.build.json && rollup -c rollup.config.ts && npm run storybook:build && npm run build:clean",
     "build:clean": "ts-node tools/build-clean",
     "dev": "start-storybook -p 3000",
-    "storybook:build": "build-storybook -c .storybook -o docs",
+    "storybook:build": "build-storybook --quiet -c .storybook -o docs",
     "test": "jest --verbose",
     "test:staged": "jest --bail --findRelatedTests",
     "test:watch": "jest --watch",
