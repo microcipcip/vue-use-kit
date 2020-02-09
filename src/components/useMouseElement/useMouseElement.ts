@@ -5,26 +5,22 @@ export function useMouseElement(element: Ref<null | Element>) {
   const docY = ref(0)
   const elX = ref(0)
   const elY = ref(0)
-  const el = ref({
-    x: 0,
-    y: 0,
-    w: 0,
-    h: 0
-  })
+  const elInfoX = ref(0)
+  const elInfoY = ref(0)
+  const elInfoW = ref(0)
+  const elInfoH = ref(0)
 
   const mouseMoveHandler = (e: MouseEvent) => {
-    if (!element || !element.value) return
+    if (!element.value) return
     docX.value = e.pageX
     docY.value = e.pageY
     const { left, top, height, width } = element.value.getBoundingClientRect()
-    el.value = {
-      x: left + window.pageXOffset,
-      y: top + window.pageYOffset,
-      w: width,
-      h: height
-    }
-    elX.value = e.pageX - el.value.x
-    elY.value = e.pageY - el.value.y
+    elInfoX.value = left + window.pageXOffset
+    elInfoY.value = top + window.pageYOffset
+    elInfoW.value = width
+    elInfoH.value = height
+    elX.value = e.pageX - elInfoX.value
+    elY.value = e.pageY - elInfoY.value
   }
 
   onMounted(() => {
@@ -40,6 +36,9 @@ export function useMouseElement(element: Ref<null | Element>) {
     docY,
     elX,
     elY,
-    el
+    elInfoX,
+    elInfoY,
+    elInfoW,
+    elInfoH
   }
 }

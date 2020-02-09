@@ -4,21 +4,30 @@ import { useMouseElement } from '../../vue-use-kit'
 
 const testComponent = () => ({
   template: `
-    <div ref="div">
+    <div ref="divRef">
       <div id="docX" v-if="docX" />
       <div id="docY" v-if="docY" />
       <div id="elX" v-if="elX" />
       <div id="elY" v-if="elY" />
-      <div id="el.x" v-if="el.x" />
-      <div id="el.y" v-if="el.y" />
-      <div id="el.w" v-if="el.w" />
-      <div id="el.h" v-if="el.h" />
+      <div id="elInfoX" v-if="elInfoX" />
+      <div id="elInfoY" v-if="elInfoY" />
+      <div id="elInfoW" v-if="elInfoW" />
+      <div id="elInfoH" v-if="elInfoH" />
     </div>
   `,
   setup() {
     const divRef = ref(null)
-    const { docX, docY, elX, elY, el } = useMouseElement(divRef)
-    return { docX, docY, elX, elY, el }
+    const {
+      docX,
+      docY,
+      elX,
+      elY,
+      elInfoX,
+      elInfoY,
+      elInfoW,
+      elInfoH
+    } = useMouseElement(divRef)
+    return { docX, docY, elX, elY, elInfoX, elInfoY, elInfoW, elInfoH, divRef }
   }
 })
 
@@ -44,9 +53,9 @@ describe('useMouseElement', () => {
     expect(wrapper.find('#docY').exists()).toBe(false)
     expect(wrapper.find('#elX').exists()).toBe(false)
     expect(wrapper.find('#elY').exists()).toBe(false)
-    expect(wrapper.find('#el.x').exists()).toBe(false)
-    expect(wrapper.find('#el.y').exists()).toBe(false)
-    expect(wrapper.find('#el.w').exists()).toBe(false)
-    expect(wrapper.find('#el.h').exists()).toBe(false)
+    expect(wrapper.find('#elInfoX').exists()).toBe(false)
+    expect(wrapper.find('#elInfoY').exists()).toBe(false)
+    expect(wrapper.find('#elInfoW').exists()).toBe(false)
+    expect(wrapper.find('#elInfoH').exists()).toBe(false)
   })
 })

@@ -11,12 +11,10 @@ useMouseElement(element: Ref<null | Element>): {
     docY: Ref<number>;
     elX: Ref<number>;
     elY: Ref<number>;
-    el: Ref<{
-        x: number;
-        y: number;
-        w: number;
-        h: number;
-    }>;
+    elInfoX: Ref<number>;
+    elInfoY: Ref<number>;
+    elInfoW: Ref<number>;
+    elInfoH: Ref<number>;
 }
 ```
 
@@ -30,10 +28,10 @@ useMouseElement(element: Ref<null | Element>): {
 - `docY: number` the mouse `y` position relative to the document
 - `elX: number` the mouse `x` position relative to the given element
 - `elY: number` the mouse `y` position relative to the given element
-- `el.x: number` the element `x` position
-- `el.y: number` the element `y` position
-- `el.w: number` the element `width` value
-- `el.h: number` the element `height` value
+- `elInfoX: number` the element `x` position
+- `elInfoY: number` the element `y` position
+- `elInfoW: number` the element `width` value
+- `elInfoH: number` the element `height` value
 
 ## Usage
 

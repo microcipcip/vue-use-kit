@@ -35,27 +35,27 @@
           </td>
         </tr>
         <tr>
-          <td>el.x, el.y</td>
+          <td>elInfoX, elInfoY</td>
           <td>
             Emoji element position <strong>relative to the document</strong>
           </td>
           <td>
-            <span>{{ toInt(el.x) }}px</span>
+            <span>{{ toInt(elInfoX) }}px</span>
           </td>
           <td>
-            <span>{{ toInt(el.y) }}px</span>
+            <span>{{ toInt(elInfoY) }}px</span>
           </td>
         </tr>
         <tr>
-          <td>el.w, el.h</td>
+          <td>elInfoW, elInfoH</td>
           <td>
             Emoji element width and height
           </td>
           <td>
-            <span>{{ toInt(el.w) }}px</span>
+            <span>{{ toInt(elInfoW) }}px</span>
           </td>
           <td>
-            <span>{{ toInt(el.h) }}px</span>
+            <span>{{ toInt(elInfoH) }}px</span>
           </td>
         </tr>
       </tbody>
@@ -76,7 +76,16 @@ export default Vue.extend({
     const emojiRef = ref(null)
     let pauseEmoji = ref(true)
 
-    const { docX, docY, elX, elY, el } = useMouseElement(emojiRef)
+    const {
+      docX,
+      docY,
+      elX,
+      elY,
+      elInfoX,
+      elInfoY,
+      elInfoW,
+      elInfoH
+    } = useMouseElement(emojiRef)
 
     const emojiStyle = computed(() => {
       if (pauseEmoji.value) return
@@ -114,7 +123,10 @@ export default Vue.extend({
       docY,
       elX,
       elY,
-      el
+      elInfoX,
+      elInfoY,
+      elInfoW,
+      elInfoH
     }
   }
 })
