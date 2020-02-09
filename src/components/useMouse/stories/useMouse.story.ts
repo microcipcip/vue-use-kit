@@ -11,7 +11,7 @@ const basicDemo = () => ({
   template: `
     <div class="container">
       <story-title stories-path="${storiesPath}" file-name="UseMouseDemo.vue">
-        <template v-slot:title>Demo</template>
+        <template v-slot:title></template>
         <template v-slot:intro></template>
       </story-title>
       <demo />
@@ -37,5 +37,5 @@ const advancedDemo = () => ({
 
 storiesOf('sensors|useMouse', module)
   .addParameters({ notes })
-  .add('Basic Demo', basicDemo)
+  .add('Demo', basicDemo)
   .add('Advanced Demo', advancedDemo)

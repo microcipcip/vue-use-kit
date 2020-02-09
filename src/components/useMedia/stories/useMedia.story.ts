@@ -11,7 +11,7 @@ const basicDemo = () => ({
   template: `
     <div class="container">
       <story-title stories-path="${storiesPath}" file-name="UseMediaDemo.vue">
-        <template v-slot:title>Basic demo</template>
+        <template v-slot:title></template>
         <template v-slot:intro>
           <p>
             Try to resize the browser's window to see how the value below changes.
@@ -40,5 +40,5 @@ const advancedDemo = () => ({
 
 storiesOf('sensors|useMedia', module)
   .addParameters({ notes })
-  .add('Basic demo', basicDemo)
+  .add('Demo', basicDemo)
   .add('Advanced demo', advancedDemo)

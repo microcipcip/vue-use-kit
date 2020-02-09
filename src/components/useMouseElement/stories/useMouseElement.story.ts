@@ -10,7 +10,7 @@ const basicDemo = () => ({
   template: `
     <div class="container">
       <story-title stories-path="${storiesPath}" file-name="UseMouseElementDemo.vue">
-        <template v-slot:title>Demo</template>
+        <template v-slot:title></template>
         <template v-slot:intro>
           <p>
             <strong>Click anywhere</strong> in the document to start/stop the <i>emoji element</i> 
