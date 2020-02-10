@@ -1,6 +1,6 @@
 import { ref, onMounted, onUnmounted, Ref } from '../../api'
 
-export function useMouseElement(element: Ref<null | Element>) {
+export function useMouseElement(elRef: Ref<null | Element>) {
   const docX = ref(0)
   const docY = ref(0)
   const elX = ref(0)
@@ -11,10 +11,10 @@ export function useMouseElement(element: Ref<null | Element>) {
   const elInfoH = ref(0)
 
   const mouseMoveHandler = (e: MouseEvent) => {
-    if (!element.value) return
+    if (!elRef.value) return
     docX.value = e.pageX
     docY.value = e.pageY
-    const { left, top, height, width } = element.value.getBoundingClientRect()
+    const { left, top, height, width } = elRef.value.getBoundingClientRect()
     elInfoX.value = left + window.pageXOffset
     elInfoY.value = top + window.pageYOffset
     elInfoW.value = width

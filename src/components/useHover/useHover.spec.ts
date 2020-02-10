@@ -2,7 +2,6 @@ import { mount } from '../../helpers/test'
 import { ref } from '../../api'
 import { useHover } from '../../vue-use-kit'
 
-const elementContainer: any = { ref: { value: null } }
 const testComponent = () => ({
   template: `
     <div id="isHovered" v-if="isHovered"></div>

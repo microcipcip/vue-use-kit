@@ -1,6 +1,6 @@
 import { ref, onMounted, onUnmounted, Ref } from '../../api'
 
-export function useHover(element: Ref<null | Element>) {
+export function useHover(elRef: Ref<null | Element>) {
   const isHovered = ref(false)
 
   const mouseEnterHandler = () => {
@@ -12,15 +12,15 @@ export function useHover(element: Ref<null | Element>) {
   }
 
   onMounted(() => {
-    if (!element.value) return
-    element.value.addEventListener('mouseenter', mouseEnterHandler)
-    element.value.addEventListener('mouseleave', mouseLeaveHandler)
+    if (!elRef.value) return
+    elRef.value.addEventListener('mouseenter', mouseEnterHandler)
+    elRef.value.addEventListener('mouseleave', mouseLeaveHandler)
   })
 
   onUnmounted(() => {
-    if (!element.value) return
-    element.value.removeEventListener('mouseenter', mouseEnterHandler)
-    element.value.removeEventListener('mouseleave', mouseLeaveHandler)
+    if (!elRef.value) return
+    elRef.value.removeEventListener('mouseenter', mouseEnterHandler)
+    elRef.value.removeEventListener('mouseleave', mouseLeaveHandler)
   })
 
   return isHovered

@@ -3,12 +3,12 @@ import { onMounted, onUnmounted, Ref } from '../../api'
 const defaultEvents = ['mousedown', 'touchstart']
 
 export function useClickAway(
-  element: Ref<null | Element>,
+  elRef: Ref<null | Element>,
   onClickAway: (e: Event) => void,
   events = defaultEvents
 ) {
   const handler = (e: Event) => {
-    if (element.value && !element.value.contains(e.target as Node)) {
+    if (elRef.value && !elRef.value.contains(e.target as Node)) {
       onClickAway(e)
     }
   }
