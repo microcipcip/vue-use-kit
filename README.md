@@ -21,11 +21,13 @@ Please check the [documentation](https://microcipcip.github.io/vue-use-kit/) to 
 - Sensors
   - [`useHover`](./src/components/useHover/stories/useHover.md) &mdash; tracks mouse hover state of a given element. [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/sensors-usehover--demo)
   - [`useMedia`](./src/components/useMedia/stories/useMedia.md) &mdash; tracks state of a CSS media query. [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/sensors-usemedia--demo)
-  - [`useMouse`](./src/components/useMouse/stories/useMouse.md) &mdash; tracks the mouse's position. [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/sensors-usemouse--demo)
-  - [`useMouseElement`](./src/components/useMouseElement/stories/useMouseElement.md) &mdash; tracks the mouse's position relative to given element. [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/sensors-usemouseelement--demo)
+  - [`useMouse`](./src/components/useMouse/stories/useMouse.md) &mdash; tracks the mouse position. [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/sensors-usemouse--demo)
+  - [`useMouseElement`](./src/components/useMouseElement/stories/useMouseElement.md) &mdash; tracks the mouse position relative to given element. [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/sensors-usemouseelement--demo)
 - Animations
-  - [`useTimeout`](./src/components/useTimeout/stories/useTimeout.md) &mdash; returns `isReady` prop as `true` when timer is completed. [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/animations-usetimeout--demo)
+  - [`useTimeout`](./src/components/useTimeout/stories/useTimeout.md) &mdash; returns `isReady` true when timer is completed. [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/animations-usetimeout--demo)
   - [`useTimeoutFn`](./src/components/useTimeoutFn/stories/useTimeoutFn.md) &mdash; calls function when timer is completed. [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/animations-usetimeoutfn--demo)
+- UI
+  - [`useClickAway`](./src/components/useClickAway/stories/useClickAway.md) &mdash; triggers callback when user clicks outside target area. [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/ui-useclickaway--demo)
 - Utils
   - [`getQuery`](./src/components/getQuery/stories/getQuery.md) &mdash; get a CSS media query string. [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/utils-getquery--demo)
 
