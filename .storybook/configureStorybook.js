@@ -8,7 +8,7 @@ import '@fortawesome/fontawesome-free/css/all.css'
 
 const basicTheme = create({
   base: 'light',
-  brandTitle: 'Vue use kit',
+  brandTitle: '🛠️ Vue use kit',
   brandUrl: pkg.repository.url,
   brandImage: null
 })
