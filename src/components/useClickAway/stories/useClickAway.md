@@ -1,6 +1,6 @@
 # useClickAway
 
-Vue function that triggers callback when user clicks outside of target area.
+Vue function that triggers a callback when the user clicks outside of the target area.
 
 ## Reference
 
@@ -14,7 +14,7 @@ useClickAway(
 
 ### Parameters
 
-- `element: string` the element to checked for click away events
+- `element: string` the element to check for click away events
 - `onClickAway: string` the callback to run when triggering a click away
 - `events: string` list of events to listen to, defaults to `['mousedown', 'touchstart']`
 
