@@ -1,8 +1,16 @@
-# vue-use-kit
+<div style="padding: 100px 0; text-align: center;">
+  <a href="https://github.com/microcipcip/vue-use-kit">
+    <img 
+      src="https://raw.githubusercontent.com/microcipcip/vue-use-kit/master/public/logo.png" 
+      alt="Vue use kit" 
+      width="300" 
+    />
+  </a>
+</div>
 
 [![NPM Version](https://img.shields.io/npm/v/vue-use-kit.svg)](https://www.npmjs.com/package/vue-use-kit) [![NPM Downloads](https://img.shields.io/npm/dm/vue-use-kit.svg)](https://www.npmjs.com/package/vue-use-kit) [![Build Status](https://img.shields.io/travis/microcipcip/vue-use-kit/master.svg)](https://travis-ci.org/microcipcip/vue-use-kit) [![GitHub license](https://img.shields.io/github/license/microcipcip/vue-use-kit?style=flat-square)](https://github.com/microcipcip/vue-use-kit/blob/master/LICENSE) [![Demo](https://img.shields.io/badge/demos-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/)
 
-> 🌳 Vue kit of useful [Vue Composition API](https://vue-composition-api-rfc.netlify.com) functions.</em>
+> 🛠️ Vue kit of useful [Vue Composition API](https://vue-composition-api-rfc.netlify.com) functions.</em>
 
 Please note that Vue 3.0 has not been released yet, therefore the installation and setup of [@vue/composition-api](https://github.com/vuejs/composition-api) is required for this library to work.
 
@@ -14,7 +22,7 @@ npm install @vue/composition-api vue-use-kit
 
 ## Usage
 
-Please check the [documentation](https://microcipcip.github.io/vue-use-kit/) to learn how to use this kit of Vue Composition API functions.
+Please check the [documentation](https://microcipcip.github.io/vue-use-kit/) to learn how to use this collection of Vue Composition API functions.
 
 ## APIs
 
