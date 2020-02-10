@@ -1,14 +1,24 @@
-<div style="padding: 100px 0; text-align: center;">
+<p align="center">
+  <br>
+  <br>
   <a href="https://github.com/microcipcip/vue-use-kit">
     <img 
       src="https://raw.githubusercontent.com/microcipcip/vue-use-kit/master/public/logo.png" 
       alt="Vue use kit" 
-      width="300" 
+      width="200" 
     />
   </a>
-</div>
+  <br>
+  <br>
+  <br>
+</p>
+
+<p align="center">
 
 [![NPM Version](https://img.shields.io/npm/v/vue-use-kit.svg)](https://www.npmjs.com/package/vue-use-kit) [![NPM Downloads](https://img.shields.io/npm/dm/vue-use-kit.svg)](https://www.npmjs.com/package/vue-use-kit) [![Build Status](https://img.shields.io/travis/microcipcip/vue-use-kit/master.svg)](https://travis-ci.org/microcipcip/vue-use-kit) [![GitHub license](https://img.shields.io/github/license/microcipcip/vue-use-kit?style=flat-square)](https://github.com/microcipcip/vue-use-kit/blob/master/LICENSE) [![Demo](https://img.shields.io/badge/demos-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/)
+
+<br>
+</p>
 
 > 🛠️ Vue kit of useful [Vue Composition API](https://vue-composition-api-rfc.netlify.com) functions.</em>
 
