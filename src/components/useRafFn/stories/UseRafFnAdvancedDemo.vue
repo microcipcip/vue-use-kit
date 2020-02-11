@@ -2,7 +2,7 @@
   <div class="box">
     <div
       class="sprite"
-      style="background-image: url('/demo/muybridge.png')"
+      style="background-image: url('demo/muybridge.png')"
       :style="spriteStyle"
     ></div>
 

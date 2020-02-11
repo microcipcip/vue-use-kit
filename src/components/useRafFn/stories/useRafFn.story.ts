@@ -41,7 +41,7 @@ const advancedDemo = () => ({
         <template v-slot:title>Advanced demo</template>
         <template v-slot:intro>
           <p>
-            The following is <a href="/demo/muybridge.png" target="_blank">the sprite</a> of the famous
+            The following is <a href="demo/muybridge.png" target="_blank">the sprite</a> of the famous
             Muybridge's work <a href="https://en.wikipedia.org/wiki/The_Horse_in_Motion">Horse in motion</a>.  
           </p>        
           <p>
