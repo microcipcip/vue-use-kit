@@ -11,7 +11,11 @@ const basicDemo = () => ({
   components: { StoryTitle, demo: UseSampleComponentDemo },
   template: `
     <div class="container">
-      <story-title function-path="${functionPath}" source-name="${functionName}" demo-name="UseSampleComponentDemo.vue">
+      <story-title 
+        function-path="${functionPath}" 
+        source-name="${functionName}" 
+        demo-name="UseSampleComponentDemo.vue"
+      >
         <template v-slot:title></template>
         <template v-slot:intro></template>
       </story-title>

@@ -10,7 +10,7 @@ const basicTheme = create({
   base: 'light',
   brandTitle: '🛠️ Vue use kit',
   brandUrl: pkg.repository.url,
-  brandImage: null
+  brandImage: 'https://raw.githubusercontent.com/microcipcip/vue-use-kit/master/public/logo-storybook.png',
 })
 
 addParameters({

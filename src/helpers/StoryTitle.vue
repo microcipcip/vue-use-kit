@@ -20,7 +20,9 @@
         </a>
       </div>
     </div>
-    <slot name="intro"></slot>
+    <div class="story-intro">
+      <slot name="intro"></slot>
+    </div>
     <hr />
   </div>
 </template>
@@ -63,5 +65,9 @@ export default Vue.extend({
 
 .story-ico {
   font-size: 12px;
+}
+
+.story-intro a {
+  text-decoration: underline;
 }
 </style>
