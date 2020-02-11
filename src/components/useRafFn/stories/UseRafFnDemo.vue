@@ -33,7 +33,7 @@
           <br />
           <br />
           <br />
-          <input type="number" v-model="fpsRef" />
+          <input type="number" min="1" max="121" v-model="fpsRef" />
         </td>
       </tr>
     </tbody>
@@ -50,7 +50,7 @@ export default Vue.extend({
   setup() {
     const animDuration = ref(0)
     const callbackCounter = ref(0)
-    const fpsRef = ref(4)
+    const fpsRef = ref(120)
     const animHandler = (t: number) => {
       callbackCounter.value = callbackCounter.value + 1
       animDuration.value = Math.ceil(t)
