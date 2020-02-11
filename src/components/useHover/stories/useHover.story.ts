@@ -1,15 +1,17 @@
 import { storiesOf } from '@storybook/vue'
+import path from 'path'
 import StoryTitle from '../../../helpers/StoryTitle.vue'
 import UseHoverDemo from './UseHoverDemo.vue'
 
-const storiesPath = __dirname
-const notes = require('./useHover.md').default
+const functionName = 'useHover'
+const functionPath = path.resolve(__dirname, '..')
+const notes = require(`./${functionName}.md`).default
 
 const basicDemo = () => ({
   components: { StoryTitle, demo: UseHoverDemo },
   template: `
     <div class="container">
-      <story-title stories-path="${storiesPath}" file-name="UseHoverDemo.vue">
+      <story-title function-path="${functionPath}" source-name="${functionName}" demo-name="UseHoverDemo.vue">
         <template v-slot:title></template>
         <template v-slot:intro>
           Try to move the mouse hover the box below to see the emoji change of expression. 

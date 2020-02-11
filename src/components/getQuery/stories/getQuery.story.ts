@@ -1,15 +1,17 @@
 import { storiesOf } from '@storybook/vue'
+import path from 'path'
 import StoryTitle from '../../../helpers/StoryTitle.vue'
 import GetQueryDemo from './GetQueryDemo.vue'
 
-const storiesPath = __dirname
-const notes = require('./getQuery.md').default
+const functionName = 'getQuery'
+const functionPath = path.resolve(__dirname, '..')
+const notes = require(`./${functionName}.md`).default
 
 const basicDemo = () => ({
   components: { StoryTitle, demo: GetQueryDemo },
   template: `
     <div class="container">
-      <story-title stories-path="${storiesPath}"  file-name="GetQueryDemo.vue">
+      <story-title stories-path="${functionPath}"  file-name="GetQueryDemo.vue">
         <template v-slot:title></template>
         <template v-slot:intro></template>
       </story-title>

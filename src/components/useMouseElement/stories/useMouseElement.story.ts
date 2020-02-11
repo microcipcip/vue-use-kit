@@ -1,15 +1,17 @@
 import { storiesOf } from '@storybook/vue'
+import path from 'path'
 import StoryTitle from '../../../helpers/StoryTitle.vue'
 import UseMouseElementDemo from './UseMouseElementDemo.vue'
 
-const storiesPath = __dirname
-const notes = require('./useMouseElement.md').default
+const functionName = 'useMouseElement'
+const functionPath = path.resolve(__dirname, '..')
+const notes = require(`./${functionName}.md`).default
 
 const basicDemo = () => ({
   components: { StoryTitle, demo: UseMouseElementDemo },
   template: `
     <div class="container">
-      <story-title stories-path="${storiesPath}" file-name="UseMouseElementDemo.vue">
+      <story-title function-path="${functionPath}" source-name="${functionName}" demo-name="UseMouseElementDemo.vue">
         <template v-slot:title></template>
         <template v-slot:intro>
           <p>

@@ -1,15 +1,17 @@
 import { storiesOf } from '@storybook/vue'
+import path from 'path'
 import StoryTitle from '../../../helpers/StoryTitle.vue'
 import UseClickAwayDemo from './UseClickAwayDemo.vue'
 
-const storiesPath = __dirname
-const notes = require('./useClickAway.md').default
+const functionName = 'useClickAway'
+const functionPath = path.resolve(__dirname, '..')
+const notes = require(`./${functionName}.md`).default
 
 const basicDemo = () => ({
   components: { StoryTitle, demo: UseClickAwayDemo },
   template: `
     <div class="container">
-      <story-title stories-path="${storiesPath}" file-name="UseClickAwayDemo.vue">
+      <story-title function-path="${functionPath}" source-name="${functionName}" demo-name="UseClickAwayDemo.vue">
         <template v-slot:title></template>
         <template v-slot:intro>
           <p>

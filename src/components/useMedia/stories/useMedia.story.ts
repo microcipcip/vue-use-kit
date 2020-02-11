@@ -1,16 +1,18 @@
 import { storiesOf } from '@storybook/vue'
+import path from 'path'
 import StoryTitle from '../../../helpers/StoryTitle.vue'
 import UseMediaDemo from './UseMediaDemo.vue'
 import UseMediaAdvancedDemo from './UseMediaAdvancedDemo.vue'
 
-const storiesPath = __dirname
-const notes = require('./useMedia.md').default
+const functionName = 'useMedia'
+const functionPath = path.resolve(__dirname, '..')
+const notes = require(`./${functionName}.md`).default
 
 const basicDemo = () => ({
   components: { StoryTitle, demo: UseMediaDemo },
   template: `
     <div class="container">
-      <story-title stories-path="${storiesPath}" file-name="UseMediaDemo.vue">
+      <story-title function-path="${functionPath}" source-name="${functionName}" demo-name="UseMediaDemo.vue">
         <template v-slot:title></template>
         <template v-slot:intro>
           <p>
@@ -26,7 +28,7 @@ const advancedDemo = () => ({
   components: { StoryTitle, demo: UseMediaAdvancedDemo },
   template: `
     <div class="container">
-      <story-title stories-path="${storiesPath}" file-name="UseMediaAdvancedDemo.vue">
+      <story-title function-path="${functionPath}" source-name="${functionName}" demo-name="UseMediaAdvancedDemo.vue">
         <template v-slot:title>Advanced demo</template>
         <template v-slot:intro>
           <p>

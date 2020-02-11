@@ -1,15 +1,17 @@
 import { storiesOf } from '@storybook/vue'
+import path from 'path'
 import StoryTitle from '../../../helpers/StoryTitle.vue'
 import UseTimeoutDemo from './UseTimeoutDemo.vue'
 
-const storiesPath = __dirname
-const notes = require('./useTimeout.md').default
+const functionName = 'useTimeout'
+const functionPath = path.resolve(__dirname, '..')
+const notes = require(`./${functionName}.md`).default
 
 const basicDemo = () => ({
   components: { StoryTitle, demo: UseTimeoutDemo },
   template: `
     <div class="container">
-      <story-title stories-path="${storiesPath}" file-name="UseTimeoutDemo.vue">
+      <story-title function-path="${functionPath}" source-name="${functionName}" demo-name="UseTimeoutDemo.vue">
         <template v-slot:title></template>
         <template v-slot:intro></template>
       </story-title>

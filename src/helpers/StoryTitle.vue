@@ -4,10 +4,19 @@
       <div class="column is-four-fifths">
         <h1 class="title"><slot name="title">Demo</slot></h1>
       </div>
-      <div class="column is-one-fifth" v-if="fullUrl">
-        <a :href="fullUrl" target="_blank">
-          View Source
-          <span class="icon is-small"><i class="fas fa-link"></i></span>
+      <div class="column is-one-fifth story-link" v-if="demoName || sourceName">
+        <a :href="demoUrl" target="_blank" v-if="demoName">
+          Demo
+          <span class="icon is-small story-ico"
+            ><i class="fas fa-external-link-alt"></i
+          ></span>
+        </a>
+        |
+        <a :href="sourceUrl" target="_blank" v-if="sourceName">
+          Source
+          <span class="icon is-small story-ico"
+            ><i class="fas fa-external-link-alt"></i
+          ></span>
         </a>
       </div>
     </div>
@@ -18,26 +27,41 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { getStoryDemoUrl } from '../helpers/config'
+import { getDemoUrl, getSourceUrl } from '../helpers/config'
 
 export default Vue.extend({
   name: 'StoryTitle',
   props: {
-    storiesPath: {
+    functionPath: {
       type: String,
       required: true
     },
-    fileName: {
+    demoName: {
       type: String,
-      required: true
+      required: false
+    },
+    sourceName: {
+      type: String,
+      required: false
     }
   },
   computed: {
-    fullUrl() {
-      return getStoryDemoUrl(this.storiesPath, this.fileName)
+    demoUrl() {
+      return getDemoUrl(this.functionPath, this.demoName)
+    },
+    sourceUrl() {
+      return getSourceUrl(this.functionPath, this.sourceName)
     }
   }
 })
 </script>
 
-<style scoped></style>
+<style scoped>
+.story-link {
+  text-align: right;
+}
+
+.story-ico {
+  font-size: 12px;
+}
+</style>
