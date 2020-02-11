@@ -3,7 +3,7 @@
   <br>
   <a href="https://github.com/microcipcip/vue-use-kit">
     <img 
-      src="https://raw.githubusercontent.com/microcipcip/vue-use-kit/master/public/logo.png" 
+      src="https://raw.githubusercontent.com/microcipcip/vue-use-kit/master/assets/branding/logo.png" 
       alt="Vue use kit" 
       width="200" 
     />
