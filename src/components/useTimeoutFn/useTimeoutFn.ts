@@ -25,9 +25,7 @@ export function useTimeoutFn(callback: Function, ms = 0, runOnMount = true) {
     }, ms)
   }
 
-  onMounted(() => {
-    if (runOnMount) setTimer()
-  })
+  onMounted(() => runOnMount && setTimer())
   onUnmounted(cancelTimer)
 
   return { isReady, isIdle, cancelTimer, resetTimer: setTimer }
