@@ -14,7 +14,7 @@ const basicDemo = () => ({
       <story-title function-path="${functionPath}" source-name="${functionName}" demo-name="UseHoverDemo.vue">
         <template v-slot:title></template>
         <template v-slot:intro>
-          Try to move the mouse hover the box below to see the emoji change of expression. 
+          <strong> Try to move the mouse hover the box below</strong> to see the emoji change of expression. 
         </template>
       </story-title>
       <demo />

@@ -1,10 +1,10 @@
 <template>
   <div>
     <div class="columns">
-      <div class="column is-four-fifths">
+      <div class="column is-three-fifths">
         <h1 class="title"><slot name="title">Demo</slot></h1>
       </div>
-      <div class="column is-one-fifth story-link" v-if="demoName || sourceName">
+      <div class="column is-two-fifth story-link" v-if="demoName || sourceName">
         <a :href="demoUrl" target="_blank" v-if="demoName">
           Demo
           <span class="icon is-small story-ico"

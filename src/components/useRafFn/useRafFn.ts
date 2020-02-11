@@ -13,10 +13,10 @@ export function useRafFn(
   fps: TFps = fpsLimit + 1,
   runOnMount = true
 ) {
-  const isRunningRef = ref(false)
+  const isRunning = ref(false)
   // Using a computed here allows us to update fps
   // dynamically from user's input
-  const fpsIntervalRef = computed(() => calcFpsInterval(getFps(fps)))
+  const fpsInterval = computed(() => calcFpsInterval(getFps(fps)))
 
   let isPausedGuard = false
   let startTime = 0
@@ -25,7 +25,7 @@ export function useRafFn(
   let timeDelta = 0
   const loop = (timeStamp: number) => {
     if (!startTime) startTime = timeStamp
-    if (!isRunningRef.value) return
+    if (!isRunning.value) return
 
     if (isPausedGuard) {
       // Save the time when we pause the loop so that later we can
@@ -49,7 +49,7 @@ export function useRafFn(
     // and the given fps matches the lapsed time
     if (!callbackShouldAlwaysRun) {
       const elapsedTime = Math.ceil(timeNow - timeDelta)
-      if (elapsedTime > fpsIntervalRef.value) {
+      if (elapsedTime > fpsInterval.value) {
         // Store timeDelta for future computations
         timeDelta = timeNow
         callback(timeNow)
@@ -61,12 +61,12 @@ export function useRafFn(
   }
 
   const start = () => {
-    isRunningRef.value = true
+    isRunning.value = true
     requestAnimationFrame(loop)
   }
 
   const stop = () => {
-    isRunningRef.value = false
+    isRunning.value = false
     isPausedGuard = true
   }
 
@@ -74,7 +74,7 @@ export function useRafFn(
   onUnmounted(stop)
 
   return {
-    isRunning: isRunningRef,
+    isRunning,
     start,
     stop
   }

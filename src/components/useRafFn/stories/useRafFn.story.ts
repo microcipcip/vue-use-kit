@@ -13,7 +13,12 @@ const basicDemo = () => ({
     <div class="container">
       <story-title function-path="${functionPath}" source-name="${functionName}" demo-name="UseRafFnDemo.vue">
         <template v-slot:title></template>
-        <template v-slot:intro></template>
+        <template v-slot:intro>
+          <p>
+            <strong>Click the button below</strong> to start the Raf loop. <strong>Change the fps value</strong> 
+            in the input below to see the animation speed change on the fly.
+          </p>
+        </template>
       </story-title>
       <demo />
     </div>`
