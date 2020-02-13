@@ -4,11 +4,11 @@ type TFps = number | Ref<number>
 
 const getFps = (fps: TFps) => Number(isRef(fps) ? fps.value : fps)
 const calcFpsInterval = (fps: number) => 1000 / fps
-const fpsLimit = 120
+const fpsLimit = 60
 
 export function useRafFn(
   callback: Function,
-  // Note: a value greater than 120 will disable the fps check logic
+  // Note: a value greater than 60 will disable the fps check logic
   // giving maximum precision and smoothness
   fps: TFps = fpsLimit + 1,
   runOnMount = true
@@ -18,27 +18,28 @@ export function useRafFn(
   // dynamically from user's input
   const fpsInterval = computed(() => calcFpsInterval(getFps(fps)))
 
-  let isPausedGuard = false
+  let itWasIdle = false
   let startTime = 0
   let timeNow = 0
-  let timeWhenPaused = 0
+  let timePausedTot = 0
   let timeDelta = 0
   const loop = (timeStamp: number) => {
     if (!startTime) startTime = timeStamp
     if (!isRunning.value) return
 
-    if (isPausedGuard) {
-      // Save the time when we pause the loop so that later we can
-      // adjust the time we return to the callback
-      timeWhenPaused = timeStamp - startTime - timeNow
-      isPausedGuard = false
+    // Store the time that the loop is idle so that we can
+    // calculate the timeNow variable correctly and return
+    // it to the user from within the callback
+    if (itWasIdle) {
+      timePausedTot = timeStamp - startTime - timeNow
+      itWasIdle = false
     }
 
-    // Adjust timeNow to account for startTime and timeWhenPaused
-    timeNow = timeStamp - startTime - timeWhenPaused
+    // Adjust timeNow to account for startTime and timePausedTot
+    timeNow = timeStamp - startTime - timePausedTot
 
     // Always run the callback if fps is greater than fpsLimit
-    const callbackShouldAlwaysRun = getFps(fps) > fpsLimit
+    const callbackShouldAlwaysRun = getFps(fps) >= fpsLimit
     if (callbackShouldAlwaysRun) {
       // Store timeDelta for future computations
       timeDelta = timeNow
@@ -67,7 +68,7 @@ export function useRafFn(
 
   const stop = () => {
     isRunning.value = false
-    isPausedGuard = true
+    itWasIdle = true
   }
 
   onMounted(() => runOnMount && start())

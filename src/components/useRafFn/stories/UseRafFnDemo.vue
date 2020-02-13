@@ -65,10 +65,10 @@ export default Vue.extend({
     const isInit = ref(false)
     const timeElapsed = ref(0)
     const callbackCounter = ref(0)
-    const fps = ref(120)
+    const fps = ref(60)
     const animHandler = (t: number) => {
       callbackCounter.value = callbackCounter.value + 1
-      timeElapsed.value = Math.ceil(t)
+      timeElapsed.value = Math.floor(t)
     }
 
     const init = () => {

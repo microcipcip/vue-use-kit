@@ -25,8 +25,8 @@ useRafFn(
 
 - `callback: Function` the function to call inside the Raf loop
 - `fps: number | Ref<number>` the amount of times per second that the callback should run.
-  Please note that when a value greater than `120` is defined, the `fps` logic will be skipped completely
-  therefore the callback will run at full speed. By default the value is set to `121` so it will indeed 
+  Please note that when a value greater or equal to `60` is defined, the `fps` logic will be skipped completely
+  therefore the callback will run at full speed. By default the value is set to `60` so it will indeed 
   run at full speed
 - `runOnMount: boolean` whether to run the Raf loop on mount, `true` by default.
   If `false`, you'll have to start the Raf with the `start` function
