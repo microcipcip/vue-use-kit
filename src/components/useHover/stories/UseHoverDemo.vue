@@ -9,8 +9,8 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { ref } from '../../../api'
-import { useHover } from '../../../vue-use-kit'
+import { ref } from '@src/api'
+import { useHover } from '@src/vue-use-kit'
 
 export default Vue.extend({
   name: 'UseHoverDemo',

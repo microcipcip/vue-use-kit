@@ -1,5 +1,5 @@
-import { mount } from '../../helpers/test'
-import { getQuery, useMedia } from '../../vue-use-kit'
+import { mount } from '@src/helpers/test'
+import { getQuery, useMedia } from '@src/vue-use-kit'
 
 const createMediaQueryListMock = (matchingQuery: string) => (
   query: string

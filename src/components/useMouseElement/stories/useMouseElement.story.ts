@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/vue'
 import path from 'path'
-import StoryTitle from '../../../helpers/StoryTitle.vue'
+import StoryTitle from '@src/helpers/StoryTitle.vue'
 import UseMouseElementDemo from './UseMouseElementDemo.vue'
 
 const functionName = 'useMouseElement'

@@ -39,8 +39,8 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { computed } from '../../../api'
-import { getQuery, useMedia } from '../../../vue-use-kit'
+import { computed } from '@src/api'
+import { getQuery, useMedia } from '@src/vue-use-kit'
 
 // breakpoints
 const bp = { xxs: 0, xs: 320, s: 400, m: 768, ml: 992, l: 1100 }

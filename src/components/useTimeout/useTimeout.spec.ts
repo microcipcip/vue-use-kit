@@ -1,5 +1,5 @@
-import { mount } from '../../helpers/test'
-import { useTimeout } from '../../vue-use-kit'
+import { mount } from '@src/helpers/test'
+import { useTimeout } from '@src/vue-use-kit'
 
 beforeEach(() => {
   jest.useFakeTimers()

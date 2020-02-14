@@ -13,7 +13,7 @@ useTimeoutFn(
     isReady: Ref<boolean | null>;
     isIdle: Ref<boolean>;
     cancel: () => void;
-    reset: () => void;
+    start: () => void;
 }
 ```
 
@@ -31,7 +31,7 @@ useTimeoutFn(
   - `null` when the timer is cancelled
 - `isIdle: boolean` this value is `true` if the timer has ever been called, `false` otherwise
 - `cancel: Function` the function used to cancel the timer
-- `reset: Function` the function used for resetting the timer
+- `start: Function` the function used for starting or resetting the timer
 
 ## Usage
 
@@ -41,14 +41,14 @@ useTimeoutFn(
     <p>Timer status: {{ isReady ? 'Called!' : 'Pending...' }}</p>
     <p>Timeout Callback msg: {{ timerFnMsg }}</p>
 
-    <button @click="reset">Reset Timer</button>
+    <button @click="start">Reset Timer</button>
     <button @click="cancel">Cancel Timer</button>
   </div>
 </template>
 
 <script lang="ts">
   import Vue from 'vue'
-  import { ref } from '../../../api'
+  import { ref } from '@src/api'
   import { useTimeoutFn } from 'vue-use-kit'
 
   export default Vue.extend({
@@ -60,12 +60,12 @@ useTimeoutFn(
         timerFnMsg.value = 'Timer completed!'
       }
 
-      const { isReady, cancel, reset } = useTimeoutFn(
+      const { isReady, cancel, start } = useTimeoutFn(
         timerHandler,
         timerDuration
       )
 
-      return { timerFnMsg, isReady, cancel, reset }
+      return { timerFnMsg, isReady, cancel, start }
     }
   })
 </script>

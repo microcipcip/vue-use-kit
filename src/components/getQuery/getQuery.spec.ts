@@ -1,4 +1,4 @@
-import { getQuery } from '../../vue-use-kit'
+import { getQuery } from '@src/vue-use-kit'
 
 describe('getQuery', () => {
   it('should throw when no min or max value is provided', () => {

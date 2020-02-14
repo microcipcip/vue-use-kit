@@ -20,10 +20,10 @@
           </td>
         </tr>
         <tr>
-          <td>timeElapsed</td>
+          <td>elapsedTime</td>
           <td>Total time elapsed</td>
           <td>
-            <span>{{ timeElapsed }}ms</span>
+            <span>{{ elapsedTime }}ms</span>
           </td>
         </tr>
       </tbody>
@@ -32,7 +32,7 @@
       <div class="field">
         <label class="label">Frames per second (fps)</label>
         <div class="control">
-          <input class="input" type="number" min="1" max="121" v-model="fps" />
+          <input class="input" type="number" min="1" max="120" v-model="fps" />
         </div>
       </div>
       <div class="field">
@@ -56,19 +56,19 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { ref } from '../../../api'
-import { useRafFn } from '../../../vue-use-kit'
+import { ref } from '@src/api'
+import { useRafFn } from '@src/vue-use-kit'
 
 export default Vue.extend({
   name: 'UseRafFnDemo',
   setup() {
     const isInit = ref(false)
-    const timeElapsed = ref(0)
+    const elapsedTime = ref(0)
     const callbackCounter = ref(0)
     const fps = ref(60)
-    const animHandler = (t: number) => {
+    const animHandler = (elapsedTimeValue: number) => {
       callbackCounter.value = callbackCounter.value + 1
-      timeElapsed.value = Math.floor(t)
+      elapsedTime.value = Math.floor(elapsedTimeValue)
     }
 
     const init = () => {
@@ -84,7 +84,7 @@ export default Vue.extend({
       start,
       stop,
       callbackCounter,
-      timeElapsed,
+      elapsedTime,
       fps
     }
   }

@@ -24,7 +24,7 @@
     <div class="field">
       <label class="label">Frames per second (fps)</label>
       <div class="control">
-        <input class="input" type="number" min="1" max="121" v-model="fps" />
+        <input class="input" type="number" min="1" max="120" v-model="fps" />
       </div>
     </div>
   </div>
@@ -32,8 +32,8 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { ref, computed } from '../../../api'
-import { useRafFn } from '../../../vue-use-kit'
+import { ref, computed } from '@src/api'
+import { useRafFn } from '@src/vue-use-kit'
 
 const spriteOpts = {
   w: 175 * 2, // Enlarge sprite 2x

@@ -65,8 +65,8 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { ref, computed, onMounted, onUnmounted } from '../../../api'
-import { useMouseElement } from '../../../vue-use-kit'
+import { ref, computed, onMounted, onUnmounted } from '@src/api'
+import { useMouseElement } from '@src/vue-use-kit'
 
 const toInt = (n: number) => Math.round(n)
 

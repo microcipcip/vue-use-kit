@@ -25,8 +25,8 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { ref } from '../../../api'
-import { useClickAway } from '../../../vue-use-kit'
+import { ref } from '@src/api'
+import { useClickAway } from '@src/vue-use-kit'
 
 export default Vue.extend({
   name: 'UseClickAwayDemo',

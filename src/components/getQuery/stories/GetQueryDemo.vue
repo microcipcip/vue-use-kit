@@ -31,7 +31,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { getQuery } from '../../../vue-use-kit'
+import { getQuery } from '@src/vue-use-kit'
 
 export default Vue.extend({
   name: 'GetQuery',

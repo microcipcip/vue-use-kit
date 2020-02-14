@@ -30,7 +30,7 @@ useClickAway(
 
 <script lang="ts">
   import Vue from 'vue'
-  import { ref } from '../../../api'
+  import { ref } from '@src/api'
   import { useClickAway } from 'vue-use-kit'
 
   export default Vue.extend({

@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/vue'
 import path from 'path'
-import StoryTitle from '../../../helpers/StoryTitle.vue'
+import StoryTitle from '@src/helpers/StoryTitle.vue'
 import UseRafFnDemo from './UseRafFnDemo.vue'
 import UseRafFnAdvancedDemo from './UseRafFnAdvancedDemo.vue'
 

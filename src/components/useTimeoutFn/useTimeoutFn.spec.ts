@@ -1,6 +1,6 @@
-import { mount } from '../../helpers/test'
-import { ref } from '../../api'
-import { useTimeoutFn } from '../../vue-use-kit'
+import { mount } from '@src/helpers/test'
+import { ref } from '@src/api'
+import { useTimeoutFn } from '@src/vue-use-kit'
 
 beforeEach(() => {
   jest.useFakeTimers()
@@ -16,21 +16,21 @@ const testComponent = (onMount = true) => ({
       <div id="isIdle" v-if="isIdle"></div>
       <div id="isReady" v-if="isReady">
         <button id="cancel" @click="cancel"></button>
-        <button id="reset" @click="reset"></button>
+        <button id="start" @click="start"></button>
         <div id="isCallbackCalled" v-if="isCallbackCalled"></div>
       </div>
     </div>
   `,
   setup() {
     const isCallbackCalled = ref(false)
-    const { isReady, isIdle, cancel, reset } = useTimeoutFn(
+    const { isReady, isIdle, cancel, start } = useTimeoutFn(
       () => {
         isCallbackCalled.value = true
       },
       1000,
       onMount
     )
-    return { isReady, isIdle, cancel, reset, isCallbackCalled }
+    return { isReady, isIdle, cancel, start, isCallbackCalled }
   }
 })
 
@@ -41,15 +41,15 @@ describe('useTimeoutFn', () => {
     expect(setTimeout).toHaveBeenCalledTimes(1)
   })
 
-  it('should call setTimeout again when reset is called', async () => {
+  it('should call setTimeout again when start is called', async () => {
     expect(setTimeout).toHaveBeenCalledTimes(0)
     const wrapper = mount(testComponent())
     expect(setTimeout).toHaveBeenCalledTimes(1)
     jest.runAllTimers()
 
-    // Wait for Vue to append #reset in the DOM
+    // Wait for Vue to append #start in the DOM
     await wrapper.vm.$nextTick()
-    wrapper.find('#reset').trigger('click')
+    wrapper.find('#start').trigger('click')
     expect(setTimeout).toHaveBeenCalledTimes(2)
   })
 

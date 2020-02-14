@@ -19,7 +19,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-// import { useSampleComponent } from '../../../vue-use-kit'
+// import { useSampleComponent } from '@src/vue-use-kit'
 
 export default Vue.extend({
   name: 'UseSampleComponentDemo',

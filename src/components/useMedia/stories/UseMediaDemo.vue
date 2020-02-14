@@ -19,7 +19,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { useMedia } from '../../../vue-use-kit'
+import { useMedia } from '@src/vue-use-kit'
 
 const getMediaClass = (val: string) => (val ? 'query-valid' : 'query-invalid')
 

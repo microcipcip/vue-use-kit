@@ -25,7 +25,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { useMouse } from '../../../vue-use-kit'
+import { useMouse } from '@src/vue-use-kit'
 
 const toInt = (n: number) => Math.round(n)
 

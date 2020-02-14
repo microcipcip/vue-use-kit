@@ -1,6 +1,6 @@
-import { mount } from '../../helpers/test'
-import { ref } from '../../api'
-import { useClickAway } from '../../vue-use-kit'
+import { mount } from '@src/helpers/test'
+import { ref } from '@src/api'
+import { useClickAway } from '@src/vue-use-kit'
 
 const testComponent = () => ({
   template: `

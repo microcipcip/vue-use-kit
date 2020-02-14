@@ -1,5 +1,5 @@
-import { mount } from '../../helpers/test'
-import { useMouse } from '../../vue-use-kit'
+import { mount } from '@src/helpers/test'
+import { useMouse } from '@src/vue-use-kit'
 
 const testComponent = () => ({
   template: `

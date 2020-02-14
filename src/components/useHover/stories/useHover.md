@@ -28,7 +28,7 @@ useHover(elRef: Ref<null | Element>): Ref<boolean>
 
 <script lang="ts">
   import Vue from 'vue'
-  import { ref } from '../../../api'
+  import { ref } from '@src/api'
   import { useHover } from 'vue-use-kit'
 
   export default Vue.extend({

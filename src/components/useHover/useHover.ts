@@ -1,4 +1,4 @@
-import { ref, onMounted, onUnmounted, Ref } from '../../api'
+import { ref, onMounted, onUnmounted, Ref } from '@src/api'
 
 export function useHover(elRef: Ref<null | Element>) {
   const isHovered = ref(false)

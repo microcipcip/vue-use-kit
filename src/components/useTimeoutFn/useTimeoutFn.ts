@@ -1,4 +1,4 @@
-import { onMounted, onUnmounted, ref } from '../../api'
+import { onMounted, onUnmounted, ref } from '@src/api'
 
 export function useTimeoutFn(callback: Function, ms = 0, runOnMount = true) {
   const isReady = ref<boolean | null>(false)
@@ -28,5 +28,5 @@ export function useTimeoutFn(callback: Function, ms = 0, runOnMount = true) {
   onMounted(() => runOnMount && setTimer())
   onUnmounted(cancel)
 
-  return { isReady, isIdle, cancel, reset: setTimer }
+  return { isReady, isIdle, cancel, start: setTimer }
 }

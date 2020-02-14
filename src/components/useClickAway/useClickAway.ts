@@ -1,4 +1,4 @@
-import { onMounted, onUnmounted, Ref } from '../../api'
+import { onMounted, onUnmounted, Ref } from '@src/api'
 
 const defaultEvents = ['mousedown', 'touchstart']
 

@@ -23,7 +23,7 @@
         <td colspan="3">
           <button
             class="button is-primary"
-            @click="reset"
+            @click="start"
             v-text="btnResetMsg"
           />
           <button class="button is-danger" @click="cancel">
@@ -37,8 +37,8 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { ref, watch, computed } from '../../../api'
-import { useTimeoutFn } from '../../../vue-use-kit'
+import { ref, watch, computed } from '@src/api'
+import { useTimeoutFn } from '@src/vue-use-kit'
 
 export default Vue.extend({
   name: 'UseTimeoutFnDemo',
@@ -48,7 +48,7 @@ export default Vue.extend({
     const timerHandler = () => {
       timerCallbackMsg.value = 'Timer completed!'
     }
-    const { isReady, isIdle, cancel, reset } = useTimeoutFn(
+    const { isReady, isIdle, cancel, start } = useTimeoutFn(
       timerHandler,
       timerDuration,
       false
@@ -75,7 +75,7 @@ export default Vue.extend({
       btnResetMsg,
       timerStatus,
       cancel,
-      reset
+      start
     }
   }
 })

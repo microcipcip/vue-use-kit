@@ -1,4 +1,4 @@
-import { ref, onMounted, onUnmounted } from '../../api'
+import { ref, onMounted, onUnmounted } from '@src/api'
 
 export function useMedia(query: string, defaultState = false) {
   let mql: MediaQueryList

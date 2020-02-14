@@ -1,4 +1,4 @@
-import { ref, onMounted, onUnmounted } from '../../api'
+import { ref, onMounted, onUnmounted } from '@src/api'
 
 export function useMouse() {
   const docX = ref(0)
