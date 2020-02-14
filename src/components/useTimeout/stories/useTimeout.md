@@ -23,7 +23,7 @@ useTimeout(
 
 ### Returns
 
-- `isReady: Ref<boolean> | null` the timer status
+- `isReady: Ref<boolean | null>` the timer status
   - `false` when the timer is executing
   - `true` when the timer is completed
   - `null` when the timer is cancelled
