@@ -67,7 +67,10 @@
     "moduleFileExtensions": [
       "ts",
       "js"
-    ]
+    ],
+    "moduleNameMapper": {
+      "^@src/(.*)$": "<rootDir>/$1"
+    }
   },
   "prettier": {
     "semi": false,
