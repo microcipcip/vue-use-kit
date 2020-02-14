@@ -24,14 +24,14 @@ useMouseElement(elRef: Ref<null | Element>): {
 
 ### Returns
 
-- `docX: number` the mouse `x` position relative to the document
-- `docY: number` the mouse `y` position relative to the document
-- `elX: number` the mouse `x` position relative to the given element
-- `elY: number` the mouse `y` position relative to the given element
-- `elInfoX: number` the element `x` position
-- `elInfoY: number` the element `y` position
-- `elInfoW: number` the element `width` value
-- `elInfoH: number` the element `height` value
+- `docX: Ref<number>` the mouse `x` position relative to the document
+- `docY: Ref<number>` the mouse `y` position relative to the document
+- `elX: Ref<number>` the mouse `x` position relative to the given element
+- `elY: Ref<number>` the mouse `y` position relative to the given element
+- `elInfoX: Ref<number>` the element `x` position
+- `elInfoY: Ref<number>` the element `y` position
+- `elInfoW: Ref<number>` the element `width` value
+- `elInfoH: Ref<number>` the element `height` value
 
 ## Usage
 

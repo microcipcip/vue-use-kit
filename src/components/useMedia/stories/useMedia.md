@@ -18,7 +18,7 @@ useMedia(
 
 ### Returns
 
-- `isQueryMatching: boolean` whether the query matches or not
+- `isQueryMatching: Ref<boolean>` whether the query matches or not
 
 ## Usage
 

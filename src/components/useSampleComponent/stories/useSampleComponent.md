@@ -14,7 +14,7 @@ Vue function that...
 
 ### Returns
 
-- `value: string` lorem ipsa
+- `value: Ref<string>` lorem ipsa
 
 ## Usage
 

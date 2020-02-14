@@ -25,11 +25,11 @@ useTimeoutFn(
 
 ### Returns
 
-- `isReady: boolean | null` the timer status
+- `isReady: Ref<boolean> | null` the timer status
   - `false` when the timer is executing 
   - `true` when the timer is completed
   - `null` when the timer is cancelled
-- `isIdle: boolean` this value is `true` if the timer has ever been called, `false` otherwise
+- `isIdle: Ref<boolean>` this value is `true` if the timer has ever been called, `false` otherwise
 - `cancel: Function` the function used to cancel the timer
 - `start: Function` the function used for starting or resetting the timer
 

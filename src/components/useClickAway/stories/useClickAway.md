@@ -14,9 +14,9 @@ useClickAway(
 
 ### Parameters
 
-- `elRef: string` the element to check for click away events
-- `onClickAway: string` the callback to run when triggering a click away
-- `events: string` list of events to listen to, defaults to `['mousedown', 'touchstart']`
+- `elRef: Ref<null | Element>` the element to check for click away events
+- `onClickAway: Function` the callback to run when triggering a click away
+- `events: string[]` list of events to listen to, defaults to `['mousedown', 'touchstart']`
 
 ## Usage
 

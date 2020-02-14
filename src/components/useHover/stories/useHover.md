@@ -14,7 +14,7 @@ useHover(elRef: Ref<null | Element>): Ref<boolean>
 
 ### Returns
 
-- `isHovered: boolean` whether the element is currently hovered or not
+- `isHovered: Ref<boolean>` whether the element is currently hovered or not
 
 ## Usage
 

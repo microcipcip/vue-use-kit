@@ -13,8 +13,8 @@ useMouse(): {
 
 ### Returns
 
-- `docX: number` the mouse `x` position relative to the document
-- `docY: number` the mouse `y` position relative to the document
+- `docX: Ref<number>` the mouse `x` position relative to the document
+- `docY: Ref<number>` the mouse `y` position relative to the document
 
 ## Usage
 
