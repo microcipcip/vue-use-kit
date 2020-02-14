@@ -15,22 +15,22 @@ const testComponent = (onMount = true) => ({
     <div>
       <div id="isIdle" v-if="isIdle"></div>
       <div id="isReady" v-if="isReady">
-        <button id="cancelTimer" @click="cancelTimer"></button>
-        <button id="resetTimer" @click="resetTimer"></button>
+        <button id="cancel" @click="cancel"></button>
+        <button id="reset" @click="reset"></button>
         <div id="isCallbackCalled" v-if="isCallbackCalled"></div>
       </div>
     </div>
   `,
   setup() {
     const isCallbackCalled = ref(false)
-    const { isReady, isIdle, cancelTimer, resetTimer } = useTimeoutFn(
+    const { isReady, isIdle, cancel, reset } = useTimeoutFn(
       () => {
         isCallbackCalled.value = true
       },
       1000,
       onMount
     )
-    return { isReady, isIdle, cancelTimer, resetTimer, isCallbackCalled }
+    return { isReady, isIdle, cancel, reset, isCallbackCalled }
   }
 })
 
@@ -41,26 +41,26 @@ describe('useTimeoutFn', () => {
     expect(setTimeout).toHaveBeenCalledTimes(1)
   })
 
-  it('should call setTimeout again when resetTimer is called', async () => {
+  it('should call setTimeout again when reset is called', async () => {
     expect(setTimeout).toHaveBeenCalledTimes(0)
     const wrapper = mount(testComponent())
     expect(setTimeout).toHaveBeenCalledTimes(1)
     jest.runAllTimers()
 
-    // Wait for Vue to append #resetTimer in the DOM
+    // Wait for Vue to append #reset in the DOM
     await wrapper.vm.$nextTick()
-    wrapper.find('#resetTimer').trigger('click')
+    wrapper.find('#reset').trigger('click')
     expect(setTimeout).toHaveBeenCalledTimes(2)
   })
 
-  it('should hide all elements when cancelTimer is called', async () => {
+  it('should hide all elements when cancel is called', async () => {
     const wrapper = mount(testComponent())
     jest.runAllTimers()
 
     // Wait for Vue to append #isReady in the DOM
     await wrapper.vm.$nextTick()
     expect(wrapper.find('#isReady').exists()).toBe(true)
-    wrapper.find('#cancelTimer').trigger('click')
+    wrapper.find('#cancel').trigger('click')
     jest.runAllTimers()
 
     // Wait for Vue to remove #isReady from the DOM

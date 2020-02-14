@@ -5,7 +5,7 @@ export function useTimeoutFn(callback: Function, ms = 0, runOnMount = true) {
   const isIdle = ref(!runOnMount)
   let timeout: any = null
 
-  const cancelTimer = () => {
+  const cancel = () => {
     isReady.value = null
     if (timeout) {
       clearTimeout(timeout)
@@ -26,7 +26,7 @@ export function useTimeoutFn(callback: Function, ms = 0, runOnMount = true) {
   }
 
   onMounted(() => runOnMount && setTimer())
-  onUnmounted(cancelTimer)
+  onUnmounted(cancel)
 
-  return { isReady, isIdle, cancelTimer, resetTimer: setTimer }
+  return { isReady, isIdle, cancel, reset: setTimer }
 }

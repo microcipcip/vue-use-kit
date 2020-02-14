@@ -11,8 +11,8 @@ useTimeout(
 ): {
     isReady: Ref<boolean | null>;
     isIdle: Ref<boolean>;
-    cancelTimer: () => void;
-    resetTimer: () => void;
+    cancel: () => void;
+    reset: () => void;
 }
 ```
 
@@ -28,8 +28,8 @@ useTimeout(
   - `true` when the timer is completed
   - `null` when the timer is cancelled
 - `isIdle: boolean` this value is `true` if the timer has ever been called, `false` otherwise
-- `cancelTimer: Function` the function used to cancel the timer
-- `resetTimer: Function` the function used for resetting the timer
+- `cancel: Function` the function used to cancel the timer
+- `reset: Function` the function used for resetting the timer
 
 ## Usage
 
@@ -38,8 +38,8 @@ useTimeout(
   <div>
     <p>Timer status: {{ isReady ? 'Called!' : 'Pending...' }}</p>
 
-    <button @click="resetTimer">Reset Timer</button>
-    <button @click="cancelTimer">Cancel Timer</button>
+    <button @click="reset">Reset Timer</button>
+    <button @click="cancel">Cancel Timer</button>
   </div>
 </template>
 
@@ -51,8 +51,8 @@ useTimeout(
     name: 'UseTimeoutDemo',
     setup() {
       const timerDuration = 3000
-      const { isReady, cancelTimer, resetTimer } = useTimeout(timerDuration)
-      return { isReady, cancelTimer, resetTimer }
+      const { isReady, cancel, reset } = useTimeout(timerDuration)
+      return { isReady, cancel, reset }
     }
   })
 </script>

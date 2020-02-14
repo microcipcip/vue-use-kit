@@ -17,10 +17,10 @@
         <td colspan="3">
           <button
             class="button is-primary"
-            @click="resetTimer"
+            @click="reset"
             v-text="btnResetMsg"
           />
-          <button class="button is-danger" @click="cancelTimer">
+          <button class="button is-danger" @click="cancel">
             Cancel Timer
           </button>
         </td>
@@ -38,7 +38,7 @@ export default Vue.extend({
   name: 'UseTimeoutDemo',
   setup() {
     const timerDuration = 3000
-    const { isReady, isIdle, cancelTimer, resetTimer } = useTimeout(
+    const { isReady, isIdle, cancel, reset } = useTimeout(
       timerDuration,
       false
     )
@@ -54,7 +54,7 @@ export default Vue.extend({
       return 'Completed'
     })
 
-    return { btnResetMsg, timerStatus, cancelTimer, resetTimer }
+    return { btnResetMsg, timerStatus, cancel, reset }
   }
 })
 </script>

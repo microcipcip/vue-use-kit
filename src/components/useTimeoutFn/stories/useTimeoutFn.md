@@ -12,8 +12,8 @@ useTimeoutFn(
 ): {
     isReady: Ref<boolean | null>;
     isIdle: Ref<boolean>;
-    cancelTimer: () => void;
-    resetTimer: () => void;
+    cancel: () => void;
+    reset: () => void;
 }
 ```
 
@@ -30,8 +30,8 @@ useTimeoutFn(
   - `true` when the timer is completed
   - `null` when the timer is cancelled
 - `isIdle: boolean` this value is `true` if the timer has ever been called, `false` otherwise
-- `cancelTimer: Function` the function used to cancel the timer
-- `resetTimer: Function` the function used for resetting the timer
+- `cancel: Function` the function used to cancel the timer
+- `reset: Function` the function used for resetting the timer
 
 ## Usage
 
@@ -41,8 +41,8 @@ useTimeoutFn(
     <p>Timer status: {{ isReady ? 'Called!' : 'Pending...' }}</p>
     <p>Timeout Callback msg: {{ timerFnMsg }}</p>
 
-    <button @click="resetTimer">Reset Timer</button>
-    <button @click="cancelTimer">Cancel Timer</button>
+    <button @click="reset">Reset Timer</button>
+    <button @click="cancel">Cancel Timer</button>
   </div>
 </template>
 
@@ -60,12 +60,12 @@ useTimeoutFn(
         timerFnMsg.value = 'Timer completed!'
       }
 
-      const { isReady, cancelTimer, resetTimer } = useTimeoutFn(
+      const { isReady, cancel, reset } = useTimeoutFn(
         timerHandler,
         timerDuration
       )
 
-      return { timerFnMsg, isReady, cancelTimer, resetTimer }
+      return { timerFnMsg, isReady, cancel, reset }
     }
   })
 </script>
