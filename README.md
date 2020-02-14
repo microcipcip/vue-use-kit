@@ -26,9 +26,35 @@ Please note that Vue 3.0 has not been released yet, therefore the installation a
 npm install @vue/composition-api vue-use-kit
 ```
 
+## Setup
+
+```
+import Vue from 'vue';
+import VueCompositionAPI from '@vue/composition-api';
+Vue.use(VueCompositionAPI);
+```
+
 ## Usage
 
-Please check the [documentation](https://microcipcip.github.io/vue-use-kit/) to learn how to use this collection of Vue Composition API functions.
+```
+<template>
+  <div>isDesktop: {{ isDesktop ? 'Yes' : 'No' }}</div>
+</template>
+
+<script lang="ts">
+  import Vue from 'vue'
+  import { useMedia } from 'vue-use-kit'
+
+  export default Vue.extend({
+    name: 'UseMedia',
+    setup() {
+      const query = '(min-width: 1024px)'
+      const isDesktop = useMedia(query)
+      return { isDesktop }
+    }
+  })
+</script>
+```
 
 ## APIs
 
