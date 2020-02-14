@@ -58,7 +58,7 @@ useRaf(
     name: 'UseRafDemo',
     setup() {
       const fps = 60
-      const { elapsed, start, stop } = useRaf(animHandler, fps)
+      const { elapsed, start, stop } = useRaf(fps)
       return {
         elapsed
         start,
