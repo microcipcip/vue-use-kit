@@ -1,6 +1,7 @@
 export * from './components/getQuery'
 export * from './components/useClickAway'
 export * from './components/useIntervalFn'
+export * from './components/useInterval'
 export * from './components/useMedia'
 export * from './components/useMouse'
 export * from './components/useMouseElement'

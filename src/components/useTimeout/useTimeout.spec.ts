@@ -25,7 +25,7 @@ const testComponent = () => ({
 })
 
 describe('useTimeout', () => {
-  it('should display #isReady when the timers are called, but not #isIdle', async () => {
+  it('should show #isReady when the timers are called, but not #isIdle', async () => {
     const wrapper = mount(testComponent())
     jest.runAllTimers()
 

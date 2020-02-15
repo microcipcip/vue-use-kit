@@ -14,11 +14,10 @@ const testComponent = (onMount = true) => ({
   template: `
     <div>
       <div id="isIdle" v-if="isIdle"></div>
-      <div id="isReady" v-if="isReady">
-        <button id="stop" @click="stop"></button>
-        <button id="start" @click="start"></button>
-        <div id="isCallbackCalled" v-if="isCallbackCalled"></div>
-      </div>
+      <div id="isCallbackCalled" v-if="isCallbackCalled"></div>
+      <div id="isReady" v-if="isReady"></div>
+      <button id="stop" @click="stop"></button>
+      <button id="start" @click="start"></button>
     </div>
   `,
   setup() {
@@ -54,7 +53,17 @@ describe('useTimeoutFn', () => {
     expect(setTimeout).toHaveBeenCalledTimes(2)
   })
 
-  it('should hide all elements when stop is called', async () => {
+  it('should not show #isReady when onMount is false', async () => {
+    const wrapper = mount(testComponent(false))
+    jest.runAllTimers()
+
+    // Wait for Vue rerender
+    await wrapper.vm.$nextTick()
+    expect(wrapper.find('#isReady').exists()).toBe(false)
+    expect(wrapper.find('#isIdle').exists()).toBe(true)
+  })
+
+  it('should hide #isReady when stop is called', async () => {
     const wrapper = mount(testComponent())
     jest.runAllTimers()
 
@@ -69,22 +78,12 @@ describe('useTimeoutFn', () => {
     expect(wrapper.find('#isReady').exists()).toBe(false)
   })
 
-  it('should display #isReady when the timers are called', async () => {
+  it('should show #isReady when the timers are called', async () => {
     const wrapper = mount(testComponent())
     jest.runAllTimers()
 
     // Wait for Vue to append #isReady in the DOM
     await wrapper.vm.$nextTick()
     expect(wrapper.find('#isReady').exists()).toBe(true)
-  })
-
-  it('should not display #isReady when onMount is false', async () => {
-    const wrapper = mount(testComponent(false))
-    jest.runAllTimers()
-
-    // Wait for Vue rerender
-    await wrapper.vm.$nextTick()
-    expect(wrapper.find('#isReady').exists()).toBe(false)
-    expect(wrapper.find('#isIdle').exists()).toBe(true)
   })
 })

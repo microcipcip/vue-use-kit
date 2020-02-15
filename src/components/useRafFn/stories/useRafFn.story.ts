@@ -45,7 +45,7 @@ const advancedDemo = () => ({
             Muybridge's work <a href="https://en.wikipedia.org/wiki/The_Horse_in_Motion">Horse in motion</a>.  
           </p>        
           <p>
-            You can play with the animation with the play, pause, forward and backward buttons.
+            You can play with the animation with the 'play', 'pause' and 'invert direction' buttons.
             You can also change the 'fps' value to make the horse run faster/slower.
           </p>
         </template>

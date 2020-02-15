@@ -14,7 +14,7 @@
         </td>
       </tr>
       <tr>
-        <td colspan="3">
+        <td colspan="2">
           <button
             class="button is-primary"
             @click="start"
