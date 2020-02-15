@@ -1,4 +1,5 @@
 import { mount } from '@src/helpers/test'
+import { computed } from '@src/api'
 import { useTimeout } from '@src/vue-use-kit'
 
 beforeEach(() => {
@@ -17,13 +18,14 @@ const testComponent = () => ({
     </div>
   `,
   setup() {
-    const { isReady, isIdle } = useTimeout(1000)
+    const { isReady } = useTimeout(1000)
+    const isIdle = computed(() => isReady.value === null)
     return { isReady, isIdle }
   }
 })
 
 describe('useTimeout', () => {
-  it('should display #isReady when the timers are called, but not #isIdle', async () => {
+  it('should show #isReady when the timers are called, but not #isIdle', async () => {
     const wrapper = mount(testComponent())
     jest.runAllTimers()
 

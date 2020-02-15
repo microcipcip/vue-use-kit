@@ -70,6 +70,10 @@ Vue.use(VueCompositionAPI);
   - [`useMouseElement`](./src/components/useMouseElement/stories/useMouseElement.md) &mdash; tracks the mouse position relative to given element.
     [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/sensors-usemouseelement--demo)
 - Animations
+  - [`useInterval`](./src/components/useInterval/stories/useInterval.md) &mdash; updates the `counter` value repeatedly on a fixed time delay.
+    [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/animations-useinterval--demo)
+  - [`useIntervalFn`](./src/components/useIntervalFn/stories/useIntervalFn.md) &mdash; calls function repeatedly on a fixed time delay.
+    [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/animations-useintervalfn--demo)
   - [`useRaf`](./src/components/useRaf/stories/useRaf.md) &mdash; returns `elapsedTime` with requestAnimationFrame.
     [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/animations-useraf--demo)
   - [`useRafFn`](./src/components/useRafFn/stories/useRafFn.md) &mdash; calls function with requestAnimationFrame.

@@ -14,14 +14,14 @@
         </td>
       </tr>
       <tr>
-        <td colspan="3">
+        <td colspan="2">
           <button
             class="button is-primary"
             @click="start"
             v-text="btnResetMsg"
           />
-          <button class="button is-danger" @click="cancel">
-            Cancel Timer
+          <button class="button is-danger" @click="stop">
+            Stop Timer
           </button>
         </td>
       </tr>
@@ -38,23 +38,22 @@ export default Vue.extend({
   name: 'UseTimeoutDemo',
   setup() {
     const timerDuration = 3000
-    const { isReady, isIdle, cancel, start } = useTimeout(
+    const { isReady, start, stop } = useTimeout(
       timerDuration,
       false
     )
 
     const btnResetMsg = computed(() => {
-      return isIdle.value ? 'Start timer' : 'Reset Timer'
+      return isReady.value === null ? 'Start timer' : 'Reset Timer'
     })
 
     const timerStatus = computed(() => {
-      if (isIdle.value) return 'Idle'
       if (isReady.value === false) return 'Pending...'
-      if (isReady.value === null) return 'Cancelled'
+      if (isReady.value === null) return 'Idle'
       return 'Completed'
     })
 
-    return { btnResetMsg, timerStatus, cancel, start }
+    return { btnResetMsg, timerStatus, start, stop }
   }
 })
 </script>

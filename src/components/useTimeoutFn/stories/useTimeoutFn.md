@@ -1,6 +1,6 @@
 # useTimeoutFn
 
-Vue function that calls given callback function after a specified `ms` amount of time.
+Vue function that calls given callback after a specified `ms` amount of time.
 
 ## Reference
 
@@ -11,9 +11,8 @@ useTimeoutFn(
     runOnMount?: boolean
 ): {
     isReady: Ref<boolean | null>;
-    isIdle: Ref<boolean>;
-    cancel: () => void;
     start: () => void;
+    stop: () => void;
 }
 ```
 
@@ -28,10 +27,9 @@ useTimeoutFn(
 - `isReady: Ref<boolean | null>` the timer status
   - `false` when the timer is executing 
   - `true` when the timer is completed
-  - `null` when the timer is cancelled
-- `isIdle: Ref<boolean>` this value is `true` if the timer has ever been called, `false` otherwise
-- `cancel: Function` the function used to cancel the timer
+  - `null` when the timer is idle
 - `start: Function` the function used for starting or resetting the timer
+- `stop: Function` the function used to stop the timer
 
 ## Usage
 
@@ -42,7 +40,7 @@ useTimeoutFn(
     <p>Timeout Callback msg: {{ timerFnMsg }}</p>
 
     <button @click="start">Reset Timer</button>
-    <button @click="cancel">Cancel Timer</button>
+    <button @click="stop">Stop Timer</button>
   </div>
 </template>
 
@@ -60,12 +58,12 @@ useTimeoutFn(
         timerFnMsg.value = 'Timer completed!'
       }
 
-      const { isReady, cancel, start } = useTimeoutFn(
+      const { isReady, start, stop } = useTimeoutFn(
         timerHandler,
         timerDuration
       )
 
-      return { timerFnMsg, isReady, cancel, start }
+      return { timerFnMsg, isReady, start, stop }
     }
   })
 </script>
