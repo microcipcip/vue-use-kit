@@ -42,15 +42,12 @@ import Vue from 'vue'
 import { ref, computed } from '@src/api'
 import { useRaf } from '@src/vue-use-kit'
 
-const msToTime = (s: number) => {
-  const pad = (n: number, z = 2) => ('00' + n).slice(-z)
-  const ms = s % 1000
-  s = (s - ms) / 1000
-  const secs = s % 60
-  s = (s - secs) / 60
-  const mins = s % 60
-  const hrs = (s - mins) / 60
-  return `${pad(hrs)}:${pad(mins)}:${pad(secs)}.${pad(ms, 3)}`
+const pad = (n: number) => (n < 10 ? '0' + n : n)
+const msToTime = (duration: number) => {
+  const milliseconds = parseInt(`${(duration % 1000) / 10}`)
+  const seconds = Math.floor((duration / 1000) % 60)
+  const minutes = Math.floor((duration / (1000 * 60)) % 60)
+  return `${pad(minutes)}:${pad(seconds)}.${pad(milliseconds)}`
 }
 
 export default Vue.extend({

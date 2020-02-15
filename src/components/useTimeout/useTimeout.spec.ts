@@ -1,4 +1,5 @@
 import { mount } from '@src/helpers/test'
+import { computed } from '@src/api'
 import { useTimeout } from '@src/vue-use-kit'
 
 beforeEach(() => {
@@ -17,7 +18,8 @@ const testComponent = () => ({
     </div>
   `,
   setup() {
-    const { isReady, isIdle } = useTimeout(1000)
+    const { isReady } = useTimeout(1000)
+    const isIdle = computed(() => isReady.value === null)
     return { isReady, isIdle }
   }
 })

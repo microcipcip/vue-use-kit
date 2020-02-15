@@ -1,5 +1,5 @@
 import { mount } from '@src/helpers/test'
-import { ref } from '@src/api'
+import { ref, computed } from '@src/api'
 import { useTimeoutFn } from '@src/vue-use-kit'
 
 beforeEach(() => {
@@ -15,7 +15,7 @@ const testComponent = (onMount = true) => ({
     <div>
       <div id="isIdle" v-if="isIdle"></div>
       <div id="isReady" v-if="isReady">
-        <button id="cancel" @click="cancel"></button>
+        <button id="stop" @click="stop"></button>
         <button id="start" @click="start"></button>
         <div id="isCallbackCalled" v-if="isCallbackCalled"></div>
       </div>
@@ -23,14 +23,15 @@ const testComponent = (onMount = true) => ({
   `,
   setup() {
     const isCallbackCalled = ref(false)
-    const { isReady, isIdle, cancel, start } = useTimeoutFn(
+    const { isReady, start, stop } = useTimeoutFn(
       () => {
         isCallbackCalled.value = true
       },
       1000,
       onMount
     )
-    return { isReady, isIdle, cancel, start, isCallbackCalled }
+    const isIdle = computed(() => isReady.value === null)
+    return { isReady, isIdle, start, stop, isCallbackCalled }
   }
 })
 
@@ -53,14 +54,14 @@ describe('useTimeoutFn', () => {
     expect(setTimeout).toHaveBeenCalledTimes(2)
   })
 
-  it('should hide all elements when cancel is called', async () => {
+  it('should hide all elements when stop is called', async () => {
     const wrapper = mount(testComponent())
     jest.runAllTimers()
 
     // Wait for Vue to append #isReady in the DOM
     await wrapper.vm.$nextTick()
     expect(wrapper.find('#isReady').exists()).toBe(true)
-    wrapper.find('#cancel').trigger('click')
+    wrapper.find('#stop').trigger('click')
     jest.runAllTimers()
 
     // Wait for Vue to remove #isReady from the DOM

@@ -26,8 +26,8 @@
             @click="start"
             v-text="btnResetMsg"
           />
-          <button class="button is-danger" @click="cancel">
-            Cancel Timer
+          <button class="button is-danger" @click="stop">
+            Stop Timer
           </button>
         </td>
       </tr>
@@ -48,34 +48,33 @@ export default Vue.extend({
     const timerHandler = () => {
       timerCallbackMsg.value = 'Timer completed!'
     }
-    const { isReady, isIdle, cancel, start } = useTimeoutFn(
+    const { isReady, start, stop } = useTimeoutFn(
       timerHandler,
       timerDuration,
       false
     )
 
     const btnResetMsg = computed(() => {
-      return isIdle.value ? 'Start timer' : 'Reset Timer'
+      return isReady.value === null ? 'Start timer' : 'Reset Timer'
     })
 
     const timerStatus = computed(() => {
-      if (isIdle.value) return 'Idle'
       if (isReady.value === false) return 'Pending...'
-      if (isReady.value === null) return 'Cancelled'
+      if (isReady.value === null) return 'Idle'
       return 'Completed'
     })
 
     watch(isReady, newVal => {
       if (newVal === false) timerCallbackMsg.value = 'Timer not completed'
-      if (newVal === null) timerCallbackMsg.value = 'Timer cancelled!'
+      if (newVal === null) timerCallbackMsg.value = 'Timer stopped!'
     })
 
     return {
       timerCallbackMsg,
       btnResetMsg,
       timerStatus,
-      cancel,
-      start
+      start,
+      stop
     }
   }
 })
