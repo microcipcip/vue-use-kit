@@ -69,7 +69,7 @@ export default Vue.extend({
 })
 </script>
 
-<style>
+<style scoped>
 .form {
   max-width: 400px;
 }

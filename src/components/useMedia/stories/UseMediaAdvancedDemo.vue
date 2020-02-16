@@ -78,7 +78,7 @@ export default Vue.extend({
 })
 </script>
 
-<style>
+<style scoped>
 .query-valid {
   color: #fff;
   background: #209817;

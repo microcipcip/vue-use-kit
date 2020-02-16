@@ -61,6 +61,8 @@ Vue.use(VueCompositionAPI);
 - Sensors
   - [`useHover`](./src/components/useHover/stories/useHover.md) &mdash; tracks mouse hover state of a given element.
     [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/sensors-usehover--demo)
+   - [`useIntersection`](./src/components/useIntersection/stories/useIntersection.md) &mdash; tracks intersection of target element with an ancestor element.
+    [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/sensors-useintersection--demo)
   - [`useMedia`](./src/components/useMedia/stories/useMedia.md) &mdash; tracks state of a CSS media query.
     [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/sensors-usemedia--demo)
     [![Demo](https://img.shields.io/badge/advanced_demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/sensors-usemedia--advanced-demo)
@@ -70,7 +72,7 @@ Vue.use(VueCompositionAPI);
   - [`useMouseElement`](./src/components/useMouseElement/stories/useMouseElement.md) &mdash; tracks the mouse position relative to given element.
     [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/sensors-usemouseelement--demo)
 - Animations
-  - [`useInterval`](./src/components/useInterval/stories/useInterval.md) &mdash; updates the `counter` value repeatedly on a fixed time delay.
+  - [`useInterval`](./src/components/useInterval/stories/useInterval.md) &mdash; updates `counter` value repeatedly on a fixed time delay.
     [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/animations-useinterval--demo)
   - [`useIntervalFn`](./src/components/useIntervalFn/stories/useIntervalFn.md) &mdash; calls function repeatedly on a fixed time delay.
     [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/animations-useintervalfn--demo)

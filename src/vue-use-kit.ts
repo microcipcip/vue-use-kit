@@ -1,5 +1,6 @@
 export * from './components/getQuery'
 export * from './components/useClickAway'
+export * from './components/useIntersection'
 export * from './components/useIntervalFn'
 export * from './components/useInterval'
 export * from './components/useMedia'

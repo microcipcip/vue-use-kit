@@ -16,7 +16,7 @@ const basicDemo = () => ({
         <template v-slot:title></template>
         <template v-slot:intro>
           <p>
-            Try to resize the browser's window to see how the value below changes.
+            <strong>Try to resize the browser's window</strong> to see how the value below changes.
           </p>
         </template>
       </story-title>
@@ -32,7 +32,7 @@ const advancedDemo = () => ({
         <template v-slot:title>Advanced demo</template>
         <template v-slot:intro>
           <p>
-            Try to resize the browser's window to see how the values below change.
+            <strong>Try to resize the browser's window</strong> to see how the values below change.
           </p>
         </template>
       </story-title>

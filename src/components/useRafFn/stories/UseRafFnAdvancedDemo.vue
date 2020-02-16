@@ -73,7 +73,7 @@ export default Vue.extend({
 })
 </script>
 
-<style>
+<style scoped>
 .sprite {
   width: 175px;
   height: 130px;
@@ -84,7 +84,7 @@ export default Vue.extend({
   .sprite {
     transform-origin: 0% 0%;
     transform: scale(2);
-    margin-bottom: 175px;
+    margin-bottom: 135px;
   }
 }
 </style>

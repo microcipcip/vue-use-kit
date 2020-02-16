@@ -67,6 +67,14 @@ export default Vue.extend({
   font-size: 12px;
 }
 
+.story-intro *:last-child {
+  margin-bottom: 0;
+}
+
+.story-intro p {
+  margin-bottom: 10px;
+}
+
 .story-intro a {
   text-decoration: underline;
 }

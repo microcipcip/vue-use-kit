@@ -83,7 +83,7 @@ export default Vue.extend({
 })
 </script>
 
-<style>
+<style scoped>
 .emoji {
   font-size: 40px;
 }
