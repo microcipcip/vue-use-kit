@@ -9,9 +9,7 @@
     <tbody>
       <tr>
         <td>timerStatus</td>
-        <td>
-          <span>{{ timerStatus }}</span>
-        </td>
+        <td>{{ timerStatus }}</td>
       </tr>
       <tr>
         <td colspan="2">

@@ -35,7 +35,7 @@ export default Vue.extend({
       target.classList.toggle('-is-active', isVisible)
     }
 
-    const handleIntersectionPaused = (target: Element, isPaused: boolean) => {
+    const handleIntersectionPaused = (target: HTMLElement, isPaused: boolean) => {
       target.classList.toggle('-is-paused', isPaused)
     }
 

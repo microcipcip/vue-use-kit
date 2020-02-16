@@ -9,9 +9,7 @@
     <tbody>
       <tr>
         <td>counter</td>
-        <td>
-          <span>{{ counter }}</span>
-        </td>
+        <td>{{ counter }}</td>
       </tr>
       <tr>
         <td colspan="2">

@@ -4,7 +4,7 @@ const errorMsg =
   'IntersectionObserver is not supported, please install a polyfill'
 
 export function useIntersection(
-  elRef: Ref<null | Element>,
+  elRef: Ref<null | HTMLElement>,
   options: IntersectionObserverInit = {},
   runOnMount = true
 ) {

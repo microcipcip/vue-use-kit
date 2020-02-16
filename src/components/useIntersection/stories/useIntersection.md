@@ -8,7 +8,7 @@ It is based on the [Intersection Observer API](https://developer.mozilla.org/en-
 
 ```typescript
 useIntersection(
-    elRef: Ref<null | Element>,
+    elRef: Ref<null | HTMLElement>,
     options?: IntersectionObserverInit,
     runOnMount?: boolean
 ): {
@@ -20,7 +20,7 @@ useIntersection(
 
 ### Parameters
 
-- `elRef: Ref<null | Element>` the element to observe
+- `elRef: Ref<null | HTMLElement>` the element to observe
 - `options: IntersectionObserverInit` the [IntersectionObserver options](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver#Properties)
 - `runOnMount: boolean` whether to observe the element on mount, `true` by default
 

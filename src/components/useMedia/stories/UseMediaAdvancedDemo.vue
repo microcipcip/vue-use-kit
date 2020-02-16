@@ -29,9 +29,7 @@
       </tr>
       <tr>
         <td>orientation</td>
-        <td>
-          <span>{{ orientation }}</span>
-        </td>
+        <td>{{ orientation }}</td>
       </tr>
     </tbody>
   </table>

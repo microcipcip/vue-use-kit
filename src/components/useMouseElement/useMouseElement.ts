@@ -1,6 +1,6 @@
 import { ref, onMounted, onUnmounted, Ref } from '@src/api'
 
-export function useMouseElement(elRef: Ref<null | Element>) {
+export function useMouseElement(elRef: Ref<null | HTMLElement>) {
   const docX = ref(0)
   const docY = ref(0)
   const elX = ref(0)

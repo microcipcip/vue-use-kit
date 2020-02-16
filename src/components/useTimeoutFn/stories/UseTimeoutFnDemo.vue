@@ -9,18 +9,14 @@
     <tbody>
       <tr>
         <td>timerStatus</td>
-        <td>
-          <span>{{ timerStatus }}</span>
-        </td>
+        <td>{{ timerStatus }}</td>
       </tr>
       <tr>
         <td>timerCallbackMsg</td>
-        <td>
-          <span>{{ timerCallbackMsg }}</span>
-        </td>
+        <td>{{ timerCallbackMsg }}</td>
       </tr>
       <tr>
-        <td colspan="3">
+        <td colspan="2">
           <button
             class="button is-primary"
             @click="start"

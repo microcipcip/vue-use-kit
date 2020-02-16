@@ -9,9 +9,7 @@
     <tbody>
       <tr>
         <td>Sample</td>
-        <td>
-          <span>{{ sample }}</span>
-        </td>
+        <td>{{ sample }}</td>
       </tr>
     </tbody>
   </table>

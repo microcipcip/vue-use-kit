@@ -12,12 +12,8 @@
       <tr>
         <td>docX, docY</td>
         <td>Mouse position <strong>relative to document</strong></td>
-        <td>
-          <span>{{ toInt(docX) }}px</span>
-        </td>
-        <td>
-          <span>{{ toInt(docY) }}px</span>
-        </td>
+        <td>{{ toInt(docX) }}px</td>
+        <td>{{ toInt(docY) }}px</td>
       </tr>
     </tbody>
   </table>
