@@ -32,18 +32,12 @@ useIntersection(
 
 ## Usage
 
+First we have to define the intersection component, named `UseIntersectionElDemo.vue`.
+
 ```html
 <template>
-  <div>
-    <div class="el-wrap">
-      <div ref="el1Ref" :class="el1Class" class="el"></div>
-    </div>
-    <div class="el-wrap">
-      <div ref="el2Ref" :class="el2Class" class="el"></div>
-    </div>
-    <div class="el-wrap">
-      <div ref="el3Ref" :class="el3Class" class="el"></div>
-    </div>
+  <div ref="elRef" class="el" :class="elClass">
+    <slot></slot>
   </div>
 </template>
 
@@ -53,7 +47,7 @@ useIntersection(
   import { useIntersection } from 'vue-use-kit'
 
   export default Vue.extend({
-    name: 'UseIntersectionDemo',
+    name: 'UseIntersectionElDemo',
     setup() {
       const options = {
         root: null,
@@ -61,42 +55,52 @@ useIntersection(
         threshold: 1.0
       }
 
-      const watchClass = (className, observedEntry, isEnabled) => {
-        if (!isEnabled) return
+      const elRef = ref(null)
+      const elClass = ref('')
+      const { observedEntry } = useIntersection(elRef, options)
+      watch(() => {
+        if (!observedEntry.value) return
         const isVisible = observedEntry.value.intersectionRatio === 1
-        className.value = isVisible ? '-is-visible' : ''
-      }
-
-      const el1Ref = ref(null)
-      const el1Class = ref('')
-      const { observedEntry: el1Ob } = useIntersection(el1Ref, options)
-      watch(() => watchClass(el1Class, el1Ob, el1Ob.value))
-
-      const el2Ref = ref(null)
-      const el2Class = ref('')
-      const { observedEntry: el2Ob } = useIntersection(el2Ref, options)
-      watch(() => watchClass(el2Class, el2Ob, el2Ob.value))
-
-      const el3Ref = ref(null)
-      const el3Class = ref('')
-      const { observedEntry: el3Ob } = useIntersection(el3Ref, options)
-      watch(() => watchClass(el3Class, el3Ob, el3Ob.value))
+        elClass.value = isVisible ? '-is-visible' : ''
+      })
 
       return {
-        el1Ref,
-        el1Class,
-        el2Ref,
-        el2Class,
-        el3Ref,
-        el3Class
+        elRef,
+        elClass
       }
+    }
+  })
+</script>
+```
+
+Then we can call it in a loop in the parent component `UseIntersectionDemo.vue`.
+
+```html
+<template>
+  <div>
+    <div class="el-wrap" v-for="n in tot">
+      <use-intersection-el-demo />
+    </div>
+  </div>
+</template>
+
+<script lang="ts">
+  import Vue from 'vue'
+  import UseIntersectionElDemo from './UseIntersectionElDemo.vue'
+
+  export default Vue.extend({
+    name: 'UseIntersectionDemo',
+    components: { UseIntersectionElDemo },
+    setup() {
+      const tot = new Array(100)
+      return { tot }
     }
   })
 </script>
 
 <style>
   .el-wrap {
-    margin: 500px 0;
+    margin: 200px 0;
   }
 
   .el {
