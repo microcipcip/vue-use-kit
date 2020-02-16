@@ -6,7 +6,7 @@ Vue function that triggers a callback when the user clicks outside of the target
 
 ```typescript
 useClickAway(
-  elRef: Ref<null | Element>,
+  elRef: Ref<null | HTMLElement>,
   callback: (e: Event) => void,
   events?: string[]
 ): void;
@@ -14,7 +14,7 @@ useClickAway(
 
 ### Parameters
 
-- `elRef: Ref<null | Element>` the element to check for click away events
+- `elRef: Ref<null | HTMLElement>` the element to check for click away events
 - `callback: Function` the callback to run when triggering a click away
 - `events: string[]` list of events to listen to, defaults to `['mousedown', 'touchstart']`
 

@@ -89,6 +89,8 @@ Vue.use(VueCompositionAPI);
 - UI
   - [`useClickAway`](./src/components/useClickAway/stories/useClickAway.md) &mdash; triggers callback when user clicks outside target area.
     [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/ui-useclickaway--demo)
+  - [`useFullscreen`](./src/components/useFullscreen/stories/useFullscreen.md) &mdash; display an element in full-screen mode
+    [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/ui-usefullscreen--demo)
 - Utils
   - [`getQuery`](./src/components/getQuery/stories/getQuery.md) &mdash; get a CSS media query string.
     [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/utils-getquery--demo)

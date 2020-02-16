@@ -3,7 +3,7 @@ import { onMounted, onUnmounted, Ref } from '@src/api'
 const defaultEvents = ['mousedown', 'touchstart']
 
 export function useClickAway(
-  elRef: Ref<null | Element>,
+  elRef: Ref<null | HTMLElement>,
   callback: (e: Event) => void,
   events = defaultEvents
 ) {

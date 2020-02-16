@@ -23,7 +23,7 @@ const getAlternateVideoUrl = (n: number) => {
   return `demo/video${videoNumber}.mp4`
 }
 
-const setVideoPausedValue = ($el: Element, val: string) =>
+const setVideoPausedValue = ($el: HTMLElement, val: string) =>
   $el.setAttribute('data-is-paused', val)
 
 const divElements = new Array(10)

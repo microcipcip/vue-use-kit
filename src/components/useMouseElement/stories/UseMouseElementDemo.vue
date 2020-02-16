@@ -17,46 +17,30 @@
         <tr>
           <td>docX, docY</td>
           <td>Mouse position relative to <strong>document</strong></td>
-          <td>
-            <span>{{ toInt(docX) }}px</span>
-          </td>
-          <td>
-            <span>{{ toInt(docY) }}px</span>
-          </td>
+          <td>{{ toInt(docX) }}px</td>
+          <td>{{ toInt(docY) }}px</td>
         </tr>
         <tr>
           <td>elX, elY</td>
           <td>Mouse position <strong>relative to emoji element</strong></td>
-          <td>
-            <span>{{ toInt(elX) }}px</span>
-          </td>
-          <td>
-            <span>{{ toInt(elY) }}px</span>
-          </td>
+          <td>{{ toInt(elX) }}px</td>
+          <td>{{ toInt(elY) }}px</td>
         </tr>
         <tr>
           <td>elInfoX, elInfoY</td>
           <td>
             Emoji element position <strong>relative to the document</strong>
           </td>
-          <td>
-            <span>{{ toInt(elInfoX) }}px</span>
-          </td>
-          <td>
-            <span>{{ toInt(elInfoY) }}px</span>
-          </td>
+          <td>{{ toInt(elInfoX) }}px</td>
+          <td>{{ toInt(elInfoY) }}px</td>
         </tr>
         <tr>
           <td>elInfoW, elInfoH</td>
           <td>
             Emoji element width and height
           </td>
-          <td>
-            <span>{{ toInt(elInfoW) }}px</span>
-          </td>
-          <td>
-            <span>{{ toInt(elInfoH) }}px</span>
-          </td>
+          <td>{{ toInt(elInfoW) }}px</td>
+          <td>{{ toInt(elInfoH) }}px</td>
         </tr>
       </tbody>
     </table>

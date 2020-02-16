@@ -15,16 +15,12 @@
             Counter showing how many times the callback was called within the
             Raf loop
           </td>
-          <td>
-            <span>{{ callbackCounter }}</span>
-          </td>
+          <td>{{ callbackCounter }}</td>
         </tr>
         <tr>
           <td>elapsedTime</td>
           <td>Total time elapsed</td>
-          <td>
-            <span>{{ elapsedTime }}ms</span>
-          </td>
+          <td>{{ elapsedTime }}ms</td>
         </tr>
       </tbody>
     </table>

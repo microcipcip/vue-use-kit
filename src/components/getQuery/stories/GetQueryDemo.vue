@@ -9,21 +9,15 @@
     <tbody>
       <tr>
         <td>getQuery(0, 300)</td>
-        <td>
-          <span>{{ mobileQuery }}</span>
-        </td>
+        <td>{{ mobileQuery }}</td>
       </tr>
       <tr>
         <td>getQuery(300, 1024)</td>
-        <td>
-          <span>{{ tabletQuery }}</span>
-        </td>
+        <td>{{ tabletQuery }}</td>
       </tr>
       <tr>
         <td>getQuery(1024)</td>
-        <td>
-          <span>{{ desktopQuery }}</span>
-        </td>
+        <td>{{ desktopQuery }}</td>
       </tr>
     </tbody>
   </table>

@@ -1,5 +1,5 @@
 import { ref } from '@src/api'
-import { useIntervalFn } from '@src/vue-use-kit'
+import { useIntervalFn } from '@src/components/useIntervalFn'
 
 export function useInterval(ms = 0, runOnMount = true) {
   const counter = ref(0)

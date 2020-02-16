@@ -12,9 +12,7 @@
         <tr>
           <td>clock</td>
           <td>Elapsed time (formatted)</td>
-          <td>
-            <span>{{ clock }}</span>
-          </td>
+          <td>{{ clock }}</td>
         </tr>
       </tbody>
     </table>

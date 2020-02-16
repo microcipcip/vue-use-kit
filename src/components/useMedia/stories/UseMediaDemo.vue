@@ -9,9 +9,7 @@
     <tbody>
       <tr>
         <td>isDesktop</td>
-        <td :class="getMediaClass(isDesktop)">
-          <span>{{ isDesktop }}</span>
-        </td>
+        <td :class="getMediaClass(isDesktop)">{{ isDesktop }}</td>
       </tr>
     </tbody>
   </table>

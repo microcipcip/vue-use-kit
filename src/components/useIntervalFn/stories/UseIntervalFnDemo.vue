@@ -9,12 +9,10 @@
     <tbody>
       <tr>
         <td>callbackCounter</td>
-        <td>
-          <span>{{ callbackCounter }}</span>
-        </td>
+        <td>{{ callbackCounter }}</td>
       </tr>
       <tr>
-        <td colspan="3">
+        <td colspan="2">
           <button class="button is-primary" @click="start" v-if="!isRunning">
             Resume Interval
           </button>

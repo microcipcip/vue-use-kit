@@ -19,8 +19,8 @@ beforeEach(() => {
 const testComponent = (onMount = true) => ({
   template: `
     <div ref="elRef">
-      <button id="stop" @click="stop"></button>
       <button id="start" @click="start"></button>
+      <button id="stop" @click="stop"></button>
     </div>
   `,
   setup() {
