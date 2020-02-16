@@ -20,7 +20,7 @@ import UseIntersectionElementDemo from './UseIntersectionElementDemo.vue'
 
 const getAlternateVideoUrl = (n: number) => {
   const videoNumber = n % 2 === 0 ? 1 : 2
-  return `/demo/video${videoNumber}.mp4`
+  return `demo/video${videoNumber}.mp4`
 }
 
 const setVideoPausedValue = ($el: Element, val: string) =>
