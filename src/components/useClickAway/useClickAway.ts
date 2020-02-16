@@ -4,12 +4,12 @@ const defaultEvents = ['mousedown', 'touchstart']
 
 export function useClickAway(
   elRef: Ref<null | Element>,
-  onClickAway: (e: Event) => void,
+  callback: (e: Event) => void,
   events = defaultEvents
 ) {
   const handler = (e: Event) => {
     if (elRef.value && !elRef.value.contains(e.target as Node)) {
-      onClickAway(e)
+      callback(e)
     }
   }
 

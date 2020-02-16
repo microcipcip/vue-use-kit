@@ -1,6 +1,22 @@
 <template>
   <div ref="elRef">
     <slot></slot>
+    <button
+      class="button is-primary"
+      @click="handleObserverState"
+      v-if="!isObserving"
+      title="Start observing"
+    >
+      <span class="icon"><i class="fas fa-play"></i></span>
+    </button>
+    <button
+      class="button is-warning"
+      @click="handleObserverState"
+      v-else
+      title="Stop observing"
+    >
+      <span class="icon"><i class="fas fa-pause"></i></span>
+    </button>
   </div>
 </template>
 
@@ -21,16 +37,32 @@ export default Vue.extend({
   },
   setup({ options }, { emit }) {
     const elRef = ref(null)
-    const { observedEntry } = useIntersection(
+
+    const { observedEntry, start, stop } = useIntersection(
       elRef,
       options as IntersectionObserverInit
     )
+
     watch(() => {
       if (!observedEntry.value) return
       emit('change', observedEntry.value)
     })
 
-    return { elRef }
+    let isObserving = ref(true)
+    const handleObserverState = () => {
+      if (!observedEntry.value) return
+      if (isObserving.value) {
+        stop()
+        emit('paused', observedEntry.value.target, true)
+        isObserving.value = false
+      } else {
+        start()
+        emit('paused', observedEntry.value.target, false)
+        isObserving.value = true
+      }
+    }
+
+    return { handleObserverState, isObserving, elRef }
   }
 })
 </script>

@@ -22,7 +22,7 @@ export default Vue.extend({
 })
 </script>
 
-<style>
+<style scoped>
 .use-hover {
   cursor: default;
   display: flex;

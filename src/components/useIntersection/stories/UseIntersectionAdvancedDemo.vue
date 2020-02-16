@@ -1,14 +1,13 @@
 <template>
   <div class="section">
-    <div class="intersection-adv" v-for="el in divElements">
+    <div class="intersection" v-for="(item, index) in divElements">
       <use-intersection-element-demo
-        class="intersection-adv__el"
+        class="intersection__el"
         :options="intersectionOpts"
         @change="handleIntersectionChange"
       >
         <video controls loop>
-          <source src=http://techslides.com/demos/sample-videos/small.mp4
-          type=video/mp4>
+          <source :src="getAlternateVideoUrl(index)" type="video/mp4" />
         </video>
       </use-intersection-element-demo>
     </div>
@@ -19,6 +18,16 @@
 import Vue from 'vue'
 import UseIntersectionElementDemo from './UseIntersectionElementDemo.vue'
 
+const getAlternateVideoUrl = (n: number) => {
+  const videoNumber = n % 2 === 0 ? 1 : 2
+  return `/demo/video${videoNumber}.mp4`
+}
+
+const setVideoPausedValue = ($el: Element, val: string) =>
+  $el.setAttribute('data-is-paused', val)
+
+const divElements = new Array(10)
+
 export default Vue.extend({
   name: 'UseIntersectionDemo',
   components: { UseIntersectionElementDemo },
@@ -28,8 +37,6 @@ export default Vue.extend({
       threshold: 1
     }
 
-    const divElements = new Array(100)
-
     const handleIntersectionChange = ({
       target,
       intersectionRatio
@@ -38,32 +45,43 @@ export default Vue.extend({
       const $video = target.querySelector('video')
       if (!$video) return
 
+      // Video pause logic
       if (!isVisible) {
-        if (!$video.paused) $video.pause()
-      } else {
-        if ($video.paused) $video.play()
+        if ($video.paused) return
+        $video.pause()
+        setVideoPausedValue($video, '1')
+      }
+
+      // Video play logic
+      if (isVisible && $video.dataset.isPaused === '1'){
+        $video.play()
+        setVideoPausedValue($video, '0')
       }
     }
 
-    return { divElements, intersectionOpts, handleIntersectionChange }
+    return {
+      divElements,
+      intersectionOpts,
+      getAlternateVideoUrl,
+      handleIntersectionChange
+    }
   }
 })
 </script>
 
-<style>
+<style scoped>
 .section {
   padding: 20px 0;
 }
 
-.intersection-adv {
+.intersection {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   height: 920px;
 }
 
-/* El */
-.intersection-adv__el {
+.intersection__el {
   position: relative;
 }
 </style>

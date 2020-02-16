@@ -5,6 +5,7 @@
         class="intersection__el"
         :options="intersectionOpts"
         @change="handleIntersectionChange"
+        @paused="handleIntersectionPaused"
       />
     </div>
   </div>
@@ -34,12 +35,21 @@ export default Vue.extend({
       target.classList.toggle('-is-active', isVisible)
     }
 
-    return { divElements, intersectionOpts, handleIntersectionChange }
+    const handleIntersectionPaused = (target: Element, isPaused: boolean) => {
+      target.classList.toggle('-is-paused', isPaused)
+    }
+
+    return {
+      divElements,
+      intersectionOpts,
+      handleIntersectionChange,
+      handleIntersectionPaused
+    }
   }
 })
 </script>
 
-<style>
+<style scoped>
 .section {
   padding: 20px 0;
 }
@@ -58,29 +68,41 @@ export default Vue.extend({
   height: 80px;
 }
 
+/* Action buttons */
+/deep/ .intersection__el .button {
+  position: absolute;
+  top: 50%;
+  left: 130px;
+  transform: translateY(-50%);
+}
+
 /* Circle */
 .intersection__el:after {
-  content: 'OFF';
+  content: 'Not intersecting';
   display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 40px;
+  width: 100px;
   height: 40px;
-  border-radius: 50%;
+  border-radius: 8px;
   background: red;
   color: white;
-  text-transform: uppercase;
   font-size: 12px;
   transition: all 0.7s ease-in-out;
   transform: translate(-50%, -50%) scale(1);
 }
 
 .intersection__el.-is-active:after {
-  content: 'ON';
+  content: 'Intersecting';
   background: green;
   transform: translate(-50%, -50%) scale(1.4);
+}
+
+.intersection__el.-is-paused:after {
+  content: 'Disabled';
+  background: orange;
 }
 </style>
