@@ -4,7 +4,7 @@
       <use-intersection-element-demo
         class="intersection__el"
         :options="intersectionOpts"
-        @change="handleIntersectionChange"
+        @changed="handleIntersectionChange"
       >
         <video controls loop>
           <source :src="getAlternateVideoUrl(index)" type="video/mp4" />

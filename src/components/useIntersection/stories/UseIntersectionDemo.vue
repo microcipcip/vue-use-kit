@@ -4,7 +4,7 @@
       <use-intersection-element-demo
         class="intersection__el"
         :options="intersectionOpts"
-        @change="handleIntersectionChange"
+        @changed="handleIntersectionChange"
         @paused="handleIntersectionPaused"
       />
     </div>

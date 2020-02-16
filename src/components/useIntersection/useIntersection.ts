@@ -20,6 +20,7 @@ export function useIntersection(
     if (!('IntersectionObserver' in window)) throw new Error(errorMsg)
 
     // Do not start if the observer is already initialized
+    // or the elRef does not exist
     if (observer || !elRef.value) return
     observer = new IntersectionObserver(handleObserver, options)
     observer.observe(elRef.value)

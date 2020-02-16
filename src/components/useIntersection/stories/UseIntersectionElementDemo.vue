@@ -3,7 +3,7 @@
     <slot></slot>
     <button
       class="button is-primary"
-      @click="handleObserverState"
+      @click="handleStart"
       v-if="!isObserving"
       title="Start observing"
     >
@@ -11,7 +11,7 @@
     </button>
     <button
       class="button is-warning"
-      @click="handleObserverState"
+      @click="handleStop"
       v-else
       title="Stop observing"
     >
@@ -45,24 +45,25 @@ export default Vue.extend({
 
     watch(() => {
       if (!observedEntry.value) return
-      emit('change', observedEntry.value)
+      emit('changed', observedEntry.value)
     })
 
     let isObserving = ref(true)
-    const handleObserverState = () => {
+    const handleStart = () => {
       if (!observedEntry.value) return
-      if (isObserving.value) {
-        stop()
-        emit('paused', observedEntry.value.target, true)
-        isObserving.value = false
-      } else {
-        start()
-        emit('paused', observedEntry.value.target, false)
-        isObserving.value = true
-      }
+      start()
+      emit('paused', observedEntry.value.target, false)
+      isObserving.value = true
     }
 
-    return { handleObserverState, isObserving, elRef }
+    const handleStop = () => {
+      if (!observedEntry.value) return
+      stop()
+      emit('paused', observedEntry.value.target, true)
+      isObserving.value = false
+    }
+
+    return { handleStart, handleStop, isObserving, elRef }
   }
 })
 </script>
