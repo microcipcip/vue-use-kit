@@ -3,6 +3,7 @@ export * from './components/getQuery'
 export * from './components/useClickAway'
 export * from './components/useFullscreen'
 
+export * from './components/useGeolocation'
 export * from './components/useHover'
 export * from './components/useIntersection'
 export * from './components/useMedia'
