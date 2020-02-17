@@ -5,7 +5,7 @@ Vue function used for displaying an element in fullscreen mode.
 ## Reference
 
 ```typescript
-useFullscreen(
+function useFullscreen(
     elRef: Ref<null | HTMLElement>
 ): {
     isFullscreen: Ref<boolean>;

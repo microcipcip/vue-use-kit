@@ -5,7 +5,7 @@ Vue function that...
 ## Reference
 
 ```typescript
-// useSampleComponent()
+// function useSampleComponent()
 ```
 
 ### Parameters

@@ -5,7 +5,7 @@ Vue function that tracks mouse hover state of a given element.
 ## Reference
 
 ```typescript
-useHover(elRef: Ref<null | HTMLElement>): Ref<boolean>
+function useHover(elRef: Ref<null | HTMLElement>): Ref<boolean>
 ```
 
 ### Parameters

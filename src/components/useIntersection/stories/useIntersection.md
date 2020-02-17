@@ -7,7 +7,7 @@ It is based on the [Intersection Observer API](https://developer.mozilla.org/en-
 ## Reference
 
 ```typescript
-useIntersection(
+function useIntersection(
     elRef: Ref<null | HTMLElement>,
     options?: IntersectionObserverInit,
     runOnMount?: boolean

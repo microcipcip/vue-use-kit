@@ -5,7 +5,7 @@ Vue function that tracks the state of a CSS media query.
 ## Reference
 
 ```typescript
-useMedia(
+function useMedia(
     query: string,
     defaultState?: boolean
 ): Ref<boolean>

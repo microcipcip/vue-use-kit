@@ -5,7 +5,7 @@ Vue function that tracks whether user is being inactive.
 ## Reference
 
 ```typescript
-useIdle(
+function useIdle(
     ms?: number,
     events?: string[],
     runOnMount?: boolean

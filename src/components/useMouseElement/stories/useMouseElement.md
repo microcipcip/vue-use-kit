@@ -6,7 +6,7 @@ and optionally tracks the mouse position relative to a given element.
 ## Reference
 
 ```typescript
-useMouseElement(elRef: Ref<null | HTMLElement>): {
+function useMouseElement(elRef: Ref<null | HTMLElement>): {
     docX: Ref<number>;
     docY: Ref<number>;
     elX: Ref<number>;

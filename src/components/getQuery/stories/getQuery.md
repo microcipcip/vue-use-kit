@@ -5,7 +5,7 @@ getQuery is an utility function that helps you build a min max media query.
 ## Reference
 
 ```typescript
-getQuery(
+function getQuery(
     min?: number, 
     max?: number
 ): string

@@ -5,7 +5,7 @@ Vue function that updates the `counter` value repeatedly on a fixed time delay.
 ## Reference
 
 ```typescript
-useInterval(
+function useInterval(
     ms?: number,
     runOnMount?: boolean
 ): {

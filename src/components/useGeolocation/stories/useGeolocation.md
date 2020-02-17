@@ -20,7 +20,7 @@ interface UseGeolocation {
 ```
 
 ```typescript
-useGeolocation(
+function useGeolocation(
     options?: PositionOptions,
     runOnMount?: boolean
 ): {

@@ -5,7 +5,7 @@ Vue function that calls given callback after a specified `ms` amount of time.
 ## Reference
 
 ```typescript
-useTimeoutFn(
+function useTimeoutFn(
     callback: Function,
     ms?: number,
     runOnMount?: boolean

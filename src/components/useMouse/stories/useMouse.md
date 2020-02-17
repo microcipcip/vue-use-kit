@@ -5,7 +5,7 @@ Vue function that tracks the mouse `x` and `y` position in the document.
 ## Reference
 
 ```typescript
-useMouse(): {
+function useMouse(): {
     docX: Ref<number>
     docY: Ref<number>
 }

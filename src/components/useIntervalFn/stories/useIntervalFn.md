@@ -5,7 +5,7 @@ Vue function that calls given callback repeatedly on a fixed time delay.
 ## Reference
 
 ```typescript
-useIntervalFn(
+function useIntervalFn(
     callback: Function,
     ms?: number,
     runOnMount?: boolean

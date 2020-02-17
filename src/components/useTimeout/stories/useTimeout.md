@@ -5,7 +5,7 @@ Vue function that returns `isReady` value as `true` after a specified `ms` amoun
 ## Reference
 
 ```typescript
-useTimeout(
+function useTimeout(
     ms?: number,
     runOnMount?: boolean
 ): {

@@ -10,7 +10,7 @@ time update by specifying the `fps` value.
 ```typescript
 type TFps = number | Ref<number>;
 
-useRaf(
+function useRaf(
     fps?: TFps,
     runOnMount?: boolean
 ): {

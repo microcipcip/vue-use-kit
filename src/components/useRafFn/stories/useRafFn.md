@@ -10,7 +10,7 @@ run in a second by specifying the `fps` value.
 ```typescript
 type TFps = number | Ref<number>;
 
-useRafFn(
+function useRafFn(
     callback: Function,
     fps?: TFps,
     runOnMount?: boolean
