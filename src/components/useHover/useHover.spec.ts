@@ -2,6 +2,10 @@ import { mount } from '@src/helpers/test'
 import { ref } from '@src/api'
 import { useHover } from '@src/vue-use-kit'
 
+afterEach(() => {
+  jest.clearAllMocks()
+})
+
 const testComponent = () => ({
   template: `
     <div id="isHovered" v-if="isHovered"></div>
@@ -22,9 +26,17 @@ describe('useHover', () => {
     )
     const wrapper = mount(testComponent())
     expect(addEventListenerSpy).toHaveBeenCalled()
+    expect(addEventListenerSpy).toBeCalledWith(
+      'mouseenter',
+      expect.any(Function)
+    )
     expect(removeEventListenerSpy).not.toHaveBeenCalled()
     wrapper.destroy()
     expect(removeEventListenerSpy).toHaveBeenCalled()
+    expect(removeEventListenerSpy).toBeCalledWith(
+      'mouseenter',
+      expect.any(Function)
+    )
   })
 
   it('should return isHovered false by default', () => {

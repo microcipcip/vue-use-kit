@@ -17,7 +17,7 @@ beforeEach(() => {
 
 afterEach(() => {
   count = 0
-  rafSpy.mockClear()
+  jest.clearAllMocks()
 })
 
 const testComponent = (onMount = false) => ({
