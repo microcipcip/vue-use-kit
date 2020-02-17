@@ -14,6 +14,10 @@ const createMediaQueryListMock = (matchingQuery: string) => (
   }
 })
 
+afterEach(() => {
+  jest.clearAllMocks()
+})
+
 const testComponent = (
   mobileQuery: string,
   desktopQuery: string,
@@ -43,8 +47,6 @@ describe('useMedia', () => {
     expect(matchMediaSpy).not.toHaveBeenCalled()
     mount(testComponent(mobileQuery, desktopQuery))
     expect(matchMediaSpy).toHaveBeenCalled()
-
-    matchMediaSpy.mockClear()
   })
 
   it('display the #desktop element when it matches', async () => {

@@ -2,6 +2,10 @@ import { mount } from '@src/helpers/test'
 import { ref } from '@src/api'
 import { useClickAway } from '@src/vue-use-kit'
 
+afterEach(() => {
+  jest.clearAllMocks()
+})
+
 const testComponent = () => ({
   template: `
     <div id="outside-el">
@@ -29,10 +33,17 @@ describe('useClickAway', () => {
     const wrapper = mount(testComponent())
     await wrapper.vm.$nextTick()
     expect(addEventListenerSpy).toHaveBeenCalled()
+    expect(addEventListenerSpy).toBeCalledWith(
+      'mousedown',
+      expect.any(Function)
+    )
 
     // Destroy instance to check if the remove event listener is being called
     wrapper.destroy()
     expect(removeEventListenerSpy).toHaveBeenCalled()
-    addEventListenerSpy.mockClear()
+    expect(removeEventListenerSpy).toBeCalledWith(
+      'mousedown',
+      expect.any(Function)
+    )
   })
 })

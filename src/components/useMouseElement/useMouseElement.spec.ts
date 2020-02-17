@@ -2,6 +2,10 @@ import { mount } from '@src/helpers/test'
 import { ref } from '@src/api'
 import { useMouseElement } from '@src/vue-use-kit'
 
+afterEach(() => {
+  jest.clearAllMocks()
+})
+
 const testComponent = () => ({
   template: `
     <div ref="divRef">
@@ -39,12 +43,19 @@ describe('useMouseElement', () => {
     const wrapper = mount(testComponent())
     await wrapper.vm.$nextTick()
     expect(addEventListenerSpy).toHaveBeenCalledTimes(1)
+    expect(addEventListenerSpy).toBeCalledWith(
+      'mousemove',
+      expect.any(Function)
+    )
     expect(removeEventListenerSpy).not.toHaveBeenCalled()
 
     // Destroy instance to check if the remove event listener is being called
     wrapper.destroy()
     expect(removeEventListenerSpy).toHaveBeenCalledTimes(1)
-    addEventListenerSpy.mockClear()
+    expect(removeEventListenerSpy).toBeCalledWith(
+      'mousemove',
+      expect.any(Function)
+    )
   })
 
   it('should not render any document before onMount since all values are 0 by default', () => {

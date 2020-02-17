@@ -8,6 +8,7 @@ beforeEach(() => {
 
 afterEach(() => {
   jest.clearAllTimers()
+  jest.clearAllMocks()
 })
 
 const testComponent = () => ({

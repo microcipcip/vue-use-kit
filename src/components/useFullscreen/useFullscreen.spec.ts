@@ -5,6 +5,10 @@ import { useFullscreen } from '@src/vue-use-kit'
 // This feature is difficult to test therefore
 // I've only written a simple test
 
+afterEach(() => {
+  jest.clearAllMocks()
+})
+
 const testComponent = () => ({
   template: `
     <div id="divRef" ref="divRef">

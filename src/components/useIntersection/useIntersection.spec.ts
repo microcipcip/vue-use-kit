@@ -16,6 +16,10 @@ beforeEach(() => {
   }))
 })
 
+afterEach(() => {
+  jest.clearAllMocks()
+})
+
 const testComponent = (onMount = true) => ({
   template: `
     <div ref="elRef">
