@@ -21,7 +21,7 @@ const testComponent = () => ({
 })
 
 describe('useFullscreen', () => {
-  it('should not be fullscreen when initialized', () => {
+  it('should not be fullscreen onMounted', () => {
     const wrapper = mount(testComponent())
     expect(wrapper.find('#isFullscreen').exists()).toBe(false)
   })
