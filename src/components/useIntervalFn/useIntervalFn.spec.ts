@@ -33,7 +33,7 @@ const testComponent = (onMount = true) => ({
 })
 
 describe('useIntervalFn', () => {
-  it('should call setInterval when initialized', () => {
+  it('should call setInterval onMounted', () => {
     expect(setInterval).toHaveBeenCalledTimes(0)
     mount(testComponent())
     jest.advanceTimersByTime(1500)

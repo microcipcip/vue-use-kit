@@ -31,7 +31,7 @@ const testComponent = (onMount = true) => ({
 })
 
 describe('useIntersection', () => {
-  it('should call IntersectionObserver when initialized', () => {
+  it('should call IntersectionObserver onMounted', () => {
     expect(observe).toHaveBeenCalledTimes(0)
     mount(testComponent())
     expect(observe).toHaveBeenCalledTimes(1)

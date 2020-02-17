@@ -35,7 +35,7 @@ const testComponent = (onMount = true) => ({
 })
 
 describe('useTimeoutFn', () => {
-  it('should call setTimeout when initialized', () => {
+  it('should call setTimeout onMounted', () => {
     expect(setTimeout).toHaveBeenCalledTimes(0)
     mount(testComponent())
     expect(setTimeout).toHaveBeenCalledTimes(1)
