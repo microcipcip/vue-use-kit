@@ -18,7 +18,7 @@
           <button class="button is-primary" @click="push">
             Fire push event
           </button>
-          <button class="button is-danger" @click="replace">
+          <button class="button is-info" @click="replace">
             Fire replace event
           </button>
         </td>

@@ -1,5 +1,20 @@
 import { ref, onMounted, onUnmounted, Ref } from '@src/api'
 
+export interface UseLocationState {
+  trigger: string
+  state: any
+  length: number
+  hash: string
+  host: string
+  hostname: string
+  href: string
+  origin: string
+  pathname: string
+  port: string
+  protocol: string
+  search: string
+}
+
 // The history methods 'pushState' and 'replaceState' by default do not fire an event
 // unless it is coming from user interaction with the browser navigation bar,
 // so we are adding a patch to make them detectable
@@ -54,7 +69,7 @@ export function useLocation(runOnMount = true) {
     }
   }
   const isTracking = ref(false)
-  const locationState = ref(buildState('load'))
+  const locationState: Ref<UseLocationState> = ref(buildState('load'))
 
   const popState = () => (locationState.value = buildState('popstate'))
   const pushState = () => (locationState.value = buildState('pushstate'))
@@ -65,6 +80,8 @@ export function useLocation(runOnMount = true) {
 
     if (isTracking.value) return
     isTracking.value = true
+
+    locationState.value = buildState('start')
     window.addEventListener('popstate', popState)
     window.addEventListener('pushstate', pushState)
     window.addEventListener('replacestate', replaceState)
