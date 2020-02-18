@@ -21,8 +21,8 @@ const testComponent = () => ({
 describe('useMouse', () => {
   it('should call document.addEventListener', async () => {
     const addEventListenerSpy = jest.spyOn(document, 'addEventListener')
-    const removeEventListenerSpy = jest.spyOn(document, 'removeEventListener')
     expect(addEventListenerSpy).not.toHaveBeenCalled()
+    const removeEventListenerSpy = jest.spyOn(document, 'removeEventListener')
     const wrapper = mount(testComponent())
     await wrapper.vm.$nextTick()
     expect(addEventListenerSpy).toHaveBeenCalledTimes(1)

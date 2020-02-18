@@ -68,6 +68,8 @@ Vue.use(VueCompositionAPI);
   - [`useIntersection`](./src/components/useIntersection/stories/useIntersection.md) &mdash; tracks intersection of target element with an ancestor element.
     [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/sensors-useintersection--demo)
     [![Demo](https://img.shields.io/badge/advanced_demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/sensors-useintersection--advanced-demo)
+  - [`useLocation`](./src/components/useLocation/stories/useLocation.md) &mdash; tracks bar navigation location state.
+    [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/sensors-uselocation--demo)
   - [`useMedia`](./src/components/useMedia/stories/useMedia.md) &mdash; tracks state of a CSS media query.
     [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/sensors-usemedia--demo)
     [![Demo](https://img.shields.io/badge/advanced_demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/sensors-usemedia--advanced-demo)
