@@ -9,7 +9,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { ref } from '@src/api'
+import { ref } from '@vue/composition-api'
 import { useHover } from '@src/vue-use-kit'
 
 export default Vue.extend({

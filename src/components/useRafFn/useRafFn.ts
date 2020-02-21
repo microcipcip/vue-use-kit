@@ -1,4 +1,11 @@
-import { ref, isRef, computed, onMounted, onUnmounted, Ref } from '@src/api'
+import {
+  ref,
+  isRef,
+  computed,
+  onMounted,
+  onUnmounted,
+  Ref
+} from '@vue/composition-api'
 
 export type TFps = number | Ref<number>
 

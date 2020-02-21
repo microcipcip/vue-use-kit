@@ -1,5 +1,5 @@
 import { mount } from '@src/helpers/test'
-import { ref } from '@src/api'
+import { ref } from '@vue/composition-api'
 import { useClickAway } from '@src/vue-use-kit'
 
 afterEach(() => {

@@ -1,4 +1,4 @@
-import { ref, onMounted, onUnmounted, Ref } from '@src/api'
+import { ref, onMounted, onUnmounted, Ref } from '@vue/composition-api'
 
 const errorMsg =
   'IntersectionObserver is not supported, please install a polyfill'

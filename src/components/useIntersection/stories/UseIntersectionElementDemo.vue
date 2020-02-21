@@ -22,7 +22,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { ref, watch } from '@src/api'
+import { ref, watch } from '@vue/composition-api'
 import { useIntersection } from '@src/vue-use-kit'
 export default Vue.extend({
   name: 'UseIntersectionElementDemo',

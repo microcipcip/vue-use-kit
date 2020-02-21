@@ -1,5 +1,5 @@
 import { mount } from '@src/helpers/test'
-import { ref, computed } from '@src/api'
+import { ref, computed } from '@vue/composition-api'
 import { useTimeoutFn } from '@src/vue-use-kit'
 
 beforeEach(() => {

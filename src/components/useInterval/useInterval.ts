@@ -1,4 +1,4 @@
-import { ref } from '@src/api'
+import { ref, Ref } from '@vue/composition-api'
 import { useIntervalFn } from '@src/components/useIntervalFn'
 
 export function useInterval(ms = 0, runOnMount = true) {

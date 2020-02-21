@@ -33,7 +33,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { ref, computed } from '@src/api'
+import { ref, computed } from '@vue/composition-api'
 import { useRafFn } from '@src/vue-use-kit'
 
 const spriteOpts = {

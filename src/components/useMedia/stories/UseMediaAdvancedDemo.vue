@@ -37,7 +37,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { computed } from '@src/api'
+import { computed } from '@vue/composition-api'
 import { getQuery, useMedia } from '@src/vue-use-kit'
 
 // breakpoints

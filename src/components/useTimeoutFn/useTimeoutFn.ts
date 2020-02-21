@@ -1,4 +1,4 @@
-import { onMounted, onUnmounted, ref } from '@src/api'
+import { onMounted, onUnmounted, ref, Ref } from '@vue/composition-api'
 
 export function useTimeoutFn(callback: Function, ms = 0, runOnMount = true) {
   const isReady = ref<boolean | null>(null)

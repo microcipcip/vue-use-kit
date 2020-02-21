@@ -18,11 +18,11 @@ beforeEach(() => {
       })
     )
   )
-  const inst = ((navigator as any).geolocation = {
+  ;(navigator as any).geolocation = {
     watchPosition,
     clearWatch,
     getCurrentPosition
-  })
+  }
 })
 
 afterEach(() => {

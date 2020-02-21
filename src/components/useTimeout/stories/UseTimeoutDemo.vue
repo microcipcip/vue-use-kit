@@ -29,7 +29,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { computed, ref } from '@src/api'
+import { computed, ref } from '@vue/composition-api'
 import { useTimeout } from '@src/vue-use-kit'
 
 export default Vue.extend({

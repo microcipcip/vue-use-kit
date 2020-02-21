@@ -43,7 +43,7 @@ First we have to define the intersection component, named `UseIntersectionElDemo
 
 <script lang="ts">
   import Vue from 'vue'
-  import { ref, watch } from '@src/api'
+  import { ref, watch } from '@vue/composition-api'
   import { useIntersection } from 'vue-use-kit'
 
   export default Vue.extend({

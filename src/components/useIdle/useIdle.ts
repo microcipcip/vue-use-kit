@@ -1,5 +1,5 @@
 import { throttle } from 'throttle-debounce'
-import { ref, onMounted, onUnmounted } from '@src/api'
+import { ref, onMounted, onUnmounted, Ref } from '@vue/composition-api'
 
 export const idleEventsList = [
   'mousemove',
