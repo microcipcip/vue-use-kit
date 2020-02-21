@@ -29,7 +29,7 @@ function useTimeoutFn(
   - `true` when the timer is completed
   - `null` when the timer is idle
 - `start: Function` the function used for starting or resetting the timer
-- `stop: Function` the function used to stop the timer
+- `stop: Function` the function used for stopping the timer
 
 ## Usage
 

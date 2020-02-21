@@ -1,5 +1,5 @@
 import { mount } from '@src/helpers/test'
-import { useLocation } from '@src/vue-use-kit'
+import { useSearchParams } from '@src/vue-use-kit'
 
 afterEach(() => {
   jest.clearAllMocks()
@@ -9,32 +9,26 @@ const testComponent = (onMount = true) => ({
   template: `
     <div>
       <div id="isTracking" v-if="isTracking"></div>
-      <div id="locationState">{{JSON.stringify(locationState)}}</div>
+      <div id="searchParams">{{JSON.stringify(searchParams)}}</div>
       <button id="start" @click="start"></button>
       <button id="stop" @click="stop"></button>
     </div>
   `,
   setup() {
-    const { locationState, isTracking, start, stop } = useLocation(onMount)
-    return { locationState, isTracking, start, stop }
+    const { searchParams, isTracking, start, stop } = useSearchParams(
+      ['search', 'filter'],
+      onMount
+    )
+    return { searchParams, isTracking, start, stop }
   }
 })
 
-describe('useLocation', () => {
-  const locationStateKeys = [
-    'trigger',
-    'state',
-    'length',
-    'hash',
-    'host',
-    'hostname',
-    'href',
-    'origin',
-    'pathname',
-    'port',
-    'protocol',
-    'search'
-  ]
+describe('useSearchParams', () => {
+  const params = {
+    search: 'gattus',
+    filter: '[ga, tt, us]',
+    nottracked: 'topus'
+  }
   const events = ['popstate', 'pushstate', 'replacestate']
 
   it('should call popstate, pushstate and replacestate onMounted', async () => {
@@ -89,11 +83,23 @@ describe('useLocation', () => {
     expect(wrapper.find('#isTracking').exists()).toBe(false)
   })
 
-  it('should display the locationState object', async () => {
+  it('should display the searchParams object with all parameter keys', async () => {
     const wrapper = mount(testComponent(true))
     await wrapper.vm.$nextTick()
-    locationStateKeys.forEach(locationKey => {
-      expect(wrapper.text().includes(locationKey)).toBe(true)
-    })
+    expect(wrapper.text().includes('search')).toBe(true)
+    expect(wrapper.text().includes('filter')).toBe(true)
+  })
+
+  it('should display the searchParams object with all parameter values, except nottracked', async () => {
+    const wrapper = mount(testComponent(true))
+    history.pushState(
+      {},
+      '',
+      `${window.location.origin}?search=${params.search}&filter=${params.filter}&nottracked=${params.nottracked}`
+    )
+    await wrapper.vm.$nextTick()
+    expect(wrapper.text().includes(params.search)).toBe(true)
+    expect(wrapper.text().includes(params.filter)).toBe(true)
+    expect(wrapper.text().includes(params.nottracked)).toBe(false)
   })
 })
