@@ -15,12 +15,12 @@
         <td colspan="2">
           <button
             class="button is-primary"
-            @click="startTracking"
+            @click="start"
             v-if="!isTracking"
           >
             Start tracking idle status
           </button>
-          <button class="button is-danger" @click="stopTracking" v-else>
+          <button class="button is-danger" @click="stop" v-else>
             Stop tracking idle status
           </button>
         </td>
@@ -37,19 +37,8 @@ import { useIdle } from '@src/vue-use-kit'
 export default Vue.extend({
   name: 'UseIdleDemo',
   setup() {
-    const { isIdle, start, stop } = useIdle(2500)
-
-    const isTracking = ref(true)
-    const startTracking = () => {
-      isTracking.value = true
-      start()
-    }
-    const stopTracking = () => {
-      isTracking.value = false
-      stop()
-    }
-
-    return { isIdle, isTracking, startTracking, stopTracking }
+    const { isIdle, isTracking, start, stop } = useIdle(2500)
+    return { isIdle, isTracking, start, stop }
   }
 })
 </script>

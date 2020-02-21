@@ -18,12 +18,16 @@
 
 > 🛠️ Vue kit of useful [Vue Composition API](https://vue-composition-api-rfc.netlify.com) functions.</em>
 
-Please note that Vue 3.0 has not been released yet, therefore the installation and setup of [@vue/composition-api](https://github.com/vuejs/composition-api) is required for this library to work.
-
 ## Install
 
 ```shell script
-npm install @vue/composition-api vue-use-kit
+npm install vue-use-kit
+```
+
+Since Vue 3.0 has not yet been released, you must also install [@vue/composition-api](https://github.com/vuejs/composition-api) library, which will enable the composition API in Vue 2.0.
+
+```shell script
+npm install @vue/composition-api
 ```
 
 ## Setup
@@ -78,6 +82,8 @@ Vue.use(VueCompositionAPI);
     [![Demo](https://img.shields.io/badge/advanced_demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/sensors-usemouse--advanced-demo)
   - [`useMouseElement`](./src/components/useMouseElement/stories/useMouseElement.md) &mdash; tracks the mouse position relative to given element.
     [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/sensors-usemouseelement--demo)
+  - [`useSearchParams`](./src/components/useSearchParams/stories/useSearchParams.md) &mdash; tracks browser's location search params.
+    [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/sensors-usesearchparams--demo)
 - Animations
   - [`useInterval`](./src/components/useInterval/stories/useInterval.md) &mdash; updates `counter` value repeatedly on a fixed time delay.
     [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/animations-useinterval--demo)

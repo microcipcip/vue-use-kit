@@ -1,4 +1,5 @@
 import { ref, onMounted, onUnmounted, Ref } from '@src/api'
+import { patchHistoryMethodsOnce } from '@src/utils'
 
 export interface UseLocationState {
   trigger: string
@@ -13,28 +14,6 @@ export interface UseLocationState {
   port: string
   protocol: string
   search: string
-}
-
-// The history methods 'pushState' and 'replaceState' by default do not fire an event
-// unless it is coming from user interaction with the browser navigation bar,
-// so we are adding a patch to make them detectable
-let isPatched = false
-const patchHistoryMethodsOnce = () => {
-  if (isPatched) return
-  const methods = ['pushState', 'replaceState']
-  methods.forEach(method => {
-    const original = (history as any)[method]
-    ;(history as any)[method] = function(state: any) {
-      // eslint-disable-next-line prefer-rest-params
-      const result = original.apply(this, arguments)
-      const event = new Event(method.toLowerCase())
-      ;(event as any).state = state
-      window.dispatchEvent(event)
-      return result
-    }
-  })
-
-  isPatched = true
 }
 
 export function useLocation(runOnMount = true) {
@@ -76,23 +55,21 @@ export function useLocation(runOnMount = true) {
   const replaceState = () => (locationState.value = buildState('replacestate'))
 
   const start = () => {
-    patchHistoryMethodsOnce()
-
     if (isTracking.value) return
-    isTracking.value = true
-
+    patchHistoryMethodsOnce()
     locationState.value = buildState('start')
     window.addEventListener('popstate', popState)
     window.addEventListener('pushstate', pushState)
     window.addEventListener('replacestate', replaceState)
+    isTracking.value = true
   }
 
   const stop = () => {
     if (!isTracking.value) return
-    isTracking.value = false
     window.removeEventListener('popstate', popState)
     window.removeEventListener('pushstate', pushState)
     window.removeEventListener('replacestate', replaceState)
+    isTracking.value = false
   }
 
   onMounted(() => runOnMount && start())
