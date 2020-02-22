@@ -102,6 +102,9 @@ Vue.use(VueCompositionAPI);
     [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/animations-usetimeout--demo)
   - [`useTimeoutFn`](./src/components/useTimeoutFn/stories/useTimeoutFn.md) &mdash; calls function when timer is completed.
     [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/animations-usetimeoutfn--demo)
+- Side Effects
+  - [`useBeforeUnload`](./src/components/useBeforeUnload/stories/useBeforeUnload.md) &mdash; shows browser alert when user try to reload or close the page.
+    [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/ui-useclickaway--demo)
 - UI
   - [`useClickAway`](./src/components/useClickAway/stories/useClickAway.md) &mdash; triggers callback when user clicks outside target area.
     [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/ui-useclickaway--demo)
@@ -113,7 +116,7 @@ Vue.use(VueCompositionAPI);
 
 ## Inspiration
 
-- [react-use](https://github.com/streamich/react-use)
+- [react-use 👍](https://github.com/streamich/react-use)
 - [vue-hooks](https://github.com/u3u/vue-hooks)
 - [vue-use-web](https://github.com/logaretm/vue-use-web)
 
