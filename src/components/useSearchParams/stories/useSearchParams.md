@@ -24,7 +24,7 @@ function useSearchParams(
 ### Returns
 
 - `searchParams: Ref<object>` the object containing the search parameters as key value pairs
-- `isTracking: Ref<boolean>` whether the function is tracking the user's location search parameters or not
+- `isTracking: Ref<boolean>` whether this function events are running or not
 - `start: Function` the function used to start tracking the location search parameters
 - `stop: Function` the function used to stop tracking the location search parameters
 

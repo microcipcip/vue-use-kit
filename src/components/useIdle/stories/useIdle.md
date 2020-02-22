@@ -26,7 +26,7 @@ function useIdle(
 ### Returns
 
 - `isIdle: Ref<boolean>` it is `true` when the user is idle, `false` otherwise
-- `isTracking: Ref<boolean>` whether the function is tracking the user idle state or not
+- `isTracking: Ref<boolean>` whether this function events are running or not
 - `start: Function` the function used for start tracking the user's idle state
 - `stop: Function` the function used for stop tracking the user's idle state
 
