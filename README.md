@@ -84,6 +84,8 @@ Vue.use(VueCompositionAPI);
     [![Demo](https://img.shields.io/badge/advanced_demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/sensors-usemouse--advanced-demo)
   - [`useMouseElement`](./src/components/useMouseElement/stories/useMouseElement.md) &mdash; tracks the mouse position relative to given element.
     [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/sensors-usemouseelement--demo)
+  - [`useMouseLeavePage`](./src/components/useMouseLeavePage/stories/useMouseLeavePage.md) &mdash; tracks when mouse leaves page boundaries.
+    [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/sensors-usemouseleavepage--demo)
   - [`useSearchParams`](./src/components/useSearchParams/stories/useSearchParams.md) &mdash; tracks browser's location search params.
     [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/sensors-usesearchparams--demo)
 - Animations

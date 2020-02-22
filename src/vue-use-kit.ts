@@ -12,6 +12,7 @@ export * from './components/useMedia'
 export * from './components/useMediaDevices'
 export * from './components/useMouse'
 export * from './components/useMouseElement'
+export * from './components/useMouseLeavePage'
 export * from './components/useSearchParams'
 
 export * from './components/useIntervalFn'

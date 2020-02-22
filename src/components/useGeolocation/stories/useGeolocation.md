@@ -39,7 +39,7 @@ function useGeolocation(
 ### Returns
 
 - `geo: Ref<UseGeolocation>` the geolocation object
-- `isTracking: Ref<boolean>` whether the function is tracking the user's location or not
+- `isTracking: Ref<boolean>` whether this function events are running or not
 - `start: Function` the function used for starting the geolocation tracking
 - `stop: Function` the function used for stopping the geolocation tracking
 

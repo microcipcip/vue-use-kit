@@ -30,7 +30,7 @@ function useMediaDevices(
 ### Returns
 
 - `devicesState: Ref<UseMediaDevicesState[]>` the list of connected media devices
-- `isTracking: Ref<boolean>` whether the function is tracking the connected media devices or not
+- `isTracking: Ref<boolean>` whether this function events are running or not
 - `isTracked: Ref<boolean>` whether the connected devices have been successfully tracked
 - `start: Function` the function used to start tracking the connected media devices
 - `stop: Function` the function used to stop tracking the connected media devices
