@@ -44,7 +44,7 @@ const testComponent = () => ({
 })
 
 describe('useGeolocation', () => {
-  it('should call getCurrentPosition and watchPosition onMounted', () => {
+  it('should call getCurrentPosition and watchPosition on mounted', () => {
     expect(getCurrentPosition).toHaveBeenCalledTimes(0)
     expect(watchPosition).toHaveBeenCalledTimes(0)
     mount(testComponent())
@@ -52,7 +52,7 @@ describe('useGeolocation', () => {
     expect(watchPosition).toHaveBeenCalledTimes(1)
   })
 
-  it('should call clearWatch onUnmounted', () => {
+  it('should call clearWatch on unmounted', () => {
     expect(clearWatch).toHaveBeenCalledTimes(0)
     const wrapper = mount(testComponent())
     wrapper.vm.$destroy()

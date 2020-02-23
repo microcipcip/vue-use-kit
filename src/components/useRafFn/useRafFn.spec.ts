@@ -45,7 +45,7 @@ const testComponent = (onMount = false) => ({
 })
 
 describe('useRafFn', () => {
-  it('should not show #isRunning when onMount is false', async () => {
+  it('should not show #isRunning when runOnMount is false', async () => {
     const wrapper = mount(testComponent(false))
     await wrapper.vm.$nextTick()
     expect(rafSpy).not.toHaveBeenCalled()
@@ -53,7 +53,7 @@ describe('useRafFn', () => {
     expect(wrapper.find('#elapsedTime').text()).toBe('0')
   })
 
-  it('should show #isRunning when onMount is true', async () => {
+  it('should show #isRunning when runOnMount is true', async () => {
     const wrapper = mount(testComponent(true))
     await wrapper.vm.$nextTick()
     expect(rafSpy).toHaveBeenCalled()

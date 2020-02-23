@@ -1,4 +1,9 @@
-import { mount } from '@src/helpers/test'
+import {
+  checkOnMountAndUnmountEvents,
+  checkOnStartEvents,
+  checkOnStopEvents,
+  mount
+} from '@src/helpers/test'
 import { useIdle, idleEventsList } from '@src/vue-use-kit'
 
 afterEach(() => {
@@ -20,48 +25,21 @@ const testComponent = () => ({
 })
 
 describe('useIdle', () => {
-  // the total of the events is idleEventsList + visibilitychange
-  const totEvents = idleEventsList.length + 1
+  const events = [...idleEventsList, 'visibilitychange']
 
-  it('should call document.addEventListener', async () => {
-    const addEventListenerSpy = jest.spyOn(document, 'addEventListener')
-    const removeEventListenerSpy = jest.spyOn(document, 'removeEventListener')
-    const wrapper = mount(testComponent())
-    await wrapper.vm.$nextTick()
-    expect(addEventListenerSpy).toHaveBeenCalledTimes(totEvents)
-    expect(addEventListenerSpy).toBeCalledWith(
-      'mousemove',
-      expect.any(Function)
-    )
-
-    // Destroy instance to check if the remove event listener is being called
-    wrapper.destroy()
-    expect(removeEventListenerSpy).toHaveBeenCalledTimes(totEvents)
-    expect(removeEventListenerSpy).toBeCalledWith(
-      'mousemove',
-      expect.any(Function)
-    )
+  it('should add events on mounted and remove them on unmounted', async () => {
+    await checkOnMountAndUnmountEvents(document, events, testComponent)
   })
 
-  it('should call document.addEventListener again when start is called', async () => {
-    const addEventListenerSpy = jest.spyOn(document, 'addEventListener')
-    const wrapper = mount(testComponent())
-    expect(addEventListenerSpy).toHaveBeenCalledTimes(totEvents)
-    wrapper.find('#stop').trigger('click')
-
-    // Wait for Vue to append #start in the DOM
-    await wrapper.vm.$nextTick()
-    wrapper.find('#start').trigger('click')
-    expect(addEventListenerSpy).toHaveBeenCalledTimes(totEvents * 2)
+  it('should add events on mounted and remove them on unmounted', async () => {
+    await checkOnMountAndUnmountEvents(document, events, testComponent)
   })
 
-  it('should call document.removeEventListener when stop is called', async () => {
-    const removeEventListenerSpy = jest.spyOn(document, 'removeEventListener')
-    const wrapper = mount(testComponent())
-    wrapper.find('#stop').trigger('click')
+  it('should add events again when start is called', async () => {
+    await checkOnStartEvents(document, events, testComponent)
+  })
 
-    // Wait for Vue to append #start in the DOM
-    await wrapper.vm.$nextTick()
-    expect(removeEventListenerSpy).toHaveBeenCalledTimes(totEvents)
+  it('should remove events when stop is called', async () => {
+    await checkOnStopEvents(document, events, testComponent)
   })
 })
