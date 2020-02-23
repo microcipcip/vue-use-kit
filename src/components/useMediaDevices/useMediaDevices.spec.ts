@@ -59,7 +59,7 @@ describe('useMediaDevices', () => {
     expect(removeEventListenerSpy).toBeCalledWith(event, expect.any(Function))
   })
 
-  it('should call document.addEventListener again when start is called', async () => {
+  it('should call addEventListener again when start is called', async () => {
     const addEventListenerSpy = jest.spyOn(
       navigator.mediaDevices,
       'addEventListener'
@@ -74,7 +74,7 @@ describe('useMediaDevices', () => {
     expect(addEventListenerSpy).toHaveBeenCalledTimes(1 * 2)
   })
 
-  it('should call document.removeEventListener when stop is called', async () => {
+  it('should call removeEventListener when stop is called', async () => {
     const removeEventListenerSpy = jest.spyOn(
       navigator.mediaDevices,
       'removeEventListener'

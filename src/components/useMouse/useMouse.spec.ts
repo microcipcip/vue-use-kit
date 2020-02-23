@@ -19,7 +19,7 @@ const testComponent = () => ({
 })
 
 describe('useMouse', () => {
-  it('should call document.addEventListener', async () => {
+  it('should call addEventListener', async () => {
     const addEventListenerSpy = jest.spyOn(document, 'addEventListener')
     const removeEventListenerSpy = jest.spyOn(document, 'removeEventListener')
     const wrapper = mount(testComponent())

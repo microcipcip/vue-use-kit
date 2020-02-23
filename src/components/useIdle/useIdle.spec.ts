@@ -23,7 +23,7 @@ describe('useIdle', () => {
   // the total of the events is idleEventsList + visibilitychange
   const totEvents = idleEventsList.length + 1
 
-  it('should call document.addEventListener', async () => {
+  it('should call addEventListener', async () => {
     const addEventListenerSpy = jest.spyOn(document, 'addEventListener')
     const removeEventListenerSpy = jest.spyOn(document, 'removeEventListener')
     const wrapper = mount(testComponent())
@@ -43,7 +43,7 @@ describe('useIdle', () => {
     )
   })
 
-  it('should call document.addEventListener again when start is called', async () => {
+  it('should call addEventListener again when start is called', async () => {
     const addEventListenerSpy = jest.spyOn(document, 'addEventListener')
     const wrapper = mount(testComponent())
     expect(addEventListenerSpy).toHaveBeenCalledTimes(totEvents)
@@ -55,7 +55,7 @@ describe('useIdle', () => {
     expect(addEventListenerSpy).toHaveBeenCalledTimes(totEvents * 2)
   })
 
-  it('should call document.removeEventListener when stop is called', async () => {
+  it('should call removeEventListener when stop is called', async () => {
     const removeEventListenerSpy = jest.spyOn(document, 'removeEventListener')
     const wrapper = mount(testComponent())
     wrapper.find('#stop').trigger('click')

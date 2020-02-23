@@ -39,7 +39,7 @@ describe('useMouseLeavePage', () => {
     )
   })
 
-  it('should call document.addEventListener again when start is called', async () => {
+  it('should call addEventListener again when start is called', async () => {
     const addEventListenerSpy = jest.spyOn(document, 'addEventListener')
     const wrapper = mount(testComponent())
     expect(addEventListenerSpy).toHaveBeenCalledTimes(1)
@@ -51,7 +51,7 @@ describe('useMouseLeavePage', () => {
     expect(addEventListenerSpy).toHaveBeenCalledTimes(1 * 2)
   })
 
-  it('should call document.removeEventListener when stop is called', async () => {
+  it('should call removeEventListener when stop is called', async () => {
     const removeEventListenerSpy = jest.spyOn(document, 'removeEventListener')
     const wrapper = mount(testComponent())
     wrapper.find('#stop').trigger('click')
