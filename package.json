@@ -93,6 +93,7 @@
     "@storybook/theming": "^5.3.13",
     "@storybook/vue": "^5.3.13",
     "@types/jest": "^23.3.2",
+    "@types/js-cookie": "^2.2.4",
     "@types/node": "^10.11.0",
     "@types/throttle-debounce": "^2.1.0",
     "@typescript-eslint/eslint-plugin": "^2.18.0",
@@ -138,6 +139,7 @@
     "vue-template-compiler": "^2.6.11"
   },
   "dependencies": {
+    "js-cookie": "^2.2.1",
     "throttle-debounce": "^2.1.0"
   }
 }

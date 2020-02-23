@@ -24,3 +24,4 @@ export * from './components/useTimeoutFn'
 export * from './components/useTimeout'
 // Site Effects
 export * from './components/useBeforeUnload'
+export * from './components/useCookie'
