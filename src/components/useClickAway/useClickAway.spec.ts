@@ -1,4 +1,4 @@
-import { mount } from '@src/helpers/test'
+import { checkOnMountAndUnmountEvents, mount } from '@src/helpers/test'
 import { ref } from '@vue/composition-api'
 import { useClickAway } from '@src/vue-use-kit'
 
@@ -26,23 +26,9 @@ const testComponent = () => ({
 })
 
 describe('useClickAway', () => {
-  it('should call addEventListener', async () => {
-    const addEventListenerSpy = jest.spyOn(document, 'addEventListener')
-    const removeEventListenerSpy = jest.spyOn(document, 'removeEventListener')
-    const wrapper = mount(testComponent())
-    await wrapper.vm.$nextTick()
-    expect(addEventListenerSpy).toHaveBeenCalled()
-    expect(addEventListenerSpy).toBeCalledWith(
-      'mousedown',
-      expect.any(Function)
-    )
+  const events = ['mousedown', 'touchstart']
 
-    // Destroy instance to check if the remove event listener is being called
-    wrapper.destroy()
-    expect(removeEventListenerSpy).toHaveBeenCalled()
-    expect(removeEventListenerSpy).toBeCalledWith(
-      'mousedown',
-      expect.any(Function)
-    )
+  it('should call addEventListener on mount and unmount', async () => {
+    await checkOnMountAndUnmountEvents(document, events, testComponent)
   })
 })

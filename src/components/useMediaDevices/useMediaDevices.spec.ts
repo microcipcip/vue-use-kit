@@ -1,4 +1,10 @@
-import { mount } from '@src/helpers/test'
+import {
+  checkElementExistenceOnMount,
+  checkOnMountAndUnmountEvents,
+  checkOnStartEvents,
+  checkOnStopEvents,
+  mount
+} from '@src/helpers/test'
 import { useMediaDevices } from '@src/vue-use-kit'
 
 const mediaDeviceInfo = {
@@ -38,64 +44,29 @@ const testComponent = (onMount = true) => ({
 })
 
 describe('useMediaDevices', () => {
-  const event = 'devicechange'
-  it('should call devicechange onMounted', async () => {
-    const addEventListenerSpy = jest.spyOn(
-      navigator.mediaDevices,
-      'addEventListener'
-    )
-    const removeEventListenerSpy = jest.spyOn(
-      navigator.mediaDevices,
-      'removeEventListener'
-    )
-    const wrapper = mount(testComponent())
-    await wrapper.vm.$nextTick()
-    expect(addEventListenerSpy).toHaveBeenCalledTimes(1)
-    expect(addEventListenerSpy).toBeCalledWith(event, expect.any(Function))
+  const events = ['devicechange']
 
-    // Destroy instance to check if the remove event listener is being called
-    wrapper.destroy()
-    expect(removeEventListenerSpy).toHaveBeenCalledTimes(1)
-    expect(removeEventListenerSpy).toBeCalledWith(event, expect.any(Function))
+  it('should add events on mounted and remove them on unmounted', async () => {
+    await checkOnMountAndUnmountEvents(
+      navigator.mediaDevices,
+      events,
+      testComponent
+    )
   })
 
-  it('should call addEventListener again when start is called', async () => {
-    const addEventListenerSpy = jest.spyOn(
-      navigator.mediaDevices,
-      'addEventListener'
-    )
-    const wrapper = mount(testComponent())
-    expect(addEventListenerSpy).toHaveBeenCalledTimes(1)
-    wrapper.find('#stop').trigger('click')
-
-    // Wait for Vue to append #start in the DOM
-    await wrapper.vm.$nextTick()
-    wrapper.find('#start').trigger('click')
-    expect(addEventListenerSpy).toHaveBeenCalledTimes(1 * 2)
+  it('should add events again when start is called', async () => {
+    await checkOnStartEvents(navigator.mediaDevices, events, testComponent)
   })
 
-  it('should call removeEventListener when stop is called', async () => {
-    const removeEventListenerSpy = jest.spyOn(
-      navigator.mediaDevices,
-      'removeEventListener'
-    )
-    const wrapper = mount(testComponent())
-    wrapper.find('#stop').trigger('click')
-
-    // Wait for Vue to append #start in the DOM
-    await wrapper.vm.$nextTick()
-    expect(removeEventListenerSpy).toHaveBeenCalledTimes(1)
+  it('should remove events when stop is called', async () => {
+    await checkOnStopEvents(navigator.mediaDevices, events, testComponent)
   })
 
-  it('should show #isTracking when onMount is true', async () => {
-    const wrapper = mount(testComponent(true))
-    await wrapper.vm.$nextTick()
-    expect(wrapper.find('#isTracking').exists()).toBe(true)
+  it('should show #isTracking when runOnMount is true', async () => {
+    await checkElementExistenceOnMount(true, testComponent)
   })
 
-  it('should not show #isTracking when onMount is false', async () => {
-    const wrapper = mount(testComponent(false))
-    await wrapper.vm.$nextTick()
-    expect(wrapper.find('#isTracking').exists()).toBe(false)
+  it('should not show #isTracking when runOnMount is false', async () => {
+    await checkElementExistenceOnMount(false, testComponent)
   })
 })

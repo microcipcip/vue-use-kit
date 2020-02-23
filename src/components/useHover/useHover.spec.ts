@@ -1,4 +1,4 @@
-import { mount } from '@src/helpers/test'
+import { checkOnMountAndUnmountEvents, mount } from '@src/helpers/test'
 import { ref } from '@vue/composition-api'
 import { useHover } from '@src/vue-use-kit'
 
@@ -18,25 +18,10 @@ const testComponent = () => ({
 })
 
 describe('useHover', () => {
-  it('should call document.body hover events', () => {
-    const addEventListenerSpy = jest.spyOn(document.body, 'addEventListener')
-    const removeEventListenerSpy = jest.spyOn(
-      document.body,
-      'removeEventListener'
-    )
-    const wrapper = mount(testComponent())
-    expect(addEventListenerSpy).toHaveBeenCalled()
-    expect(addEventListenerSpy).toBeCalledWith(
-      'mouseenter',
-      expect.any(Function)
-    )
-    expect(removeEventListenerSpy).not.toHaveBeenCalled()
-    wrapper.destroy()
-    expect(removeEventListenerSpy).toHaveBeenCalled()
-    expect(removeEventListenerSpy).toBeCalledWith(
-      'mouseenter',
-      expect.any(Function)
-    )
+  const events = ['mouseenter', 'mouseleave']
+
+  it('should add events on mounted and remove them on unmounted', async () => {
+    await checkOnMountAndUnmountEvents(document.body, events, testComponent)
   })
 
   it('should return isHovered false by default', () => {

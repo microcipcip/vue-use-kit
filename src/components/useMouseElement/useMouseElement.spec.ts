@@ -1,4 +1,4 @@
-import { mount } from '@src/helpers/test'
+import { checkOnMountAndUnmountEvents, mount } from '@src/helpers/test'
 import { ref } from '@vue/composition-api'
 import { useMouseElement } from '@src/vue-use-kit'
 
@@ -36,25 +36,10 @@ const testComponent = () => ({
 })
 
 describe('useMouseElement', () => {
-  it('should call addEventListener', async () => {
-    const addEventListenerSpy = jest.spyOn(document, 'addEventListener')
-    const removeEventListenerSpy = jest.spyOn(document, 'removeEventListener')
-    const wrapper = mount(testComponent())
-    await wrapper.vm.$nextTick()
-    expect(addEventListenerSpy).toHaveBeenCalledTimes(1)
-    expect(addEventListenerSpy).toBeCalledWith(
-      'mousemove',
-      expect.any(Function)
-    )
-    expect(removeEventListenerSpy).not.toHaveBeenCalled()
+  const events = ['mousemove']
 
-    // Destroy instance to check if the remove event listener is being called
-    wrapper.destroy()
-    expect(removeEventListenerSpy).toHaveBeenCalledTimes(1)
-    expect(removeEventListenerSpy).toBeCalledWith(
-      'mousemove',
-      expect.any(Function)
-    )
+  it('should add events on mounted and remove them on unmounted', async () => {
+    await checkOnMountAndUnmountEvents(document, events, testComponent)
   })
 
   it('should not render any document before onMount since all values are 0 by default', () => {
