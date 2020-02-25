@@ -37,7 +37,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { ref, computed } from '@vue/composition-api'
+import { ref, computed } from '@src/api'
 import { useRaf } from '@src/vue-use-kit'
 
 const pad = (n: number) => (n < 10 ? '0' + n : n)

@@ -138,6 +138,7 @@
     "vue-template-compiler": "^2.6.11"
   },
   "dependencies": {
+    "cookie-universal": "^2.1.1",
     "throttle-debounce": "^2.1.0"
   }
 }

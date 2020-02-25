@@ -1,4 +1,4 @@
-import { Ref } from '@vue/composition-api'
+import { Ref } from '@src/api'
 import { useTimeoutFn } from '@src/components/useTimeoutFn'
 
 const noop = () => null

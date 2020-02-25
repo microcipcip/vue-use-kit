@@ -52,7 +52,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { ref } from '@vue/composition-api'
+import { ref } from '@src/api'
 import { useRafFn } from '@src/vue-use-kit'
 
 export default Vue.extend({

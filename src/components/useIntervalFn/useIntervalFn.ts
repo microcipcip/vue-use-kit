@@ -1,4 +1,4 @@
-import { onMounted, onUnmounted, ref, Ref } from '@vue/composition-api'
+import { onMounted, onUnmounted, ref, Ref } from '@src/api'
 
 export function useIntervalFn(callback: Function, ms = 0, runOnMount = true) {
   const isRunning = ref(false)

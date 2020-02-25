@@ -31,7 +31,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { ref, watch } from '@vue/composition-api'
+import { ref, watch } from '@src/api'
 import { useBeforeUnload } from '@src/vue-use-kit'
 
 export default Vue.extend({

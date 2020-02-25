@@ -46,7 +46,7 @@ function useTimeoutFn(
 
 <script lang="ts">
   import Vue from 'vue'
-  import { ref } from '@vue/composition-api'
+  import { ref } from '@src/api'
   import { useTimeoutFn } from 'vue-use-kit'
 
   export default Vue.extend({

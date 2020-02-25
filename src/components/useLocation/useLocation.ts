@@ -1,4 +1,4 @@
-import { ref, onMounted, onUnmounted, Ref } from '@vue/composition-api'
+import { ref, onMounted, onUnmounted, Ref } from '@src/api'
 import { patchHistoryMethodsOnce } from '@src/utils'
 
 export interface UseLocationState {

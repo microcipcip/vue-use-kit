@@ -1,4 +1,4 @@
-import { ref, Ref } from '@vue/composition-api'
+import { ref, Ref } from '@src/api'
 import { TFps, useRafFn } from '@src/components/useRafFn'
 
 const fpsLimit = 60

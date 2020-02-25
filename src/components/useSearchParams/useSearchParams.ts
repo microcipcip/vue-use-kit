@@ -1,5 +1,4 @@
-import { ref, onMounted, onUnmounted, Ref } from '@vue/composition-api'
-import { UnwrapRef } from '@vue/composition-api/dist/reactivity'
+import { ref, onMounted, onUnmounted, Ref } from '@src/api'
 import { patchHistoryMethodsOnce, normalizeEntriesData } from '@src/utils'
 
 const normalizeParams = (urlParamsObj: { [key: string]: string }) => (
