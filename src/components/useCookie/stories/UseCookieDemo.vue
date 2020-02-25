@@ -13,14 +13,11 @@
       </tr>
       <tr>
         <td colspan="2">
-          <button
-            class="button is-primary"
-            @click="counter++ && updateCookie(`count${counter}`)"
-          >
-            Update cookie
+          <button class="button is-primary" @click="handleSetCookie">
+            Set / Update cookie
           </button>
-          <button class="button is-danger" @click="deleteCookie()">
-            Delete cookie
+          <button class="button is-danger" @click="removeCookie()">
+            Remove cookie
           </button>
         </td>
       </tr>
@@ -30,20 +27,11 @@
       </tr>
       <tr>
         <td colspan="2">
-          <button
-            class="button is-primary"
-            @click="
-              counter++ &&
-                jsonUpdateCookie({
-                  counter: counter,
-                  counterTest: `test${counter}`
-                })
-            "
-          >
-            Update json cookie
+          <button class="button is-primary" @click="handleSetJsonCookie">
+            Set / Update JSON cookie
           </button>
-          <button class="button is-danger" @click="jsonDeleteCookie()">
-            Delete json cookie
+          <button class="button is-danger" @click="jsonRemoveCookie()">
+            Remove JSON cookie
           </button>
         </td>
       </tr>
@@ -53,29 +41,40 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { ref } from '@vue/composition-api'
 import { useCookie } from '@src/vue-use-kit'
 
 export default Vue.extend({
   name: 'UseCookieDemo',
   setup() {
-    const counter = ref(0)
-
-    const { cookie, updateCookie, deleteCookie } = useCookie('normalCookie')
+    const { cookie, setCookie, removeCookie } = useCookie('normalCookie')
 
     const {
       cookie: jsonCookie,
-      updateCookie: jsonUpdateCookie,
-      deleteCookie: jsonDeleteCookie
+      setCookie: jsonSetCookie,
+      removeCookie: jsonRemoveCookie
     } = useCookie('jsonCookie')
+
+    let counter = 0
+    const handleSetCookie = () => {
+      counter++
+      setCookie(`count${counter}`)
+    }
+
+    const handleSetJsonCookie = () => {
+      counter++
+      jsonSetCookie({
+        counter: counter,
+        counterTest: `test${counter}`
+      })
+    }
 
     return {
       cookie,
-      updateCookie,
-      deleteCookie,
+      handleSetCookie,
+      removeCookie,
       jsonCookie,
-      jsonUpdateCookie,
-      jsonDeleteCookie,
+      handleSetJsonCookie,
+      jsonRemoveCookie,
       counter
     }
   }

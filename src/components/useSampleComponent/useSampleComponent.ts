@@ -1,4 +1,4 @@
-import { ref, onMounted, onUnmounted, Ref } from '@vue/composition-api'
+import { ref, onMounted, onUnmounted, Ref } from '@src/api'
 
 export function useSampleComponent() {
   const isMounted = ref(false)

@@ -37,7 +37,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { ref, watch } from '@vue/composition-api'
+import { ref, watch } from '@src/api'
 import { useSearchParams } from '@src/vue-use-kit'
 import Field from './Field.vue'
 

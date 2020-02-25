@@ -37,7 +37,7 @@ function useFullscreen(
 
 <script lang="ts">
   import Vue from 'vue'
-  import { ref } from '@vue/composition-api'
+  import { ref } from '@src/api'
   import { useFullscreen } from 'vue-use-kit'
 
   export default Vue.extend({

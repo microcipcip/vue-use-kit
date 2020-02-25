@@ -1,5 +1,5 @@
 import { checkOnMountAndUnmountEvents, mount } from '@src/helpers/test'
-import { ref } from '@vue/composition-api'
+import { ref } from '@src/api'
 import { useHover } from '@src/vue-use-kit'
 
 afterEach(() => {

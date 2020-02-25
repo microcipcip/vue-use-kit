@@ -33,7 +33,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { ref, watch, computed } from '@vue/composition-api'
+import { ref, watch, computed } from '@src/api'
 import { useTimeoutFn } from '@src/vue-use-kit'
 
 export default Vue.extend({

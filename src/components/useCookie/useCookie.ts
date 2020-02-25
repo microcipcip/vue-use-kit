@@ -1,48 +1,36 @@
-import Cookies from 'js-cookie'
-import { ref, Ref } from '@vue/composition-api'
+import Cookies from 'cookie-universal'
+import { CookieSerializeOptions } from 'cookie'
+import { ref, onMounted, Ref } from '@src/api'
 
-type CookieValueType = string | JSON
+export function useCookie(
+  cookieName: string,
+  enableParseJSON = false,
+  runOnMount = true
+) {
+  const cookieLib = Cookies(undefined, undefined, enableParseJSON)
+  const cookie: Ref<any> = ref(null)
 
-const tryParse = (val: string, enableParsing: boolean) => {
-  if (!enableParsing) return val
-  try {
-    return JSON.parse(val)
-  } catch (err) {
-    return val
-  }
-}
-
-const tryStringify = (val: CookieValueType, enableParsing: boolean) => {
-  if (!enableParsing) return val
-  try {
-    return JSON.stringify(val)
-  } catch (err) {
-    return val
-  }
-}
-
-export function useCookie(cookieName: string, enableParseJSON = false) {
   const getCookie = () => {
-    const cookieVal = Cookies.get(cookieName)
-    if (typeof cookieVal === 'undefined') return null
-    return tryParse(cookieVal, enableParseJSON)
+    const cookieVal = cookieLib.get(cookieName)
+    if (typeof cookieVal !== 'undefined') cookie.value = cookieVal
   }
 
-  const cookie = ref(getCookie())
-
-  const updateCookie = (
-    newVal: CookieValueType,
-    options?: Cookies.CookieAttributes
+  const setCookie = (
+    // The user may pass a 'string', a 'number', or a valid JSON object/array
+    // so it is better to set allowed cookie value as 'any'
+    newVal: any,
+    options?: CookieSerializeOptions
   ) => {
-    const newCookieValue = tryStringify(newVal, enableParseJSON)
-    Cookies.set(cookieName, newCookieValue, options)
+    cookieLib.set(cookieName, newVal, options)
     cookie.value = newVal
   }
 
-  const deleteCookie = (options?: Cookies.CookieAttributes) => {
-    Cookies.remove(cookieName, options)
+  const removeCookie = (options?: CookieSerializeOptions) => {
+    cookieLib.remove(cookieName, options)
     cookie.value = null
   }
 
-  return { cookie, updateCookie, deleteCookie }
+  onMounted(() => runOnMount && getCookie())
+
+  return { cookie, getCookie, setCookie, removeCookie }
 }

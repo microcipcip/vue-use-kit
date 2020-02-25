@@ -1,4 +1,4 @@
-import { ref, onMounted, onUnmounted, Ref } from '@vue/composition-api'
+import { ref, onMounted, onUnmounted, Ref } from '@src/api'
 
 export function useMouseElement(elRef: Ref<null | HTMLElement>) {
   const docX = ref(0)

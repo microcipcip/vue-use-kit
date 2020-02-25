@@ -1,4 +1,4 @@
-import { ref, onUnmounted, Ref } from '@vue/composition-api'
+import { ref, onUnmounted, Ref } from '@src/api'
 
 export function useFullscreen(elRef: Ref<null | HTMLElement>) {
   const isFullscreen = ref(false)
