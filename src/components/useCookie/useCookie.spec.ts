@@ -1,6 +1,5 @@
 import { mount } from '@src/helpers/test'
 import { useCookie } from '@src/vue-use-kit'
-import { computed } from '@src/api'
 
 afterEach(() => {
   document.cookie = ''
@@ -16,7 +15,9 @@ const testComponent = (
   template: `
     <div>
       <div id="cookie">{{ cookie }}</div>
-      <div id="cookieJson">{{ cookieValue1 }} - {{ cookieValue2 }}</div>
+      <div id="cookieJson">
+        {{ cookie && cookie.value1 }} - {{  cookie && cookie.value2 }}
+      </div>
       <button id="getCookie" @click="getCookie"></button>
       <button id="setCookie" @click="setCookie(cookieValue)"></button>
       <button id="removeCookie" @click="removeCookie"></button>
@@ -29,24 +30,12 @@ const testComponent = (
       onMount
     )
 
-    const isObj = (objToCheck: any) =>
-      Object.prototype.toString.call(objToCheck) === '[object Object]'
-
-    const cookieValue1 = computed(
-      () => isObj(cookie.value) && cookie.value.value1
-    )
-    const cookieValue2 = computed(
-      () => isObj(cookie.value) && cookie.value.value2
-    )
-
     return {
       cookie,
       getCookie,
       setCookie,
       removeCookie,
-      cookieValue,
-      cookieValue1,
-      cookieValue2
+      cookieValue
     }
   }
 })
