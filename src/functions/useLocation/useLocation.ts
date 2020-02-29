@@ -1,5 +1,5 @@
 import { ref, onMounted, onUnmounted, Ref } from '@src/api'
-import { patchHistoryMethodsOnce } from '@src/utils'
+import { patchHistoryMethodsOnce } from '@src/shared/utils'
 
 export interface UseLocationState {
   trigger: string

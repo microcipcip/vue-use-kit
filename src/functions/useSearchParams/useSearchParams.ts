@@ -1,5 +1,8 @@
 import { ref, onMounted, onUnmounted, Ref } from '@src/api'
-import { patchHistoryMethodsOnce, normalizeEntriesData } from '@src/utils'
+import {
+  patchHistoryMethodsOnce,
+  normalizeEntriesData
+} from '@src/shared/utils'
 
 const normalizeParams = (urlParamsObj: { [key: string]: string }) => (
   paramAcc: any,

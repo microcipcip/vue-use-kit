@@ -1,5 +1,5 @@
 import { ref, Ref } from '@src/api'
-import { useIntervalFn } from '@src/components/useIntervalFn'
+import { useIntervalFn } from '@src/functions/useIntervalFn'
 
 export function useInterval(ms = 0, runOnMount = true) {
   const counter = ref(0)
