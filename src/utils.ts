@@ -44,16 +44,20 @@ export const normalizeEntriesData = (data: [any, any][]) =>
     return acc
   }, {} as { [key: string]: any })
 
-export const createSerializer = (serializer?: Function) =>
+export type SerializerFunction = (value: any) => string
+
+export type DeserializerFunction = (value: string) => any
+
+export const createSerializer = (serializer?: SerializerFunction) =>
   serializer || JSON.stringify
 
-export const createDeserializer = (deserializer?: Function) =>
+export const createDeserializer = (deserializer?: DeserializerFunction) =>
   deserializer || JSON.parse
 
 const fallbackToString = (val: any) => (isString(val) ? val : String(val))
 export const trySerialize = (
   val: any,
-  serializer: Function,
+  serializer: SerializerFunction,
   shouldSerialize?: boolean
 ) => {
   if (!shouldSerialize) return fallbackToString(val)
@@ -66,7 +70,7 @@ export const trySerialize = (
 
 export const tryDeserialize = (
   val: any,
-  deserializer: Function,
+  deserializer: DeserializerFunction,
   shouldDeserialize?: boolean
 ) => {
   if (!shouldDeserialize) return val

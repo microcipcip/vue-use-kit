@@ -1,6 +1,8 @@
 import {
   createSerializer,
   createDeserializer,
+  SerializerFunction,
+  DeserializerFunction,
   trySerialize,
   tryDeserialize,
   isNullOrUndefined
@@ -9,8 +11,8 @@ import { ref, onMounted, Ref } from '@src/api'
 
 export interface UseLocalStorageOptions {
   isParsing: boolean
-  serializer?: (value: any) => string
-  deserializer?: (value: string) => any
+  serializer?: SerializerFunction
+  deserializer?: DeserializerFunction
 }
 
 const defaultOptions = {

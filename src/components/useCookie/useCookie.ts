@@ -3,6 +3,8 @@ import { CookieSerializeOptions } from 'cookie'
 import {
   createSerializer,
   createDeserializer,
+  SerializerFunction,
+  DeserializerFunction,
   trySerialize,
   tryDeserialize,
   isNullOrUndefined
@@ -11,8 +13,8 @@ import { ref, onMounted, Ref } from '@src/api'
 
 export interface UseCookieOptions {
   isParsing: boolean
-  serializer?: (value: any) => string
-  deserializer?: (value: string) => any
+  serializer?: SerializerFunction
+  deserializer?: DeserializerFunction
 }
 
 const defaultOptions = {
