@@ -10,6 +10,9 @@ export const isObj = (varToCheck: any) =>
 export const isNull = (varToCheck: any) =>
   checkType(varToCheck) === '[object Null]'
 
+export const isFunction = (varToCheck: any) =>
+  checkType(varToCheck) === '[object Function]'
+
 export const isUndefined = (varToCheck: any) =>
   checkType(varToCheck) === '[object Undefined]'
 
