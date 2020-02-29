@@ -1,5 +1,5 @@
 import { ref, Ref } from '@src/api'
-import { TFps, useRafFn } from '@src/components/useRafFn'
+import { TFps, useRafFn } from '@src/functions/useRafFn'
 
 const fpsLimit = 60
 export function useRaf(fps: TFps = fpsLimit, runOnMount = true) {

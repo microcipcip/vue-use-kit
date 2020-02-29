@@ -61,7 +61,7 @@ const testComponent = (
   }
 })
 
-describe('useItem', () => {
+describe('useLocalStorage', () => {
   it('should get a item with the given value', async () => {
     const itemKey = 'itemKey'
     const itemValue = 'itemValue'

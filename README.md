@@ -63,59 +63,61 @@ Vue.use(VueCompositionAPI);
 ## APIs
 
 - Sensors
-  - [`useGeolocation`](./src/components/useGeolocation/stories/useGeolocation.md) &mdash; tracks geolocation state of user's device.
+  - [`useGeolocation`](./src/functions/useGeolocation/stories/useGeolocation.md) &mdash; tracks geolocation state of user's device.
     [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/sensors-usegeolocation--demo)
-  - [`useHover`](./src/components/useHover/stories/useHover.md) &mdash; tracks mouse hover state of a given element.
+  - [`useHover`](./src/functions/useHover/stories/useHover.md) &mdash; tracks mouse hover state of a given element.
     [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/sensors-usehover--demo)
-  - [`useIdle`](./src/components/useIdle/stories/useIdle.md) &mdash; tracks whether user is being inactive.
+  - [`useIdle`](./src/functions/useIdle/stories/useIdle.md) &mdash; tracks whether user is being inactive.
     [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/sensors-useidle--demo)
-  - [`useIntersection`](./src/components/useIntersection/stories/useIntersection.md) &mdash; tracks intersection of target element with an ancestor element.
+  - [`useIntersection`](./src/functions/useIntersection/stories/useIntersection.md) &mdash; tracks intersection of target element with an ancestor element.
     [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/sensors-useintersection--demo)
     [![Demo](https://img.shields.io/badge/advanced_demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/sensors-useintersection--advanced-demo)
-  - [`useLocation`](./src/components/useLocation/stories/useLocation.md) &mdash; tracks bar navigation location state.
+  - [`useLocation`](./src/functions/useLocation/stories/useLocation.md) &mdash; tracks bar navigation location state.
     [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/sensors-uselocation--demo)
-  - [`useMedia`](./src/components/useMedia/stories/useMedia.md) &mdash; tracks state of a CSS media query.
+  - [`useMedia`](./src/functions/useMedia/stories/useMedia.md) &mdash; tracks state of a CSS media query.
     [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/sensors-usemedia--demo)
     [![Demo](https://img.shields.io/badge/advanced_demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/sensors-usemedia--advanced-demo)
-  - [`useMediaDevices`](./src/components/useMediaDevices/stories/useMediaDevices.md) &mdash; tracks connected hardware devices.
+  - [`useMediaDevices`](./src/functions/useMediaDevices/stories/useMediaDevices.md) &mdash; tracks connected hardware devices.
     [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/sensors-usemediadevices--demo)
-  - [`useMouse`](./src/components/useMouse/stories/useMouse.md) &mdash; tracks the mouse position.
+  - [`useMouse`](./src/functions/useMouse/stories/useMouse.md) &mdash; tracks the mouse position.
     [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/sensors-usemouse--demo)
     [![Demo](https://img.shields.io/badge/advanced_demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/sensors-usemouse--advanced-demo)
-  - [`useMouseElement`](./src/components/useMouseElement/stories/useMouseElement.md) &mdash; tracks the mouse position relative to given element.
+  - [`useMouseElement`](./src/functions/useMouseElement/stories/useMouseElement.md) &mdash; tracks the mouse position relative to given element.
     [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/sensors-usemouseelement--demo)
-  - [`useMouseLeavePage`](./src/components/useMouseLeavePage/stories/useMouseLeavePage.md) &mdash; tracks when mouse leaves page boundaries.
+  - [`useMouseLeavePage`](./src/functions/useMouseLeavePage/stories/useMouseLeavePage.md) &mdash; tracks when mouse leaves page boundaries.
     [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/sensors-usemouseleavepage--demo)
-  - [`useSearchParams`](./src/components/useSearchParams/stories/useSearchParams.md) &mdash; tracks browser's location search params.
+  - [`useSearchParams`](./src/functions/useSearchParams/stories/useSearchParams.md) &mdash; tracks browser's location search params.
     [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/sensors-usesearchparams--demo)
 - Animations
-  - [`useInterval`](./src/components/useInterval/stories/useInterval.md) &mdash; updates `counter` value repeatedly on a fixed time delay.
+  - [`useInterval`](./src/functions/useInterval/stories/useInterval.md) &mdash; updates `counter` value repeatedly on a fixed time delay.
     [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/animations-useinterval--demo)
-  - [`useIntervalFn`](./src/components/useIntervalFn/stories/useIntervalFn.md) &mdash; calls function repeatedly on a fixed time delay.
+  - [`useIntervalFn`](./src/functions/useIntervalFn/stories/useIntervalFn.md) &mdash; calls function repeatedly on a fixed time delay.
     [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/animations-useintervalfn--demo)
-  - [`useRaf`](./src/components/useRaf/stories/useRaf.md) &mdash; returns `elapsedTime` with requestAnimationFrame.
+  - [`useRaf`](./src/functions/useRaf/stories/useRaf.md) &mdash; returns `elapsedTime` with requestAnimationFrame.
     [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/animations-useraf--demo)
-  - [`useRafFn`](./src/components/useRafFn/stories/useRafFn.md) &mdash; calls function with requestAnimationFrame.
+  - [`useRafFn`](./src/functions/useRafFn/stories/useRafFn.md) &mdash; calls function with requestAnimationFrame.
     [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/animations-useraffn--demo)
     [![Demo](https://img.shields.io/badge/advanced_demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/animations-useraffn--advanced-demo)
-  - [`useTimeout`](./src/components/useTimeout/stories/useTimeout.md) &mdash; returns `isReady` true when timer is completed.
+  - [`useTimeout`](./src/functions/useTimeout/stories/useTimeout.md) &mdash; returns `isReady` true when timer is completed.
     [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/animations-usetimeout--demo)
-  - [`useTimeoutFn`](./src/components/useTimeoutFn/stories/useTimeoutFn.md) &mdash; calls function when timer is completed.
+  - [`useTimeoutFn`](./src/functions/useTimeoutFn/stories/useTimeoutFn.md) &mdash; calls function when timer is completed.
     [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/animations-usetimeoutfn--demo)
 - Side Effects
-  - [`useBeforeUnload`](./src/components/useBeforeUnload/stories/useBeforeUnload.md) &mdash; shows browser alert when user try to reload or close the page.
+  - [`useBeforeUnload`](./src/functions/useBeforeUnload/stories/useBeforeUnload.md) &mdash; shows browser alert when user try to reload or close the page.
     [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/side-effects-usebeforeunload--demo)
-  - [`useCookie`](./src/components/useCookie/stories/useCookie.md) &mdash; provides way to read, update and delete a cookie.
+  - [`useCookie`](./src/functions/useCookie/stories/useCookie.md) &mdash; provides way to read, update and delete a cookie.
     [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/side-effects-usecookie--demo)
-  - [`useLocalStorage`](./src/components/useLocalStorage/stories/useLocalStorage.md) &mdash; provides way to read, update and delete a localStorage key.
+  - [`useLocalStorage`](./src/functions/useLocalStorage/stories/useLocalStorage.md) &mdash; provides way to read, update and delete a localStorage key.
     [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/side-effects-uselocalstorage--demo)
+  - [`useSessionStorage`](./src/functions/useSessionStorage/stories/useSessionStorage.md) &mdash; provides way to read, update and delete a sessionStorage key.
+    [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/side-effects-usesessionstorage--demo)
 - UI
-  - [`useClickAway`](./src/components/useClickAway/stories/useClickAway.md) &mdash; triggers callback when user clicks outside target area.
+  - [`useClickAway`](./src/functions/useClickAway/stories/useClickAway.md) &mdash; triggers callback when user clicks outside target area.
     [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/ui-useclickaway--demo)
-  - [`useFullscreen`](./src/components/useFullscreen/stories/useFullscreen.md) &mdash; display an element in full-screen mode
+  - [`useFullscreen`](./src/functions/useFullscreen/stories/useFullscreen.md) &mdash; display an element in full-screen mode
     [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/ui-usefullscreen--demo)
 - Utils
-  - [`getQuery`](./src/components/getQuery/stories/getQuery.md) &mdash; get a CSS media query string.
+  - [`getQuery`](./src/functions/getQuery/stories/getQuery.md) &mdash; get a CSS media query string.
     [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/utils-getquery--demo)
 
 ## Inspiration

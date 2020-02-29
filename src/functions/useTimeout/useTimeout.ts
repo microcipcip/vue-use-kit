@@ -1,5 +1,5 @@
 import { Ref } from '@src/api'
-import { useTimeoutFn } from '@src/components/useTimeoutFn'
+import { useTimeoutFn } from '@src/functions/useTimeoutFn'
 
 const noop = () => null
 export function useTimeout(ms = 0, runOnMount = true) {

@@ -8,7 +8,7 @@ import {
   trySerialize,
   tryDeserialize,
   isNullOrUndefined
-} from '@src/utils'
+} from '@src/shared/utils'
 import { ref, onMounted, Ref } from '@src/api'
 
 export interface UseCookieOptions {
