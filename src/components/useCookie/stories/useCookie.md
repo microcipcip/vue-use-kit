@@ -5,9 +5,17 @@ Vue function that provides way to read, set and remove a cookie.
 ## Reference
 
 ```typescript
+interface UseCookieOptions {
+  isParsing: boolean
+  serializer?: SerializerFunction
+  deserializer?: DeserializerFunction
+}
+```
+
+```typescript
 function useCookie(
   cookieName: string,
-  enableParseJSON?: boolean,
+  options?: UseCookieOptions,
   runOnMount?: boolean
 ): {
   cookie: Ref<any>
@@ -20,7 +28,10 @@ function useCookie(
 ### Parameters
 
 - `cookieName: string` the cookie name you wish to get/set/remove
-- `enableParseJSON: boolean` whether to enable JSON parsing or not, `false` by default
+- `options: UseCookieOptions`
+  - `isParsing: boolean` whether to enable parsing the cookie value or not, `false` by default
+  - `serializer: SerializerFunction` a custom serializer, `JSON.stringify` by default
+  - `deserializer: DeserializerFunction` a custom deserializer, `JSON.parse` by default
 - `runOnMount: boolean` whether to get the cookie on mount or not, `true` by default
 
 ### Returns
@@ -38,8 +49,7 @@ function useCookie(
 ```html
 <template>
   <div>
-    Cookie: {{ cookie }}
-
+    <div>Cookie: {{ cookie }}</div>
     <button @click="getCookie">Get cookie</button>
     <button @click="setCookie('Value here')">Set cookie</button>
     <button @click="removeCookie">Remove cookie</button>
@@ -47,22 +57,23 @@ function useCookie(
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-import { useCookie } from 'vue-use-kit'
+  import Vue from 'vue'
+  import { useCookie } from 'vue-use-kit'
 
-export default Vue.extend({
-  name: 'UseCookieDemo',
-  setup() {
-    const {
-      cookie, getCookie, setCookie, removeCookie
-    } = useCookie('i_love_cookies')
+  export default Vue.extend({
+    name: 'UseCookieDemo',
+    setup() {
+      const { cookie, getCookie, setCookie, removeCookie } = useCookie(
+        'i_love_cookies'
+      )
 
-    return {
-      cookie,
-      getCookie,
-      setCookie,
-      removeCookie,
+      return {
+        cookie,
+        getCookie,
+        setCookie,
+        removeCookie
+      }
     }
-  }
-})
+  })
+</script>
 ```

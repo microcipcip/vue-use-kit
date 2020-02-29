@@ -52,7 +52,9 @@ export default Vue.extend({
       cookie: jsonCookie,
       setCookie: jsonSetCookie,
       removeCookie: jsonRemoveCookie
-    } = useCookie('jsonCookie')
+    } = useCookie('jsonCookie', {
+      isParsing: true
+    })
 
     let counter = 0
     const handleSetCookie = () => {

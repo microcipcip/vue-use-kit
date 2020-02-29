@@ -25,3 +25,4 @@ export * from './components/useTimeout'
 // Site Effects
 export * from './components/useBeforeUnload'
 export * from './components/useCookie'
+export * from './components/useLocalStorage'
