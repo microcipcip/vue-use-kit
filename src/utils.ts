@@ -25,3 +25,35 @@ export const normalizeEntriesData = (data: [any, any][]) =>
     acc[key] = val
     return acc
   }, {} as { [key: string]: any })
+
+export const createSerializer = (serializer?: Function) =>
+  serializer || JSON.stringify
+
+export const createDeserializer = (deserializer?: Function) =>
+  deserializer || JSON.parse
+
+export const trySerialize = (
+  val: any,
+  serializer: Function,
+  shouldSerialize?: boolean
+) => {
+  if (!shouldSerialize) return String(val)
+  try {
+    return serializer(val)
+  } catch (error) {
+    return val
+  }
+}
+
+export const tryDeserialize = (
+  val: string,
+  deserializer: Function,
+  shouldDeserialize?: boolean
+) => {
+  if (!shouldDeserialize) return val
+  try {
+    return deserializer(val)
+  } catch (error) {
+    return val
+  }
+}

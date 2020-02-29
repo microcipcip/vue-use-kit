@@ -9,7 +9,7 @@ afterEach(() => {
 const testComponent = (
   cookieName = 'cookieName',
   cookieValue: any = '',
-  parseJson = false,
+  opts = { isParsing: false } as any,
   onMount = true
 ) => ({
   template: `
@@ -26,7 +26,7 @@ const testComponent = (
   setup() {
     const { cookie, getCookie, setCookie, removeCookie } = useCookie(
       cookieName,
-      parseJson,
+      opts,
       onMount
     )
 
@@ -75,7 +75,9 @@ describe('useCookie', () => {
   it('should correctly get and set the parseToJson object', async () => {
     const cookieName = 'cookieName'
     const cookieValue = { value1: 'testValue1', value2: 'testValue2' }
-    const wrapper = mount(testComponent(cookieName, cookieValue, true))
+    const wrapper = mount(
+      testComponent(cookieName, cookieValue, { isParsing: true })
+    )
     wrapper.find('#setCookie').trigger('click')
     await wrapper.vm.$nextTick()
     expect(wrapper.find('#cookieJson').html()).toContain(cookieValue.value1)
@@ -86,5 +88,86 @@ describe('useCookie', () => {
     await wrapper.vm.$nextTick()
     expect(wrapper.find('#cookieJson').html()).toContain(cookieValue.value1)
     expect(wrapper.find('#cookieJson').html()).toContain(cookieValue.value2)
+  })
+
+  it('should correctly get using the deserializer', async () => {
+    const cookieName = 'cookieName'
+    const cookieValue = { value1: 'testValue1', value2: 'testValue2' }
+    const deserializerVal = { value1: 'gatto', value2: 'topo' }
+    const wrapper = mount(
+      testComponent(cookieName, cookieValue, {
+        isParsing: true,
+        deserializer: () => deserializerVal
+      })
+    )
+    await wrapper.vm.$nextTick()
+    expect(wrapper.find('#cookieJson').html()).toContain(deserializerVal.value1)
+    expect(wrapper.find('#cookieJson').html()).toContain(deserializerVal.value2)
+  })
+
+  it('should ignore deserializer when isParsing is false', async () => {
+    const cookieName = 'cookieName'
+    const cookieValue = { value1: 'testValue1', value2: 'testValue2' }
+    const deserializerVal = { value1: 'gatto', value2: 'topo' }
+    const wrapper = mount(
+      testComponent(cookieName, cookieValue, {
+        isParsing: false,
+        deserializer: () => deserializerVal
+      })
+    )
+    await wrapper.vm.$nextTick()
+    expect(wrapper.find('#cookie').html()).toContain(cookieValue.value1)
+    expect(wrapper.find('#cookie').html()).toContain(cookieValue.value2)
+    expect(wrapper.find('#cookieJson').html()).not.toContain(
+      deserializerVal.value1
+    )
+    expect(wrapper.find('#cookieJson').html()).not.toContain(
+      deserializerVal.value2
+    )
+  })
+
+  it('should correctly set using the serializer', async () => {
+    const cookieName = 'cookieName'
+    const cookieValue = { value1: 'testValue1', value2: 'testValue2' }
+    const serializerVal = { value1: 'testValue1+1', value2: 'testValue2+1' }
+    const wrapper = mount(
+      testComponent(cookieName, cookieValue, {
+        isParsing: true,
+        serializer: (obj: any) => ({
+          value1: `${obj.value1}+1`,
+          value2: `${obj.value2}+1`
+        })
+      })
+    )
+    wrapper.find('#setCookie').trigger('click')
+    wrapper.find('#getCookie').trigger('click')
+    await wrapper.vm.$nextTick()
+    expect(wrapper.find('#cookieJson').html()).toContain(serializerVal.value1)
+    expect(wrapper.find('#cookieJson').html()).toContain(serializerVal.value2)
+  })
+
+  it('should ignore serializer when isParsing is false', async () => {
+    const cookieName = 'cookieName'
+    const cookieValue = { value1: 'testValue1', value2: 'testValue2' }
+    const serializerVal = { value1: 'testValue1+1', value2: 'testValue2+1' }
+    const wrapper = mount(
+      testComponent(cookieName, cookieValue, {
+        isParsing: false,
+        serializer: (obj: any) => ({
+          value1: `${obj.value1}+1`,
+          value2: `${obj.value2}+1`
+        })
+      })
+    )
+    wrapper.find('#setCookie').trigger('click')
+    wrapper.find('#getCookie').trigger('click')
+    await wrapper.vm.$nextTick()
+    expect(wrapper.find('#cookie').html()).toContain('[object Object]')
+    expect(wrapper.find('#cookieJson').html()).not.toContain(
+      serializerVal.value1
+    )
+    expect(wrapper.find('#cookieJson').html()).not.toContain(
+      serializerVal.value2
+    )
   })
 })

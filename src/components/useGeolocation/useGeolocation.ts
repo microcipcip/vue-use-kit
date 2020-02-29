@@ -23,7 +23,7 @@ export function useGeolocation(
   options: PositionOptions = {},
   runOnMount = true
 ) {
-  options = Object.assign(defaultOpts, options)
+  options = Object.assign({}, defaultOpts, options)
 
   // Note: surprisingly the watchId can be 0 (not positive) so
   // we have to check if watchId !== null every time

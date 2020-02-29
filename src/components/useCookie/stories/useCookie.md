@@ -5,9 +5,17 @@ Vue function that provides way to read, set and remove a cookie.
 ## Reference
 
 ```typescript
+interface UseCookieOptions {
+    isParsing: boolean;
+    serializer?: (value: any) => string;
+    deserializer?: (value: string) => any;
+}
+```
+
+```typescript
 function useCookie(
   cookieName: string,
-  enableParseJSON?: boolean,
+  options?: UseCookieOptions,
   runOnMount?: boolean
 ): {
   cookie: Ref<any>
@@ -20,7 +28,10 @@ function useCookie(
 ### Parameters
 
 - `cookieName: string` the cookie name you wish to get/set/remove
-- `enableParseJSON: boolean` whether to enable JSON parsing or not, `false` by default
+- `options: UseCookieOptions`
+  - `isParsing: boolean` whether to enable parsing the cookie value or not, `false` by default
+  - `serializer: Function` a custom serializer, `JSON.stringify` by default
+  - `deserializer: Function` a custom deserializer, `JSON.parse` by default
 - `runOnMount: boolean` whether to get the cookie on mount or not, `true` by default
 
 ### Returns
@@ -65,4 +76,5 @@ export default Vue.extend({
     }
   }
 })
+</script>
 ```
