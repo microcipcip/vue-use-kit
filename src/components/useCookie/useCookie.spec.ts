@@ -126,7 +126,7 @@ describe('useCookie', () => {
     )
   })
 
-  it('should correctly set using the serializer', async () => {
+  it('should correctly set the object using the serializer', async () => {
     const cookieName = 'cookieName'
     const cookieValue = { value1: 'testValue1', value2: 'testValue2' }
     const serializerVal = { value1: 'testValue1+1', value2: 'testValue2+1' }
@@ -154,11 +154,10 @@ describe('useCookie', () => {
     const wrapper = mount(
       testComponent(cookieName, cookieValue, {
         isParsing: false,
-        serializer: (obj: any) =>
-          JSON.stringify({
-            value1: `${obj.value1}+1`,
-            value2: `${obj.value2}+1`
-          })
+        serializer: (obj: any) => ({
+          value1: `${obj.value1}+1`,
+          value2: `${obj.value2}+1`
+        })
       })
     )
     wrapper.find('#setCookie').trigger('click')

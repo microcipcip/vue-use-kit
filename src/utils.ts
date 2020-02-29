@@ -1,6 +1,9 @@
 const checkType = (typeToCheck: any) =>
   Object.prototype.toString.call(typeToCheck)
 
+export const isString = (varToCheck: any) =>
+  checkType(varToCheck) === '[object String]'
+
 export const isObj = (varToCheck: any) =>
   checkType(varToCheck) === '[object Object]'
 
@@ -47,16 +50,17 @@ export const createSerializer = (serializer?: Function) =>
 export const createDeserializer = (deserializer?: Function) =>
   deserializer || JSON.parse
 
+const fallbackToString = (val: any) => (isString(val) ? val : String(val))
 export const trySerialize = (
   val: any,
   serializer: Function,
   shouldSerialize?: boolean
 ) => {
-  if (!shouldSerialize) return String(val)
+  if (!shouldSerialize) return fallbackToString(val)
   try {
-    return serializer(val)
+    return fallbackToString(serializer(val))
   } catch (error) {
-    return val
+    return fallbackToString(val)
   }
 }
 

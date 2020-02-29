@@ -144,7 +144,7 @@ describe('useItem', () => {
     )
   })
 
-  it('should correctly set using the serializer', async () => {
+  it('should correctly set the object using the serializer', async () => {
     const itemKey = 'itemKey'
     const itemValue = { value1: 'testValue1', value2: 'testValue2' }
     const serializerVal = { value1: 'testValue1+1', value2: 'testValue2+1' }
@@ -172,11 +172,10 @@ describe('useItem', () => {
     const wrapper = mount(
       testComponent(itemKey, itemValue, {
         isParsing: false,
-        serializer: (obj: any) =>
-          JSON.stringify({
-            value1: `${obj.value1}+1`,
-            value2: `${obj.value2}+1`
-          })
+        serializer: (obj: any) => ({
+          value1: `${obj.value1}+1`,
+          value2: `${obj.value2}+1`
+        })
       })
     )
     wrapper.find('#setItem').trigger('click')
