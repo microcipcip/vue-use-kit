@@ -1,8 +1,7 @@
 import {
   checkOnMountAndUnmountEvents,
   checkOnStartEvents,
-  checkOnStopEvents,
-  mount
+  checkOnStopEvents
 } from '@src/helpers/test'
 import { useIdle, idleEventsList } from '@src/vue-use-kit'
 

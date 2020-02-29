@@ -1,4 +1,4 @@
-import { checkOnMountAndUnmountEvents, mount } from '@src/helpers/test'
+import { checkOnMountAndUnmountEvents } from '@src/helpers/test'
 import { ref } from '@src/api'
 import { useClickAway } from '@src/vue-use-kit'
 

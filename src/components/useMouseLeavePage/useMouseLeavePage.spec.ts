@@ -2,8 +2,7 @@ import {
   checkElementExistenceOnMount,
   checkOnMountAndUnmountEvents,
   checkOnStartEvents,
-  checkOnStopEvents,
-  mount
+  checkOnStopEvents
 } from '@src/helpers/test'
 import { useMouseLeavePage } from '@src/vue-use-kit'
 

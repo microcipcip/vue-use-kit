@@ -2,8 +2,7 @@ import {
   checkElementExistenceOnMount,
   checkOnMountAndUnmountEvents,
   checkOnStartEvents,
-  checkOnStopEvents,
-  mount
+  checkOnStopEvents
 } from '@src/helpers/test'
 import { useMediaDevices } from '@src/vue-use-kit'
 
