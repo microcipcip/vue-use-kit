@@ -1,3 +1,18 @@
+const checkType = (typeToCheck: any) =>
+  Object.prototype.toString.call(typeToCheck)
+
+export const isObj = (varToCheck: any) =>
+  checkType(varToCheck) === '[object Object]'
+
+export const isNull = (varToCheck: any) =>
+  checkType(varToCheck) === '[object Null]'
+
+export const isUndefined = (varToCheck: any) =>
+  checkType(varToCheck) === '[object Undefined]'
+
+export const isNullOrUndefined = (varToCheck: any) =>
+  isNull(varToCheck) || isUndefined(varToCheck)
+
 // The history methods 'pushState' and 'replaceState' by default do not fire an event
 // unless it is coming from user interaction with the browser navigation bar,
 // so we are adding a patch to make them detectable
@@ -46,7 +61,7 @@ export const trySerialize = (
 }
 
 export const tryDeserialize = (
-  val: string,
+  val: any,
   deserializer: Function,
   shouldDeserialize?: boolean
 ) => {

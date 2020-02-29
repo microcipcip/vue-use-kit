@@ -4,7 +4,8 @@ import {
   createSerializer,
   createDeserializer,
   trySerialize,
-  tryDeserialize
+  tryDeserialize,
+  isNullOrUndefined
 } from '@src/utils'
 import { ref, onMounted, Ref } from '@src/api'
 
@@ -24,11 +25,11 @@ export function useCookie(
   runOnMount = true
 ) {
   const { isParsing, ...opts } = Object.assign({}, defaultOptions, options)
-  const cookieLib = Cookies(undefined, undefined, false)
-  const cookie: Ref<any> = ref(null)
-
   const serializer = createSerializer(opts.serializer)
   const deserializer = createDeserializer(opts.deserializer)
+
+  const cookieLib = Cookies(undefined, undefined, false)
+  const cookie: Ref<any> = ref(null)
 
   const getCookie = () => {
     const cookieVal = tryDeserialize(
@@ -36,7 +37,7 @@ export function useCookie(
       deserializer,
       isParsing
     )
-    if (typeof cookieVal !== 'undefined') cookie.value = cookieVal
+    if (!isNullOrUndefined(cookieVal)) cookie.value = cookieVal
   }
 
   const setCookie = (

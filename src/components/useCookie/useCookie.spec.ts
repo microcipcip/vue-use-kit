@@ -72,7 +72,7 @@ describe('useCookie', () => {
     expect(document.cookie).not.toContain(cookieValue)
   })
 
-  it('should correctly get and set the parseToJson object', async () => {
+  it('should correctly get and set the isParsing object', async () => {
     const cookieName = 'cookieName'
     const cookieValue = { value1: 'testValue1', value2: 'testValue2' }
     const wrapper = mount(
@@ -133,10 +133,11 @@ describe('useCookie', () => {
     const wrapper = mount(
       testComponent(cookieName, cookieValue, {
         isParsing: true,
-        serializer: (obj: any) => ({
-          value1: `${obj.value1}+1`,
-          value2: `${obj.value2}+1`
-        })
+        serializer: (obj: any) =>
+          JSON.stringify({
+            value1: `${obj.value1}+1`,
+            value2: `${obj.value2}+1`
+          })
       })
     )
     wrapper.find('#setCookie').trigger('click')
@@ -153,10 +154,11 @@ describe('useCookie', () => {
     const wrapper = mount(
       testComponent(cookieName, cookieValue, {
         isParsing: false,
-        serializer: (obj: any) => ({
-          value1: `${obj.value1}+1`,
-          value2: `${obj.value2}+1`
-        })
+        serializer: (obj: any) =>
+          JSON.stringify({
+            value1: `${obj.value1}+1`,
+            value2: `${obj.value2}+1`
+          })
       })
     )
     wrapper.find('#setCookie').trigger('click')
