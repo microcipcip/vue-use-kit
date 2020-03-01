@@ -32,7 +32,7 @@ npm install @vue/composition-api
 
 ## Setup
 
-```
+```js
 import Vue from 'vue';
 import VueCompositionAPI from '@vue/composition-api';
 Vue.use(VueCompositionAPI);
@@ -40,23 +40,23 @@ Vue.use(VueCompositionAPI);
 
 ## Usage
 
-```
+```html
 <template>
   <div>isDesktop: {{ isDesktop ? 'Yes' : 'No' }}</div>
 </template>
 
 <script lang="ts">
-  import Vue from 'vue'
-  import { useMedia } from 'vue-use-kit'
+import Vue from 'vue'
+import { useMedia } from 'vue-use-kit'
 
-  export default Vue.extend({
-    name: 'UseMedia',
-    setup() {
-      const query = '(min-width: 1024px)'
-      const isDesktop = useMedia(query)
-      return { isDesktop }
-    }
-  })
+export default Vue.extend({
+  name: 'UseMedia',
+  setup() {
+    const query = '(min-width: 1024px)'
+    const isDesktop = useMedia(query)
+    return { isDesktop }
+  }
+})
 </script>
 ```
 
