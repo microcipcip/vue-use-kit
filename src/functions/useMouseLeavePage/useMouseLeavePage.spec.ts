@@ -41,14 +41,18 @@ describe('useMouseLeavePage', () => {
   })
 
   it('should show #isTracking when runOnMount is true', async () => {
-    await checkElementExistenceOnMount(true, testComponent)
+    await checkElementExistenceOnMount(true, testComponent(true))
   })
 
   it('should not show #isTracking when runOnMount is false', async () => {
-    await checkElementExistenceOnMount(false, testComponent)
+    await checkElementExistenceOnMount(false, testComponent(false))
   })
 
   it('should not show #hasLeftPage when runOnMount is false', async () => {
-    await checkElementExistenceOnMount(false, testComponent, '#hasLeftPage')
+    await checkElementExistenceOnMount(
+      false,
+      testComponent(false),
+      '#hasLeftPage'
+    )
   })
 })

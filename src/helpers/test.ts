@@ -75,10 +75,10 @@ export const checkOnStopEvents = async (
 
 export const checkElementExistenceOnMount = async (
   mountType: boolean,
-  testComponent: Function,
+  testComponent: ComponentOptions<Vue>,
   elementName = '#isTracking'
 ) => {
-  const wrapper = mount(testComponent(mountType))
+  const wrapper = mount(testComponent)
   await wrapper.vm.$nextTick()
   expect(wrapper.find(elementName).exists()).toBe(mountType)
 }
