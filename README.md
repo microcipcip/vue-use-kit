@@ -86,6 +86,8 @@ export default Vue.extend({
     [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/sensors-usemouseelement--demo)
   - [`useMouseLeavePage`](./src/functions/useMouseLeavePage/stories/useMouseLeavePage.md) &mdash; tracks when mouse leaves page boundaries.
     [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/sensors-usemouseleavepage--demo)
+  - [`useOrientation`](./src/functions/useOrientation/stories/useOrientation.md) &mdash; tracks state of device's screen orientation.
+    [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/sensors-useorientation--demo)
   - [`useSearchParams`](./src/functions/useSearchParams/stories/useSearchParams.md) &mdash; tracks browser's location search params.
     [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/sensors-usesearchparams--demo)
 - Animations

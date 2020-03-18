@@ -51,11 +51,11 @@ describe('useSearchParams', () => {
   })
 
   it('should show #isTracking when runOnMount is true', async () => {
-    await checkElementExistenceOnMount(true, testComponent)
+    await checkElementExistenceOnMount(true, testComponent(true))
   })
 
   it('should not show #isTracking when runOnMount is false', async () => {
-    await checkElementExistenceOnMount(false, testComponent)
+    await checkElementExistenceOnMount(false, testComponent(false))
   })
 
   it('should display the searchParams object with all parameter keys', async () => {

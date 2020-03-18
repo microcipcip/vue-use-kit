@@ -14,6 +14,7 @@ export * from './functions/useMediaDevices'
 export * from './functions/useMouse'
 export * from './functions/useMouseElement'
 export * from './functions/useMouseLeavePage'
+export * from './functions/useOrientation'
 export * from './functions/useSearchParams'
 // Animations
 export * from './functions/useIntervalFn'
