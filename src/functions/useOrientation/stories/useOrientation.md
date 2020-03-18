@@ -35,7 +35,7 @@ function useOrientation(
 
 - `orientation: Ref<UseOrientationState>` 
   - `angle: number`: the possible values for the window.orientation angle are: -90, 0, 90, 180. 
-  - `type: string`: the type can be `landscape-primary` or `portrait-primary`
+  - `type: string`: the type can be `landscape-primary` `landscape-secondary` or `portrait-primary`, `portrait-secondary`
 - `isTracking: Ref<boolean>` whether this function events are running or not
 - `start: Function` the function used to start tracking the device's screen orientation
 - `stop: Function` the function used to stop tracking the device's screen orientation
