@@ -1,33 +1,28 @@
 import { storiesOf } from '@storybook/vue'
 import path from 'path'
 import StoryTitle from '@src/helpers/StoryTitle.vue'
-import UseOrientationDemo from './UseOrientationDemo.vue'
+import UseScrollDemo from './UseScrollDemo.vue'
 
-const functionName = 'useOrientation'
+const functionName = 'useScroll'
 const functionPath = path.resolve(__dirname, '..')
 const notes = require(`./${functionName}.md`).default
 
 const basicDemo = () => ({
-  components: { StoryTitle, demo: UseOrientationDemo },
+  components: { StoryTitle, demo: UseScrollDemo },
   template: `
     <div class="container">
       <story-title 
         function-path="${functionPath}" 
         source-name="${functionName}" 
-        demo-name="UseOrientationDemo.vue"
+        demo-name="UseScrollDemo.vue"
       >
         <template v-slot:title></template>
-        <template v-slot:intro>
-          <p>
-            <strong>Try to rotate your device</strong> to see the value changes.
-            Please note that this will work only on supported devices.
-          </p>
-        </template>
+        <template v-slot:intro></template>
       </story-title>
       <demo />
     </div>`
 })
 
-storiesOf('sensors|useOrientation', module)
+storiesOf('sensors|useScroll', module)
   .addParameters({ notes })
   .add('Demo', basicDemo)
