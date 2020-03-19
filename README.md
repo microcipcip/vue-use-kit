@@ -88,6 +88,8 @@ export default Vue.extend({
     [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/sensors-usemouseleavepage--demo)
   - [`useOrientation`](./src/functions/useOrientation/stories/useOrientation.md) &mdash; tracks state of device's screen orientation.
     [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/sensors-useorientation--demo)
+  - [`useScroll`](./src/functions/useScroll/stories/useScroll.md) &mdash; tracks an HTML element's scroll position.
+    [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/sensors-usescroll--demo)
   - [`useSearchParams`](./src/functions/useSearchParams/stories/useSearchParams.md) &mdash; tracks browser's location search params.
     [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/sensors-usesearchparams--demo)
 - Animations

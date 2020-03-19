@@ -28,7 +28,7 @@ function useMouse(): {
   import { useMouse } from 'vue-use-kit'
 
   export default Vue.extend({
-    name: 'useMouse',
+    name: 'useMouseDemo',
     setup() {
       const { docX, docY } = useMouse()
       return { docX, docY }
