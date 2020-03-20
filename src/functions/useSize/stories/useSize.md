@@ -65,10 +65,10 @@ function useSize(
 
       watch(observedEntry, () => {
         if (!observedEntry.value) return
-        const { width, height } = observedEntry.value.contentRect
-        width.value = width
-        height.value = height
+        width.value = observedEntry.value.contentRect.width
+        height.value = observedEntry.value.contentRect.height
       })
+
       return { elRef, width, height }
     }
   })
