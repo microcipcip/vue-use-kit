@@ -27,8 +27,8 @@ function useIntersection(
 ### Returns
 
 - `observedEntry: Ref<IntersectionObserverEntry | null>` the [observed entry](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserverEntry)
-- `start: Function` the function used for starting observing
-- `stop: Function` the function used for stopping observing
+- `start: Function` the function used for start observing
+- `stop: Function` the function used for stop observing
 
 ## Usage
 

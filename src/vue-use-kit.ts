@@ -15,6 +15,7 @@ export * from './functions/useMouse'
 export * from './functions/useMouseElement'
 export * from './functions/useMouseLeavePage'
 export * from './functions/useOrientation'
+export * from './functions/useSize'
 export * from './functions/useSearchParams'
 export * from './functions/useScroll'
 // Animations
