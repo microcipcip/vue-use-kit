@@ -28,7 +28,7 @@
   "scripts": {
     "lint": "eslint 'src/**/*.ts'",
     "prebuild": "rimraf dist && rimraf docs",
-    "build": "tsc --module commonjs -p ./tsconfig.build.json && rollup -c rollup.config.ts && npm run storybook:build && npm run build:clean",
+    "build": "npm run storybook:build && tsc --module commonjs -p ./tsconfig.build.json && rollup -c rollup.config.ts && npm run build:clean",
     "build:clean": "ts-node tools/build-clean",
     "dev": "start-storybook -p 3000 -s ./public",
     "storybook:build": "build-storybook --quiet -c .storybook -s ./public -o docs",
@@ -132,7 +132,9 @@
     "ts-jest": "^23.10.2",
     "ts-loader": "^6.2.1",
     "ts-node": "^7.0.1",
+    "ttypescript": "^1.5.10",
     "typescript": "^3.0.3",
+    "typescript-transform-paths": "^1.1.14",
     "vue": "^2.6.11",
     "vue-loader": "^15.8.3",
     "vue-template-compiler": "^2.6.11"
