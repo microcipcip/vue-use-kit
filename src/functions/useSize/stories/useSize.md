@@ -4,7 +4,7 @@ Vue function that tracks the size of an HTML element.
 
 This function is based on the [ResizeObserver API](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver).
 
-Please note that ResizeObserver does not work on certain browsers such as IE/Edge/Safari,
+Please note that **ResizeObserver does not work on certain browsers such as IE/Edge/Safari**,
 therefore you should add a polyfill such as:
 
 ```js
