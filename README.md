@@ -33,9 +33,9 @@ npm install @vue/composition-api
 ## Setup
 
 ```js
-import Vue from 'vue';
-import VueCompositionAPI from '@vue/composition-api';
-Vue.use(VueCompositionAPI);
+import Vue from 'vue'
+import VueCompositionAPI from '@vue/composition-api'
+Vue.use(VueCompositionAPI)
 ```
 
 ## Usage
@@ -46,17 +46,17 @@ Vue.use(VueCompositionAPI);
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-import { useMedia } from 'vue-use-kit'
+  import Vue from 'vue'
+  import { useMedia } from 'vue-use-kit'
 
-export default Vue.extend({
-  name: 'UseMedia',
-  setup() {
-    const query = '(min-width: 1024px)'
-    const isDesktop = useMedia(query)
-    return { isDesktop }
-  }
-})
+  export default Vue.extend({
+    name: 'UseMedia',
+    setup() {
+      const query = '(min-width: 1024px)'
+      const isDesktop = useMedia(query)
+      return { isDesktop }
+    }
+  })
 </script>
 ```
 
@@ -94,6 +94,8 @@ export default Vue.extend({
     [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/sensors-usescroll--demo)
   - [`useSearchParams`](./src/functions/useSearchParams/stories/useSearchParams.md) &mdash; tracks browser's location search params.
     [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/sensors-usesearchparams--demo)
+  - [`useWindowSize`](./src/functions/useWindowSize/stories/useWindowSize.md) &mdash; tracks `Window` scroll position.
+    [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/sensors-usewindowsize--demo)
 - Animations
   - [`useInterval`](./src/functions/useInterval/stories/useInterval.md) &mdash; updates `counter` value repeatedly on a fixed time delay.
     [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/animations-useinterval--demo)

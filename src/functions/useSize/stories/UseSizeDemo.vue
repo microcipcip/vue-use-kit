@@ -1,13 +1,5 @@
 <template>
   <div>
-    <div class="box-actions">
-      <button class="button is-primary" @click="start" v-if="!isTracking">
-        Start tracking resize
-      </button>
-      <button class="button is-danger" @click="stop" v-else>
-        Stop tracking resize
-      </button>
-    </div>
     <div class="box" ref="elRef">
       <div class="box__feedback">
         {{ Math.ceil(width) }}px - {{ Math.ceil(height) }}px
@@ -15,6 +7,14 @@
       <div class="box__container">
         <div class="box__message">Resize me!</div>
       </div>
+    </div>
+    <div class="box-actions">
+      <button class="button is-primary" @click="start" v-if="!isTracking">
+        Start tracking resize
+      </button>
+      <button class="button is-danger" @click="stop" v-else>
+        Stop tracking resize
+      </button>
     </div>
   </div>
 </template>

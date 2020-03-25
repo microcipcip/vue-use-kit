@@ -1,3 +1,5 @@
+export const isClient = typeof window === 'object'
+
 const checkType = (typeToCheck: any) =>
   Object.prototype.toString.call(typeToCheck)
 
