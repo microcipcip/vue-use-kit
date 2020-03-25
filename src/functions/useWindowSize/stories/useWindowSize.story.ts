@@ -1,26 +1,25 @@
 import { storiesOf } from '@storybook/vue'
 import path from 'path'
 import StoryTitle from '@src/helpers/StoryTitle.vue'
-import UseSizeDemo from './UseSizeDemo.vue'
+import UseWindowSizeDemo from './UseWindowSizeDemo.vue'
 
-const functionName = 'useSize'
+const functionName = 'useWindowSize'
 const functionPath = path.resolve(__dirname, '..')
 const notes = require(`./${functionName}.md`).default
 
 const basicDemo = () => ({
-  components: { StoryTitle, demo: UseSizeDemo },
+  components: { StoryTitle, demo: UseWindowSizeDemo },
   template: `
     <div class="container">
       <story-title 
         function-path="${functionPath}" 
         source-name="${functionName}" 
-        demo-name="UseSizeDemo.vue"
+        demo-name="UseWindowSizeDemo.vue"
       >
         <template v-slot:title></template>
         <template v-slot:intro>
           <p>
-            <strong>Try to resize the box below by dragging the handle</strong> in the bottom right hand corner 
-            and observe how the <strong>width</strong> and <strong>height</strong> values change on the fly.
+            <strong>Try to resize the window</strong> to see the <strong>width</strong> and <strong>height</strong> values change on the fly.
           </p>
         </template>
       </story-title>
@@ -28,6 +27,6 @@ const basicDemo = () => ({
     </div>`
 })
 
-storiesOf('sensors|useSize', module)
+storiesOf('sensors|useWindowSize', module)
   .addParameters({ notes })
   .add('Demo', basicDemo)

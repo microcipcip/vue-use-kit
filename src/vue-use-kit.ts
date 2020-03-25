@@ -18,6 +18,7 @@ export * from './functions/useOrientation'
 export * from './functions/useSize'
 export * from './functions/useSearchParams'
 export * from './functions/useScroll'
+export * from './functions/useWindowSize'
 // Animations
 export * from './functions/useIntervalFn'
 export * from './functions/useInterval'
