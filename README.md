@@ -92,6 +92,8 @@ Vue.use(VueCompositionAPI)
     [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/sensors-usesize--demo)
   - [`useScroll`](./src/functions/useScroll/stories/useScroll.md) &mdash; tracks an HTML element's scroll position.
     [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/sensors-usescroll--demo)
+  - [`useScrollbarWidth`](./src/functions/useScrollbarWidth/stories/useScrollbarWidth.md) &mdash; gets current browser's scrollbar width.
+    [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/sensors-usescrollbarwidth--demo)
   - [`useSearchParams`](./src/functions/useSearchParams/stories/useSearchParams.md) &mdash; tracks browser's location search params.
     [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/sensors-usesearchparams--demo)
   - [`useWindowSize`](./src/functions/useWindowSize/stories/useWindowSize.md) &mdash; tracks `Window` scroll position.
