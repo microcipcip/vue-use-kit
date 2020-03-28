@@ -36,19 +36,18 @@ export default {
         '@vue/composition-api': 'vueCompositionApi'
       }
     },
-    { file: pkg.module, format: 'es' }
+    { banner, file: pkg.module, format: 'es' }
   ],
   // Indicate here external modules you don't wanna include in your bundle (i.e.: 'lodash')
   external: ['vue', '@vue/composition-api'],
-  watch: {
-    include: 'src/**'
-  },
+  watch: { include: 'src/**' },
   plugins: [
     // Allow json resolution
     json(),
     // Compile TypeScript files
     typescript({
-      // Fix typescript definition paths
+      // Transform typescript aliases because otherwise type definitions
+      // will have the wrong import path
       typescript: ttypescript,
       tsconfigDefaults: {
         compilerOptions: {

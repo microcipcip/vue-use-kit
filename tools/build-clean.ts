@@ -6,6 +6,9 @@ const handleError = (err: Error) => {
   if (err) return console.log(err)
 }
 
+// Remove lib folder
+rimraf(`${distDir}/lib`, handleError)
+
 // Remove stories folder
 rimraf(`${distDir}/**/stories/**`, handleError)
 

@@ -1,5 +1,5 @@
-import Cookies from 'cookie-universal'
 import { CookieSerializeOptions } from 'cookie'
+import { Cookies } from '@src/shared/cookies'
 import {
   createSerializer,
   createDeserializer,
@@ -30,7 +30,7 @@ export function useCookie(
   const serializer = createSerializer(opts.serializer)
   const deserializer = createDeserializer(opts.deserializer)
 
-  const cookieLib = Cookies(undefined, undefined, false)
+  const cookieLib = Cookies()
   const cookie: Ref<any> = ref(null)
 
   const getCookie = () => {

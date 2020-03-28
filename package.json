@@ -28,7 +28,8 @@
   "scripts": {
     "lint": "eslint 'src/**/*.ts'",
     "prebuild": "rimraf dist && rimraf docs",
-    "build": "npm run storybook:build && tsc --module commonjs -p ./tsconfig.build.json && rollup -c rollup.config.ts && npm run build:clean",
+    "build": "npm run storybook:build && npm run build:code && npm run build:clean",
+    "build:code": "tsc --module commonjs -p ./tsconfig.build.json && rollup -c rollup.config.ts",
     "build:clean": "ts-node tools/build-clean",
     "dev": "start-storybook -p 3000 -s ./public",
     "storybook:build": "build-storybook --quiet -c .storybook -s ./public -o docs",
@@ -92,6 +93,7 @@
     "@storybook/addon-viewport": "^5.3.13",
     "@storybook/theming": "^5.3.13",
     "@storybook/vue": "^5.3.13",
+    "@types/cookie": "^0.3.3",
     "@types/jest": "^23.3.2",
     "@types/node": "^10.11.0",
     "@types/throttle-debounce": "^2.1.0",
@@ -140,7 +142,7 @@
     "vue-template-compiler": "^2.6.11"
   },
   "dependencies": {
-    "cookie-universal": "^2.1.1",
+    "cookie": "^0.4.0",
     "throttle-debounce": "^2.1.0"
   }
 }
