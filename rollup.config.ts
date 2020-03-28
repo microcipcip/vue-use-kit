@@ -1,7 +1,6 @@
 /* eslint-disable */
 import resolve from 'rollup-plugin-node-resolve'
 import commonjs from 'rollup-plugin-commonjs'
-import camelCase from 'lodash.camelcase'
 import typescript from 'rollup-plugin-typescript2'
 import json from 'rollup-plugin-json'
 import ttypescript from 'ttypescript'
@@ -25,21 +24,9 @@ const banner = `/**
 
 export default {
   input: `src/${libraryName}.ts`,
-  output: [
-    {
-      banner,
-      file: pkg.main,
-      name: camelCase(libraryName),
-      format: 'umd',
-      globals: {
-        vue: 'Vue',
-        '@vue/composition-api': 'vueCompositionApi'
-      }
-    },
-    { file: pkg.module, format: 'es' }
-  ],
+  output: [{ banner, file: pkg.module, format: 'es' }],
   // Indicate here external modules you don't wanna include in your bundle (i.e.: 'lodash')
-  external: ['vue', '@vue/composition-api'],
+  external: ['vue', '@vue/composition-api', 'cookie-universal'],
   watch: {
     include: 'src/**'
   },
