@@ -93,7 +93,6 @@
     "@storybook/addon-viewport": "^5.3.13",
     "@storybook/theming": "^5.3.13",
     "@storybook/vue": "^5.3.13",
-    "@types/cookie": "^0.3.3",
     "@types/jest": "^23.3.2",
     "@types/node": "^10.11.0",
     "@types/throttle-debounce": "^2.1.0",
@@ -142,6 +141,7 @@
     "vue-template-compiler": "^2.6.11"
   },
   "dependencies": {
+    "@types/cookie": "^0.3.3",
     "cookie": "^0.4.0",
     "throttle-debounce": "^2.1.0"
   }
