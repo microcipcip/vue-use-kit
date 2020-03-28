@@ -1,34 +1,14 @@
 import { ref, onMounted, onUnmounted, Ref } from '@src/api'
 
-export type UseKeyFilter = string | ((event: KeyboardEvent) => boolean)
-export type UseKeyCallback = (event: KeyboardEvent) => void
-
-export interface UseKeyOptions {
-  callback?: UseKeyCallback
-  triggerRef?: Ref<null | HTMLElement>
-  triggerOnce?: boolean
-}
-
-const defaultOptions = {
-  callback: () => ``,
-  triggerRef: { value: null },
-  triggerOnce: false
-}
+type UseKeyFilter = string | ((event: KeyboardEvent) => boolean)
 
 export function useKey(
   filter: UseKeyFilter,
-  options?: UseKeyOptions,
+  callback = (event: KeyboardEvent) => ``,
   runOnMount = true
 ) {
-  const { callback, triggerRef, triggerOnce } = Object.assign(
-    {},
-    defaultOptions,
-    options
-  )
   const isTracking = ref(false)
   const isPressed = ref(false)
-
-  const getTriggerRef = (): any => triggerRef.value || document
 
   const getFilter = () => {
     if (typeof filter === 'function') return filter
@@ -39,7 +19,6 @@ export function useKey(
     const filterFn = getFilter()
     if (!filterFn(event)) return
 
-    if (triggerOnce && isPressed.value) return
     isPressed.value = true
     callback(event)
   }
@@ -54,17 +33,15 @@ export function useKey(
 
   const start = () => {
     if (isTracking.value) return
-    const $el = getTriggerRef()
-    $el.addEventListener('keydown', handleKeyDown)
-    $el.addEventListener('keyup', handleKeyUp)
+    document.addEventListener('keydown', handleKeyDown)
+    document.addEventListener('keyup', handleKeyUp)
     isTracking.value = true
   }
 
   const stop = () => {
     if (!isTracking.value) return
-    const $el = getTriggerRef()
-    $el.removeEventListener('keydown', handleKeyDown)
-    $el.removeEventListener('keyup', handleKeyUp)
+    document.removeEventListener('keydown', handleKeyDown)
+    document.removeEventListener('keyup', handleKeyUp)
     isTracking.value = false
   }
 
