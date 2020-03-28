@@ -27,9 +27,7 @@ export default {
   output: [{ banner, file: pkg.module, format: 'es' }],
   // Indicate here external modules you don't wanna include in your bundle (i.e.: 'lodash')
   external: ['vue', '@vue/composition-api', 'cookie-universal'],
-  watch: {
-    include: 'src/**'
-  },
+  watch: { include: 'src/**' },
   plugins: [
     // Allow json resolution
     json(),
