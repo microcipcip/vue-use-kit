@@ -26,7 +26,7 @@ export default {
   input: `src/${libraryName}.ts`,
   output: [{ banner, file: pkg.module, format: 'es' }],
   // Indicate here external modules you don't wanna include in your bundle (i.e.: 'lodash')
-  external: ['vue', '@vue/composition-api', 'cookie-universal'],
+  external: ['vue', '@vue/composition-api'],
   watch: { include: 'src/**' },
   plugins: [
     // Allow json resolution
