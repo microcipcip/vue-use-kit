@@ -4,7 +4,7 @@ type UseKeyFilter = string | ((event: KeyboardEvent) => boolean)
 
 export function useKey(
   filter: UseKeyFilter,
-  callback = (event: KeyboardEvent) => ``,
+  callback: any = () => ``,
   runOnMount = true
 ) {
   const isTracking = ref(false)

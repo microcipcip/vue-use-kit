@@ -72,7 +72,7 @@ Vue.use(VueCompositionAPI)
   - [`useIntersection`](./src/functions/useIntersection/stories/useIntersection.md) &mdash; tracks intersection of target element with an ancestor element.
     [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/sensors-useintersection--demo)
     [![Demo](https://img.shields.io/badge/advanced_demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/sensors-useintersection--advanced-demo)
-  - [`useKey`](./src/functions/useKey/stories/useKey.md) &mdash; executes a handler when a keyboard key is used.
+  - [`useKey`](./src/functions/useKey/stories/useKey.md) &mdash; executes a handler when a keyboard key is pressed.
     [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/sensors-usekey--demo)
   - [`useLocation`](./src/functions/useLocation/stories/useLocation.md) &mdash; tracks bar navigation location state.
     [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/sensors-uselocation--demo)
