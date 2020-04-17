@@ -132,19 +132,6 @@ Vue.use(VueCompositionAPI)
   - [`getQuery`](./src/functions/getQuery/stories/getQuery.md) &mdash; get a CSS media query string.
     [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/utils-getquery--demo)
 
-## Inspiration
-
-- [react-use 👍](https://github.com/streamich/react-use)
-- [vue-hooks](https://github.com/u3u/vue-hooks)
-- [vue-use-web](https://github.com/logaretm/vue-use-web)
-
-## Made with
-
-- [Vue](https://vuejs.org/)
-- [@vue/composition-api](https://github.com/vuejs/composition-api)
-- [@vue/test-utils](https://vue-test-utils.vuejs.org/)
-- [Jest](https://jestjs.io/)
-
 ## 🎁 Other examples of composition API functions
 
 Some Vue composition API functions have not been included in this library but
@@ -350,3 +337,16 @@ mount(localVue.extend(ComponentHere), {
 ```
 
 </p></details>
+
+## Inspiration
+
+- [react-use 👍](https://github.com/streamich/react-use)
+- [vue-hooks](https://github.com/u3u/vue-hooks)
+- [vue-use-web](https://github.com/logaretm/vue-use-web)
+
+## Made with
+
+- [Vue](https://vuejs.org/)
+- [@vue/composition-api](https://github.com/vuejs/composition-api)
+- [@vue/test-utils](https://vue-test-utils.vuejs.org/)
+- [Jest](https://jestjs.io/)
