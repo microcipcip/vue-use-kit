@@ -5,16 +5,34 @@ Vue function that executes a handler when a keyboard key is pressed.
 ## Reference
 
 ```typescript
-// function useKey()
+type UseKeyFilter = string | ((event: KeyboardEvent) => boolean)
+```
+
+```typescript
+function useKey(
+  filter: UseKeyFilter,
+  callback?: any,
+  runOnMount?: boolean
+): {
+  isPressed: Ref<boolean>
+  isTracking: Ref<boolean>
+  start: () => void
+  stop: () => void
+}
 ```
 
 ### Parameters
 
-- `value: string` lorem ipsa
+- `filter: UseKeyFilter` the filter string or function to use for triggering the key event
+- `callback: Function` the function called when the given key is pressed
+- `runOnMount: boolean` whether to track the given key on mount, `true` by default.
 
 ### Returns
 
-- `value: Ref<string>` lorem ipsa
+- `isPressed: Ref<boolean>` whether the key is currently pressed or not
+- `isTracking: Ref<boolean>` whether this function events are running or not
+- `start: Function` the function used for start tracking the key event
+- `stop: Function` the function used for stop tracking the key event
 
 ## Usage
 

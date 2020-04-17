@@ -17,7 +17,12 @@ const basicDemo = () => ({
         demo-name="UseKeyDemo.vue"
       >
         <template v-slot:title></template>
-        <template v-slot:intro></template>
+        <template v-slot:intro>
+          <p>
+            Press an arrow key (←, →, ↑, ↓) to move the ninja cat around
+            the screen.
+          </p>
+        </template>
       </story-title>
       <demo />
     </div>`
