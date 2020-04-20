@@ -138,8 +138,9 @@ Some Vue composition API functions have not been included in this library but
 can be created easily by following the steps below.
 
 <details><summary>useStore</summary><p>
+
 Creating a useStore function connected to Vuex store is pretty straightforward.
-First we have to export our Vuex store:
+For example, given the following store:
 
 ```typescript
 // @src/mystore.ts
@@ -163,18 +164,20 @@ const store = new Vuex.Store({
 export default store
 ```
 
-Then we import the store and expose it in useStore function:
+We can get the store from the `vm` and expose it in our useStore function:
 
 ```typescript
 // @src/useStore.ts
-import store from '@src/mystore'
+import { getCurrentInstance } from '@vue/composition-api'
 
 export function useStore() {
-  return store
+  const vm = getCurrentInstance()
+  if (!vm) throw new Error('Vue instance not found!')
+  return vm.$store
 }
 ```
 
-Now we can use it inside the setup() method of our component:
+Now we can use useStore inside the setup() method of our component:
 
 ```html
 // MyComponent.vue
@@ -202,37 +205,24 @@ Now we can use it inside the setup() method of our component:
 </p></details>
 
 <details><summary>useRouter</summary><p>
-Creating a useRouter function that exposes `this.$router` and `this.$route` from VueRouter is very easy.
-First we have to export the Vue's `vm` instance:
 
-```typescript
-// @src/main.ts
-import VueCompositionAPI from '@src/api'
-import router from '@src/router'
-import App from '@src/App.vue'
-
-Vue.use(VueCompositionAPI)
-
-export const vm = new Vue({
-  router,
-  render: h => h(App)
-}).$mount('#app')
-```
-
-Then we can expose `$router` and `$route` in our useRouter function:
+Creating a useRouter function connected to VueRouter is rather simple.
+We can get `$route` and `$router` from the `vm` and expose them in our useRouter function:
 
 ```typescript
 // @src/useRouter.ts
-import { vm } from '@src/main'
+import { getCurrentInstance } from '@vue/composition-api'
 
 export function useRouter() {
+  const vm = getCurrentInstance()
+  if (!vm) throw new Error('Vue instance not found!')
   const route = vm.$route
   const router = vm.$router
   return { route, router }
 }
 ```
 
-Now we can use it inside the setup() method of our component:
+Now we can use useRouter inside the setup() method of our component:
 
 ```html
 // MyComponent.vue
@@ -254,86 +244,6 @@ Now we can use it inside the setup() method of our component:
     }
   })
 </script>
-```
-
-Note that a drawback of this useRouter example is that it may be difficult to test since when we define `localVue`
-the `vm` instance is going to be different from the one we exported from `@src/main`.
-
-To fix this we have to create a small runtime utility function:
-
-```typescript
-// @src/runtimeHelper.ts
-const runtime = {};
-
-export const runtimeHelper {
-  set(vm) {
-    runtime.vm = vm;
-  },
-  get() {
-      if (runtime.vm) return runtime.vm;
-      throw new ReferenceError("Vue instance not found.");
-  }
-}
-```
-
-Then we have to get the `vm` on runtime:
-
-```typescript
-// @src/main.ts
-import Vue from 'vue'
-import VueCompositionAPI from '@src/api'
-import { runtimeHelper } from '@src/runtimeHelper'
-import App from '@src/App.vue'
-import router from '@src/router'
-
-Vue.use(VueCompositionAPI)
-
-new Vue({
-  router,
-  beforeCreate() {
-    // Set the runtime so that we can access the vm from anywhere
-    runtimeHelper.set(this)
-  },
-  render: h => h(App)
-}).$mount('#app')
-```
-
-Now in the useRouter function we can get the `vm` on runtime:
-
-```typescript
-// @src/useRouter.ts
-import { runtimeHelper } from '@src/runtimeHelper'
-
-export function useRouter() {
-  const vm = runtimeHelper.get()
-  const route = vm.$route
-  const router = vm.$router
-  return { route, router }
-}
-```
-
-Finally, we can test the router easily by passing the right `vm` on runtime:
-
-```typescript
-// @src/mytest.ts
-import VueRouter from 'vue-router'
-import { createLocalVue, mount } from '@vue/test-utils'
-import VueCompositionAPI from '@src/api'
-import { runtimeHelper } from '@src/runtimeHelper'
-import router from '@src/router'
-
-const localVue = createLocalVue()
-localVue.use(VueCompositionAPI)
-localVue.use(VueRouter)
-
-mount(localVue.extend(ComponentHere), {
-  localVue,
-  router,
-  beforeCreate() {
-    // Set the runtime so that we can access the vm from anywhere
-    runtimeHelper.set(this)
-  }
-})
 ```
 
 </p></details>
