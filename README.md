@@ -119,6 +119,8 @@ Vue.use(VueCompositionAPI)
     [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/side-effects-usebeforeunload--demo)
   - [`useCookie`](./src/functions/useCookie/stories/useCookie.md) &mdash; provides way to read, update and delete a cookie.
     [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/side-effects-usecookie--demo)
+  - [`useFetch`](./src/functions/useFetch/stories/useFetch.md) &mdash; provides a way to fetch resources asynchronously across the network.
+    [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/side-effects-usefetch--demo)
   - [`useLocalStorage`](./src/functions/useLocalStorage/stories/useLocalStorage.md) &mdash; provides way to read, update and delete a localStorage key.
     [![Demo](https://img.shields.io/badge/demo-🚀-yellow.svg)](https://microcipcip.github.io/vue-use-kit/?path=/story/side-effects-uselocalstorage--demo)
   - [`useSessionStorage`](./src/functions/useSessionStorage/stories/useSessionStorage.md) &mdash; provides way to read, update and delete a sessionStorage key.

@@ -82,3 +82,5 @@ export const checkElementExistenceOnMount = async (
   await wrapper.vm.$nextTick()
   expect(wrapper.find(elementName).exists()).toBe(mountType)
 }
+
+export const flushPromises = () => new Promise(setImmediate)

@@ -31,5 +31,6 @@ export * from './functions/useTimeout'
 // Site Effects
 export * from './functions/useBeforeUnload'
 export * from './functions/useCookie'
+export * from './functions/useFetch'
 export * from './functions/useLocalStorage'
 export * from './functions/useSessionStorage'
