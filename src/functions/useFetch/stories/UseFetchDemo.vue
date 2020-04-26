@@ -13,23 +13,10 @@
         :disabled="isLoading"
         v-text="`Fetch with failure`"
       />
-      <button
-        class="button is-danger"
-        @click="stop"
-        :disabled="!isLoading"
-        v-text="`Abort fetch`"
-      />
     </div>
 
-    <!--  isAborted  -->
-    <use-fetch-demo-table status="Aborted" v-if="isAborted">
-      Resource fetch aborted with status code
-      <strong>{{ status }}</strong> and message
-      <strong>{{ statusText }}</strong>
-    </use-fetch-demo-table>
-
     <!--  isFailed  -->
-    <use-fetch-demo-table status="Failed" v-else-if="isFailed">
+    <use-fetch-demo-table status="Failed" v-if="isFailed">
       Resource fetch failed with status code
       <strong>{{ status }}</strong> and message
       <strong>{{ statusText }}</strong>
@@ -71,8 +58,7 @@ export default Vue.extend({
   components: { UseFetchDemoTable },
   setup() {
     const isInit = ref(false)
-    const delayUrl = 'http://deelay.me/2000'
-    const randomDogUrl = `${delayUrl}/https://dog.ceo/api/breeds/image/random`
+    const randomDogUrl = 'https://dog.ceo/api/breeds/image/random'
     const url = ref(randomDogUrl)
     const {
       data,
@@ -80,7 +66,6 @@ export default Vue.extend({
       statusText,
       isLoading,
       isFailed,
-      isAborted,
       start,
       stop
     } = useFetch(url, {}, false)
@@ -93,7 +78,7 @@ export default Vue.extend({
 
     const startWithFailed = () => {
       isInit.value = true
-      url.value = `${delayUrl}/https://dog.ceo`
+      url.value = 'https://dog.ceo'
       start()
     }
 
@@ -104,7 +89,6 @@ export default Vue.extend({
       isInit,
       isLoading,
       isFailed,
-      isAborted,
       startWithSuccess,
       startWithFailed,
       stop
