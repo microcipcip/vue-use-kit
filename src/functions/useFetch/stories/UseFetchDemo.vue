@@ -48,7 +48,7 @@
       </use-fetch-demo-table>
 
       <!--  Fetched  -->
-      <use-fetch-demo-table status="Success" v-else>
+      <use-fetch-demo-table status="Success" v-else-if="data">
         <p>
           Resource fetched successfully with status code
           <strong>{{ status }}</strong> and message
@@ -71,8 +71,8 @@ export default Vue.extend({
   components: { UseFetchDemoTable },
   setup() {
     const isInit = ref(false)
-    const slowApi = 'http://slowwly.robertomurray.co.uk/delay/1000/url'
-    const randomDogUrl = `${slowApi}/https://dog.ceo/api/breeds/image/random`
+    const delayUrl = 'http://deelay.me/2000'
+    const randomDogUrl = `${delayUrl}/https://dog.ceo/api/breeds/image/random`
     const url = ref(randomDogUrl)
     const {
       data,
@@ -93,7 +93,7 @@ export default Vue.extend({
 
     const startWithFailed = () => {
       isInit.value = true
-      url.value = `${slowApi}/https://dog.ceo`
+      url.value = `${delayUrl}/https://dog.ceo`
       start()
     }
 

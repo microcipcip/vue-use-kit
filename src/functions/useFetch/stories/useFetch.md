@@ -49,7 +49,9 @@ function useFetch(
   <div>
     <div v-if="isFailed">Failed!</div>
     <div v-else-if="isLoading">Loading...</div>
-    <div v-else><img :src="data.message" alt="" /></div>
+    <div v-else-if="data">
+      <img :src="data.message" alt="" />
+    </div>
   </div>
 </template>
 
