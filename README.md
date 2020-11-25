@@ -24,14 +24,13 @@
 npm install vue-use-kit
 ```
 
-Since Vue 3.0 has not yet been released, you must also install [@vue/composition-api](https://github.com/vuejs/composition-api) library, which will enable the composition API in Vue 2.0.
+This library is built for Vue 2 and Vue 3, but if you are using Vue 2, you must also install [@vue/composition-api](https://github.com/vuejs/composition-api) library, which will enable the composition API in Vue 2.
 
 ```shell script
 npm install @vue/composition-api
 ```
 
-## Setup
-
+> Setup Composition API in Vue 2
 ```js
 import Vue from 'vue'
 import VueCompositionAPI from '@vue/composition-api'
@@ -40,6 +39,27 @@ Vue.use(VueCompositionAPI)
 
 ## Usage
 
+### Vue3
+```html
+<template>
+  <div>isDesktop: {{ isDesktop ? 'Yes' : 'No' }}</div>
+</template>
+
+<script lang="ts">
+  import { defineComponent } from 'vue'
+  import { useMedia } from 'vue-use-kit'
+
+  export default defineComponent({
+    name: 'UseMedia',
+    setup() {
+      const query = '(min-width: 1024px)'
+      const isDesktop = useMedia(query)
+      return { isDesktop }
+    }
+  })
+</script>
+```
+### Vue2
 ```html
 <template>
   <div>isDesktop: {{ isDesktop ? 'Yes' : 'No' }}</div>
@@ -170,7 +190,7 @@ We can get the store from the `vm` and expose it in our useStore function:
 
 ```typescript
 // @src/useStore.ts
-import { getCurrentInstance } from '@vue/composition-api'
+import { getCurrentInstance } from 'vue'
 
 export function useStore() {
   const vm = getCurrentInstance()
@@ -188,11 +208,10 @@ Now we can use useStore inside the setup() method of our component:
 </template>
 
 <script lang="ts">
-  import Vue from 'vue'
-  import { ref, watch } from '@src/api'
+  import { defineComponent, ref, watch } from 'vue'
   import { useStore } from '@src/useStore'
 
-  export default Vue.extend({
+  export default defineComponent({
     name: 'UseStoreDemo',
     setup() {
       const { commit, getters } = useStore()
@@ -213,7 +232,7 @@ We can get `$route` and `$router` from the `vm` and expose them in our useRouter
 
 ```typescript
 // @src/useRouter.ts
-import { getCurrentInstance } from '@vue/composition-api'
+import { getCurrentInstance } from 'vue'
 
 export function useRouter() {
   const vm = getCurrentInstance()
@@ -235,10 +254,10 @@ Now we can use useRouter inside the setup() method of our component:
 </template>
 
 <script lang="ts">
-  import Vue from 'vue'
+  import { defineComponent } from 'vue'
   import { useRouter } from '@src/useRouter'
 
-  export default Vue.extend({
+  export default defineComponent({
     name: 'UseRouterDemo',
     setup() {
       const { route } = useRouter()
