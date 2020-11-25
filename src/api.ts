@@ -1,2 +1,2 @@
-export * from '@vue/composition-api'
-export { default } from '@vue/composition-api'
+export * from 'vue'
+export { default } from 'vue'
