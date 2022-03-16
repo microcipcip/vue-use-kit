@@ -62,6 +62,7 @@ export function useRafFn(
   }
 
   const start = () => {
+    if(isRunning.value) return
     isRunning.value = true
     requestAnimationFrame(loop)
   }
